@@ -1,7 +1,7 @@
 \documentclass[titlepage, a4paper, 11pt]{scrartcl}
 
 %too much whitespace otherwise
-\usepackage[left=35mm,top=26mm,right=26mm,bottom=15mm]{geometry}
+\usepackage[left=30mm,top=26mm,right=26mm,bottom=15mm]{geometry}
 
 % deutsche Übersetzungen
 %\usepackage[ngerman]{babel}
@@ -31,20 +31,21 @@
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{Julius Neudecker B.Sc.}
-\lhead{Kalman-filter for partial linear systems for tracking of pool balls}
+\lhead{HHarbour Digital Twin - a serverside rendering usecase}
  
 \begin{document}
 
-    \title{Working Title: Serverside rendering for realtime AR applications}
+    \title{HHarbour Digital Twin - a serverside rendering usecase}
     \author{Julius Neudecker \\ Bachelor of Science \\ \href{mailto:julius.neudecker@haw-hamburg.de}{julius.neudecker@haw-hamburg.de} }
-    \date{Octobre 2020}
+    \date{Novembre 2020}
 
     \maketitle
 
     \tableofcontents
 
     \begin{abstract}
-        This is a super fancy abstract, outlining the approach and findings of this masters thesis. More content t.b.d.
+        Using serverside rendering to create an immersive experience on mobile devices without hardware constraints
+        by rendering in the cloud and stream content and interaction.
     \end{abstract}
 
     \section{Introduction}
@@ -73,14 +74,26 @@
                 \item Business Value
                 \item Stakeholder
             \end{itemize}
-		
+        
+        
         \subsection{Technological challenges}
 
+            \textbf{This whole section might be better in the implementation section. However I'll keep it here for now to discuss topics.}
+
             \subsubsection{Mobile device constraints}
+
+                \begin{itemize}
+                    \item Battery vs. Performance
+                    \item Heat
+                    \item ARM Chips vs. Rendering                    
+                \end{itemize}
 
             \subsubsection{Network}
 
                 This is especially important for user experience. 
+
+                I Kept this Section. But more for the sake of disussing the scope of the problem domain and some research but not 
+                with the intention to make this a part of this research.
 
                 \begin{itemize}
                     \item 5G Testsite at HH Harbour
@@ -90,9 +103,22 @@
 
             \subsubsection{Bandwidth}
 
+                Discuss this and find solutions to mitigate
+
             \subsubsection{Packet loss}
 
+                Is this really a problem?
+                Can this be mitigated?
+
             \subsubsection{Server ressources}
+
+                Discuss this:
+
+                \begin{itemize}
+                    \item which ressources are really needed 
+                    \item Kubernetes Cluster
+                    \item \dots
+                \end{itemize}
         
         \section{Related Work}
 
@@ -102,30 +128,72 @@
                     \item \dots
                 \end{itemize}
 
-        \subsection{Deduction of Hypothesis}
+        \subsection{Hypothesis}
 
-            Something along bc. of this and that, does it make sense from an UX point of view to have serverside rendering?
+            Underlying questions:
 
-    \section{Architecture}
+            \begin{itemize}
+                \item Is it possible from a UX-Standpoint to create an immersive AR-experience with SSR?
+                \item \dots
+            \end{itemize}
+
+    \section{Architecture Backend}
 
         \subsection{Considerations}
+
+            \begin{itemize}
+                \item Off-Screen Rendering (Render to texture -> Base64 stream)
+                \item Sessions and Access Tokens (Photon Network?)
+                \item 
+            \end{itemize}
 
         \subsection{How to lightweight and fast}
 		
 			\subsubsection{nVIDIA Maxine}
 				
-				Encode videostreams with ML to save up to 90% bandwith with equal results.
+				Encode videostreams with ML to save up to 90\% bandwith with equal results.
 
         \subsection{Loadbalancing and Containerization}
 
+            \begin{itemize}
+                \item Kubernetes Cluser
+                \item Every User-Session is dedicated container
+            \end{itemize}
+
+    \section{Architecture Fronend}
+
+        \subsection{Software, SDK, Unity}
+
+            Discuss topics such as:
+
+            \begin{itemize}
+                \item Cross Platform vs. Ecosystems
+                \item External Libraries
+                \item \dots
+                \item Rapid changing Hard- and Software environments
+            \end{itemize}
+
+        \subsection{UI/UX}
+
+            \begin{itemize}
+                \item User Story Considerations
+                \item Wireframing
+                \item Klickdummy
+                \item Create Intriguing Design
+            \end{itemize}
+
     \section{Implementation}
 
-        \subsection{Cross Platform vs. Ecosystems}
-
-        \subsection{Rapid changing Hard- and Software environments}
-		
-		\subsection{nVIDIA cloud XR}
-			Serverside rendering platform for AR/VR Contents.
+        \subsection{Code Domains / Work Items}
+            \begin{itemize}
+                \item Serverside: Session Handler, Rendercluster, Nvidia Cloud XR
+                \item Communication Layer: Session Tokens, Data Streams
+                \item Frontend: UI, Render View to Screen, Interaction
+            \end{itemize}
+        
+        \subsection{Milestones}
+        
+            Probably nice to have a milestone map and reflect this in restrospect.
 
     \section{Evaluation and research}
 
@@ -144,8 +212,6 @@
         \subsection{Future Work}
 
         \subsection{Acknowledgements}
-
-
 
     \bibliography{updatedReferences} 
     \bibliographystyle{ieeetr}
