@@ -1,0 +1,125 @@
+\documentclass[titlepage, a4paper, 11pt]{scrartcl}
+
+%too much whitespace otherwise
+\usepackage[left=35mm,top=26mm,right=26mm,bottom=15mm]{geometry}
+
+% deutsche Übersetzungen
+%\usepackage[ngerman]{babel}
+% Grafik Pakete
+\usepackage{graphicx,hyperref,amssymb}
+% Ordner für Grafiken
+\graphicspath{ {./images/} }
+% Pakete für Formatierung der Grafiken
+\usepackage{wrapfig}
+\usepackage{float}
+% deutsches Encoding (Umlaute)
+\usepackage[utf8]{inputenc}
+% für Grad Symbol
+\usepackage{textcomp}
+
+
+%image grid
+\usepackage{graphicx}
+\usepackage{subfig}
+
+%\usepackage{multicol}
+
+% Header and Footer
+\usepackage{fancyhdr}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Julius Neudecker B.Sc.}
+\lhead{Kalman-filter for partial linear systems for tracking of pool balls}
+ 
+\begin{document}
+
+    \title{Working Title: Serverside rendering for realtime AR applications}
+    \author{Julius Neudecker \\ Bachelor of Science \\ \href{mailto:julius.neudecker@haw-hamburg.de}{julius.neudecker@haw-hamburg.de} }
+    \date{Octobre 2020}
+
+    \maketitle
+
+    \tableofcontents
+
+    \begin{abstract}
+        This is a super fancy abstract, outlining the approach and findings of this masters thesis. More content t.b.d.
+    \end{abstract}
+
+    \section{Introduction}
+
+        \subsection{What is Serverside rendering?}
+
+        \subsection{State of technology - 4th quarter 2020}
+		
+        \subsection{Technological challenges}
+
+            \subsubsection{Mobile device constraints}
+
+            \subsubsection{Network}
+
+                This is especially important for user experience. 
+
+                \begin{itemize}
+                    \item 5G Testsite at HH Harbour
+                    \item WIFI 6
+                    \item Software defined Network
+                \end{itemize}
+
+            \subsubsection{Bandwidth}
+
+            \subsubsection{Packet loss}
+
+            \subsubsection{Server ressources}
+
+        \subsection{Deduction of Hypothesis}
+
+            Something along bc. of this and that, does it make sense from an UX point of view to have serverside rendering?
+
+    \section{Architecture}
+
+        \subsection{Considerations}
+
+        \subsection{How to lightweight and fast}
+		
+			\subsubsection{nVIDIA Maxine}
+				
+				Encode videostreams with ML to save up to 90% bandwith with equal results.
+
+        \subsection{Loadbalancing and Containerization}
+
+    \section{Implementation}
+
+        \subsection{Cross Platform vs. Ecosystems}
+
+        \subsection{Rapid changing Hard- and Software environments}
+		
+		\subsection{nVIDIA cloud XR}
+			Serverside rendering platform for AR/VR Contents.
+
+    \section{Evaluation and research}
+
+        \subsection{Define research goals}
+
+        \subsection{User surveys}
+
+            In order to evaluate UX, HCI aspects have to be considered.
+
+        \subsection{Technical analysis}
+
+    \section{Conclusion}
+
+        \subsection{Results}
+
+        \subsection{Future Work}
+
+        \subsection{Acknowledgements}
+
+
+
+    \bibliography{updatedReferences} 
+    \bibliographystyle{ieeetr}
+
+
+\end{document}
