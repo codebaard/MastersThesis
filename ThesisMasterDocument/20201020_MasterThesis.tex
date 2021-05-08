@@ -1,31 +1,58 @@
 \documentclass[titlepage, a4paper, 11pt]{scrartcl}
 
 %too much whitespace otherwise
-\usepackage[left=30mm,top=26mm,right=26mm,bottom=15mm]{geometry}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 
-% deutsche Übersetzungen
-%\usepackage[ngerman]{babel}
 % Grafik Pakete
 \usepackage{graphicx,hyperref,amssymb}
+
 % Ordner für Grafiken
 \graphicspath{ {./images/} }
-% Pakete für Formatierung der Grafiken
-\usepackage{wrapfig}
 \usepackage{float}
-% deutsches Encoding (Umlaute)
+
 \usepackage[utf8]{inputenc}
-% für Grad Symbol
-\usepackage{textcomp}
-
-
-%image grid
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage{subfig}
 
-%\usepackage{multicol}
+\usepackage{caption}
+\usepackage{subcaption}
 
 % Header and Footer
 \usepackage{fancyhdr}
+
+%bibtex
+\usepackage{cite}
+\usepackage{csquotes}
+
+%code snippets
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+    language=HTML,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\small\ttfamily},
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=3
+}
+
+%dynamic image scaling
+\newcommand{\imgScale}{0.7}
 
 
 \pagestyle{fancy}
@@ -35,7 +62,7 @@
  
 \begin{document}
 
-    \title{{Using a neural interface for interaction in Virtual Reality}
+    \title{Using a neural interface for interaction in Virtual Reality}
     \author{Julius Neudecker \\ Bachelor of Science \\ \href{mailto:julius.neudecker@haw-hamburg.de}{julius.neudecker@haw-hamburg.de} }
     \date{May 2021}
 
@@ -89,6 +116,7 @@
     \section{Technological challenges}
 
         Due to being non-invasive there must exist certain drawbacks with this technology. I want to examine the shortcomings and possible ways to overcome these.    
+        A valuable resource of information might be nextminds homepage \cite{NextMind}.
 
         \subsection{Resolution of the Interface}
 
@@ -120,7 +148,7 @@
                 \item What are my performance indicators
             \end{itemize}
 
-        \subsection{Survey structure}\label{survey:structure}
+        \subsection{Survey structure}
 		
             Based on the findings, I want to define the survey in this section.
 
@@ -131,7 +159,7 @@
 
         \subsection{Survey}
 
-            How is the survey carried out. This depends largely on the outcome of section \ref*{survey:structure}
+            How is the survey carried out. This depends largely on the outcome of section survey structure.
 
             \begin{itemize}
                 \item item 1
