@@ -1,0 +1,166 @@
+\documentclass[titlepage, a4paper, 11pt]{scrartcl}
+
+%too much whitespace otherwise
+\usepackage[left=30mm,top=26mm,right=26mm,bottom=15mm]{geometry}
+
+% deutsche Übersetzungen
+%\usepackage[ngerman]{babel}
+% Grafik Pakete
+\usepackage{graphicx,hyperref,amssymb}
+% Ordner für Grafiken
+\graphicspath{ {./images/} }
+% Pakete für Formatierung der Grafiken
+\usepackage{wrapfig}
+\usepackage{float}
+% deutsches Encoding (Umlaute)
+\usepackage[utf8]{inputenc}
+% für Grad Symbol
+\usepackage{textcomp}
+
+
+%image grid
+\usepackage{graphicx}
+\usepackage{subfig}
+
+%\usepackage{multicol}
+
+% Header and Footer
+\usepackage{fancyhdr}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Julius Neudecker B.Sc.}
+\lhead{Using a neural interface for interaction in Virtual Reality}
+ 
+\begin{document}
+
+    \title{{Using a neural interface for interaction in Virtual Reality}
+    \author{Julius Neudecker \\ Bachelor of Science \\ \href{mailto:julius.neudecker@haw-hamburg.de}{julius.neudecker@haw-hamburg.de} }
+    \date{May 2021}
+
+    \maketitle
+
+    \tableofcontents
+
+    \begin{abstract}
+        Modern technology evolved to pick up the eletric signals emitted from the human brain in order to generate user input to eletronic equipment. This study aims to evaluate a demo use-case by using a neural interface from nextmind to control user interactions in Virtual Reality.
+    \end{abstract}
+
+    \section{Introduction}
+
+        \subsection{Neural Interfaces}
+
+            This section will be a general Introduction to elaborate the topic and putting it into context of the state of research
+
+            \begin{itemize}
+                \item Picking up brain activity
+                \item Invasive vs non-invasive
+                \item Usage for interacting with eletronic equipment
+            \end{itemize}
+
+        \subsection{Related work}
+
+            Whats state of the art, what has been done so far in research and where is my study in context?
+
+            \begin{itemize}
+                \item State of research
+                \item Applications in the medical domain
+                \item Applications in the HCI domain
+                \item other...
+            \end{itemize}
+
+        \subsection{Use case "Neural Interface in VR"}
+
+            I don't have a certain use-case in mind at this stage. Therefore this section is still very generic at the moment.
+
+            \begin{itemize}
+                \item Use Case description
+                \item Research goals
+            \end{itemize}        
+
+        \subsection{Hypothesis}
+
+            \begin{itemize}
+                \item definition of research goals
+                \item hypothesis
+            \end{itemize}
+        
+    \section{Technological challenges}
+
+        Due to being non-invasive there must exist certain drawbacks with this technology. I want to examine the shortcomings and possible ways to overcome these.    
+
+        \subsection{Resolution of the Interface}
+
+            \begin{itemize}
+                \item definition of the resolution parameter
+                \item input taxonomy diagram
+                \item how to examine with survey                                     
+            \end{itemize}
+
+        \subsection{Constraints}
+
+            As far as I understood, the interface allows for four different interaction goals. It would be interesting to see, which kinds of interaction are possible.                
+
+            \begin{itemize}
+                \item Interaction objects
+                \item interaction types in regard to input taxonomy
+                \item evaluation in user survey
+            \end{itemize}
+        
+    \section{Survey Structure and layout}
+
+        \subsection{Considerations}
+
+            \begin{itemize}
+                \item Which topics do I want to evaluate in detail
+                \item what are my tools
+                \item Who is my audience
+                \item how to I operationalize the values for context
+                \item What are my performance indicators
+            \end{itemize}
+
+        \subsection{Survey structure}\label{survey:structure}
+		
+            Based on the findings, I want to define the survey in this section.
+
+            \begin{itemize}
+                \item item 1
+                \item ...
+            \end{itemize}
+
+        \subsection{Survey}
+
+            How is the survey carried out. This depends largely on the outcome of section \ref*{survey:structure}
+
+            \begin{itemize}
+                \item item 1
+                \item ...
+            \end{itemize}
+
+    \section{Survey results}
+
+        Once the study has been structured and carried out, I can write down the results.
+
+    \section{Findings}
+
+        This section also depends on the outcomes in context to the resarch question.
+
+    \section{Conclusion}
+
+        \subsection{Results}
+
+            Summarizing the results and findings of the study briefly.
+
+        \subsection{Future Work}
+
+            Based on the findings and new devices on the horizon, this should give a brief outlook on how to continue this research.
+
+        \subsection{Acknowledgements}
+
+            ...
+
+    \bibliography{references.bib} 
+    \bibliographystyle{ieeetr}
+
+\end{document}
