@@ -1,0 +1,62 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%---- LaTeX-Header fuer Abschlussarbeiten, Prof. Thomas Goerne, Dez. 2012/Aug. 2013 ----
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,paper=A4,pointlessnumbers,bibtotoc,liststotoc,DIV=11,BCOR=1mm]{scrreprt}
+% BCOR ist die Bindekorrektur (verlorener Rand am linken Blattrand)! Wert haengt von der Art der Heftung ab!!
+% DIV ist eine Satzspiegeleinstellung von KOMA-Script / sccreprt.
+
+\pagestyle{headings}
+
+\usepackage[T1]{fontenc} % Font Encoding fuer europaeische Schriften mit Umlauten (Unterstuetzung der Worttrennung)
+\usepackage{lmodern} % PostScript-Varianten der TeX Computer Modern-Schriften laden
+\usepackage[english]{babel} % Spracheinstellungen fuer Englisch und Neudeutsch laden
+
+\usepackage{graphicx} % Grafikeinbindung (fuer .JPG, .JPEG, .PNG und .PDF, falls pdflatex benutzt wird)
+\usepackage[table]{xcolor} % ermoeglicht farbige Schrift und farbige Tabellenzeilen
+\definecolor{black}{gray}{0} % Umdefinition der Farbe black, falls noetig (0=schwarz, 1=weiss)
+\definecolor{dblue}{rgb}{0.1,0.2,0.6} % Dunkelblau, fuer Hyperlinks
+\definecolor{lgray}{gray}{0.9} % Hellgrau, fuer Tabellen (0=schwarz, 1=weiss)
+
+\usepackage{booktabs} % fuer schoene Tabellen
+
+\usepackage[round,authoryear]{natbib} % Literaturverweise mit Name/Jahreszahl in runden Klammern
+\bibpunct[:\,]{(}{)}{,}{a}{}{,~}  % Feinformatierung der Natbib-Zitierweise
+
+\usepackage[hyphens]{url}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=dblue,urlcolor=dblue]{hyperref} 
+\usepackage{hyperref}  
+% die Pakete url und hyperref ermoeglichen anklickbare URLs im Quellenverzeichnis in definierter Farbe, 
+% sie ermoeglichen den Zeilenumbruch bei langen URLs, und sie erzeugen Hyperlinks (Farbe s.o.) 
+% zwischen Quellenverweis und Quellenverzeichnis sowie zwischen label und ref im PDF-Dokument
+
+% Fonteinstellungen fuer Bildunterschriften: Unterschrift serifenlos, "Abbildung" fett (bfseries = bold face series)
+\setkomafont{captionlabel}{\sffamily\bfseries}
+\setkomafont{caption}{\sffamily}
+
+% Ordner für Grafiken
+\graphicspath{ {./images/} }
+
+%------------------------------------------------------------------------------------------------------------------
+%------ Eigenstaendigkeitserklaerung im gerahmten Kasten (parbox in einer framebox) ------
+%------------------------------------------------------------------------------------------------------------------
+
+\newcommand{\eigen}{
+\setlength{\fboxsep}{2ex}
+\setlength{\fboxrule}{0.8pt} 
+% Einstellungen fuer Rahmenabstand und Rahmendicke der Framebox
+\begin{center}
+	\fbox{
+		\parbox{0.8\linewidth}{
+		Ich versichere, die vorliegende Arbeit selbstst\"andig ohne fremde Hilfe verfasst 
+		und keine anderen Quellen und Hilfsmittel als die angegebenen benutzt zu haben. 
+		Die aus anderen Werken w\"ortlich entnommenen Stellen oder dem Sinn nach 
+		entlehnten Passagen sind durch Quellenangaben eindeutig kenntlich gemacht.
+		\par\bigskip\bigskip\bigskip\bigskip
+		\hspace*{0.8cm}Ort, Datum \hfill \vorname~\nachname\hspace*{0.8cm}
+		}
+	}
+\end{center}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
