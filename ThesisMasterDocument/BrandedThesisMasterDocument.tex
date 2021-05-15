@@ -49,13 +49,43 @@
 
     \chapter{Introduction}
 
-        \section{Neural Interfaces}
+        %what is it
+        %why does it make sense
+        %what is the market evaluation
 
-            This section will be a general Introduction to elaborate the topic and putting it into context of the state of research
+
+        In recent years significant progress has been made on the development of interfaces which relies on direct interaction with the brain itself. \todo{find some sources} The latest popular example is \textit{Neuralink} with their monkey learning to play the game \textit{Pong} only by using its brain (\cite{Neuralink.2021}). However there are more examples of a working interface: \todo{Do som research here}.
+        These interfaces are generally called \textit{Brain-Computer-Interface} or \textit{BCI} in short. The general working principle is sensing the electrical signals of the brain and use this information to generate any kind of arbitrary output \todo{find source}. 
+        In certain use cases like motoric reactions to visual cues, this could potentially reduce total reaction time. This study aims to examine a potential use case with a device which is readily available to consumers.
+        
+
+        \section{Brain-Computer-Interfaces}
+
+            In this section a general overview of the working principle of these interfaces will be provided. Since this study is aimed at computer science and HCI\footnote{Human Computer Interaction}, the neuroscience and medical domain will be only covered very briefly.
+
+            \subsection{Interfacing with the brain}
+
+                %https://www.frontiersin.org/articles/10.3389/fnins.2016.00295/full
+
+                First studies began by \cite{Vidal.1973}, who investigated the possibility to use EEG\footnote{Electroencephalogram} waves, which were first recorded by \cite{Berger.1929}, as a way to create a direct interaction between a machine and a human brain. 
+
+                There are three types of BCIs: invasive, partially invasive and non invasive. This depicts the degree of intrusion into the skull and brain tissue. \textit{Invasive} BCIs are electrodes, which are implanted directly into or onto the grey matter of the brain. This can cause long term issues like scars and also degraded singal strength according to \cite{Abdulkader.2015}. 
+                Partially invasive BCI however are although located within the skull not in direct contact with the grey matter.
+                Non-Invasive BCI are only placed on the head without intrusion of any tissue.
+                Due to the direct contact, invasive BCI provide the best resolution of the measured signals. Non-invasive BCI in comparison suffer from signal degradation and deformation of the cranial bone tissue. 
+                Therefore partially invasive BCI are a compromise between signal strength and induced medical conditions.
+
+                The way these interfaces work is based on the same principle: A human brain emits electrical signals, which can be picked up.
+                According to \cite{Vidal.1973}, they can be described as follows:
+
+                \medskip
+                \emph{"Embedded in this sustained "spontaneous" or "ongoing" electrical activity, short, distinctive (0.5-2 sec) waveforms can be found that are evoked, for instance, when a brief sensory message (stimulus) such as a brief illumination of the visual field or a tap on the forearm is received by the subject."}
+                \medskip
+
+                Based on the region of the brain, where these originated, they can be correlated to certain stimuli or mental and emotional states (\cite{JardimGoncalves.2018}).
 
             \begin{itemize}
                 \item Picking up brain activity
-                \item Invasive vs non-invasive
                 \item Usage for interacting with eletronic equipment
             \end{itemize}
 
@@ -71,6 +101,10 @@
             \end{itemize}
 
         \section{Use case "Neural Interface in VR"}
+
+            % NextMind -> Proprietary
+            % Best Guess: VEP – visuell evozierte Potentiale ermöglichen eine Beurteilung des Sehnerven
+            % und der Sehbahn, sie werden über der Sehrinde im okzipitalen Kortex abgeleitet.
 
             I don't have a certain use-case in mind at this stage. Therefore this section is still very generic at the moment.
 
@@ -89,7 +123,7 @@
     \chapter{Technological challenges}
 
         Due to being non-invasive there must exist certain drawbacks with this technology. I want to examine the shortcomings and possible ways to overcome these.    
-        A valuable resource of information might be nextminds homepage \cite{NextMind}.
+        A valuable resource of information might be nextminds homepage \cite{NextMind.}.
 
         \section{Resolution of the Interface}
 
@@ -220,11 +254,11 @@
 
             % \emph = Texthervorhebung durch Schriftumschaltung (emphasize), \medskip: vertikaler Abstand (\smallskip, \bigskip)
             \medskip
-            \emph{Nisi irure excepteur eiusmod reprehenderit commodo ipsum exercitation.} \cite{sowodniok}
+            \emph{Nisi irure excepteur eiusmod reprehenderit commodo ipsum exercitation.}
             \medskip
 
             Alternativ kann man ein Zitat auch in den laufenden Text einflechten, denn wie schon Sowodniok bemerkte, muss sich 
-            \emph{Laboris tempor pariatur cillum sunt veniam labore duis ipsum eu cupidatat enim id.} \citep[111]{sowodniok}. 
+            \emph{Laboris tempor pariatur cillum sunt veniam labore duis ipsum eu cupidatat enim id.}
             Die Quellenverweise werden weiter unten erklxrt.
 
 
@@ -302,9 +336,9 @@
 
         \section{Unterkapitel mit drei exemplarischen Quellenverweisen}
 
-            Quellenverweise werden mit Autorennamen und Jahr in runden Klammern gesetzt. Dazu wird hier das \LaTeX-natbib-Paket genutzt; der citep-Befehl erzeugt die Quellenangabe auf Basis der Eintrxge im Literaturverzeichnis \citep{bluray}. Auf gleiche Weise lassen sich auch mehrere Quellen zusammenfassen \citep{dooley_streicher,stephenson}. 
+            Quellenverweise werden mit Autorennamen und Jahr in runden Klammern gesetzt. Dazu wird hier das \LaTeX-natbib-Paket genutzt; der citep-Befehl erzeugt die Quellenangabe auf Basis der Eintrxge im Literaturverzeichnis. Auf gleiche Weise lassen sich auch mehrere Quellen zusammenfassen
 
-            Auf Bxcher oder andere umfangreichere Quellen soll mit Seitenangabe verwiesen werden. Dafxr stellt der Befehle citep  einen optionalen Parameter zur Verfxgung. Und so sieht dann die vollstxndige Quellenangabe aus \citep[116]{kuttruff}. 
+            Auf Bxcher oder andere umfangreichere Quellen soll mit Seitenangabe verwiesen werden. Dafxr stellt der Befehle citep  einen optionalen Parameter zur Verfxgung. Und so sieht dann die vollstxndige Quellenangabe aus
 
             Die Quellen sollen im Literaturverzeichnis alphabetisch sortiert sein.
 

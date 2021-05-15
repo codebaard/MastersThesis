@@ -1,5 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %---- LaTeX-Header fuer Abschlussarbeiten, Prof. Thomas Goerne, Dez. 2012/Aug. 2013 ----
+%------ Modified by B.Sc. Julius Neudecker, May 2021 ------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt,paper=A4,pointlessnumbers,bibtotoc,liststotoc,DIV=11,BCOR=1mm]{scrreprt}
@@ -37,6 +38,9 @@
 % Ordner für Grafiken
 \graphicspath{ {./images/} }
 
+%% ToDo Notes
+\newcommand\todo[1]{\textcolor{red}{#1}}
+
 %------------------------------------------------------------------------------------------------------------------
 %------ Eigenstaendigkeitserklaerung im gerahmten Kasten (parbox in einer framebox) ------
 %------------------------------------------------------------------------------------------------------------------
@@ -48,12 +52,9 @@
 \begin{center}
 	\fbox{
 		\parbox{0.8\linewidth}{
-		Ich versichere, die vorliegende Arbeit selbstst\"andig ohne fremde Hilfe verfasst 
-		und keine anderen Quellen und Hilfsmittel als die angegebenen benutzt zu haben. 
-		Die aus anderen Werken w\"ortlich entnommenen Stellen oder dem Sinn nach 
-		entlehnten Passagen sind durch Quellenangaben eindeutig kenntlich gemacht.
+			I hereby confirm that this thesis is my own work and that I have not sought or used inadmissible help of third parties to produce this work and that I have clearly referenced all sources used in this thesis. I have fully referenced and used inverted commas for all text directly or indirectly quoted from a source.
 		\par\bigskip\bigskip\bigskip\bigskip
-		\hspace*{0.8cm}Ort, Datum \hfill \vorname~\nachname\hspace*{0.8cm}
+		\hspace*{0.8cm}Place and date \hfill \vorname~\nachname\hspace*{0.8cm}
 		}
 	}
 \end{center}
