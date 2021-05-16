@@ -63,44 +63,54 @@
 
             In this section a general overview of the working principle of these interfaces will be provided. Since this study is aimed at computer science and HCI\footnote{Human Computer Interaction}, the neuroscience and medical domain will be only covered very briefly.
 
-            \subsection{Interfacing with the brain}
+            %https://www.frontiersin.org/articles/10.3389/fnins.2016.00295/full
 
-                %https://www.frontiersin.org/articles/10.3389/fnins.2016.00295/full
+            First studies began by \cite{Vidal.1973}, who investigated the possibility to use EEG\footnote{Electroencephalogram} waves, which were first recorded by \cite{Berger.1929}, as a way to create a direct interaction between a machine and a human brain. 
 
-                First studies began by \cite{Vidal.1973}, who investigated the possibility to use EEG\footnote{Electroencephalogram} waves, which were first recorded by \cite{Berger.1929}, as a way to create a direct interaction between a machine and a human brain. 
+            There are three types of BCIs: invasive, partially invasive and non invasive. This depicts the degree of intrusion into the skull and brain tissue. \textit{Invasive} BCIs are electrodes, which are implanted directly into or onto the grey matter of the brain. This can cause long term issues like scars and also degraded singal strength according to \cite{Abdulkader.2015}. 
+            Partially invasive BCI however are although located within the skull not in direct contact with the grey matter.
+            Non-Invasive BCI are only placed on the head without intrusion of any tissue.
+            Due to the direct contact, invasive BCI provide the best resolution of the measured signals. Non-invasive BCI in comparison suffer from signal degradation and deformation of the cranial bone tissue. 
+            Therefore partially invasive BCI are a compromise between good signal strength and the risk of medical conditions.
 
-                There are three types of BCIs: invasive, partially invasive and non invasive. This depicts the degree of intrusion into the skull and brain tissue. \textit{Invasive} BCIs are electrodes, which are implanted directly into or onto the grey matter of the brain. This can cause long term issues like scars and also degraded singal strength according to \cite{Abdulkader.2015}. 
-                Partially invasive BCI however are although located within the skull not in direct contact with the grey matter.
-                Non-Invasive BCI are only placed on the head without intrusion of any tissue.
-                Due to the direct contact, invasive BCI provide the best resolution of the measured signals. Non-invasive BCI in comparison suffer from signal degradation and deformation of the cranial bone tissue. 
-                Therefore partially invasive BCI are a compromise between signal strength and induced medical conditions.
+            The way these interfaces work is based on the same principle: A human brain emits electrical signals, which can be picked up.
+            According to \cite{Vidal.1973}, they can be described as follows:
 
-                The way these interfaces work is based on the same principle: A human brain emits electrical signals, which can be picked up.
-                According to \cite{Vidal.1973}, they can be described as follows:
+            \medskip
+            \emph{"Embedded in this sustained "spontaneous" or "ongoing" electrical activity, short, distinctive (0.5-2 sec) waveforms can be found that are evoked, for instance, when a brief sensory message (stimulus) such as a brief illumination of the visual field or a tap on the forearm is received by the subject."}
+            \medskip
 
-                \medskip
-                \emph{"Embedded in this sustained "spontaneous" or "ongoing" electrical activity, short, distinctive (0.5-2 sec) waveforms can be found that are evoked, for instance, when a brief sensory message (stimulus) such as a brief illumination of the visual field or a tap on the forearm is received by the subject."}
-                \medskip
+            Based on the origin within the brain, these can be correlated to certain stimuli, mental and emotional states (\cite{JardimGoncalves.2018}) and according to \cite{Waldert.2016} been used to drive \emph{an external effector or affecting internal body parts and functions.} The external effector is the use case which is being examined in this study.
 
-                Based on the region of the brain, where these originated, they can be correlated to certain stimuli or mental and emotional states (\cite{JardimGoncalves.2018}).
+            Without a BCI, interaction with a computer requires some physical interaction with devices such as keyboards, mouses or gestures on a touch screen. There are mainly two different reasons, why these devices are a constraint to speed and efficiency of HCI. The first reason is a limitation on interaction speed: Although there is no definitive concensus about the speed of thinking, the majority of people would agree, that typing along in the same speed as the thinking process is usually impossible - except for rare individuals who devoted a significant time practicing. Secondly: in applications such as games, where reaction time and accuracy is the fundamental element for success or failure, an interaction based on motoric interaction with a physical pointing device has some significant drawbacks like limited accuracy, if the whole chain of wrist movement in conjunction with a mouse is under scrutiny. 
 
-            \begin{itemize}
-                \item Picking up brain activity
-                \item Usage for interacting with eletronic equipment
-            \end{itemize}
+            If a BCI was to replace these types interaction, these constraints could potentially be alleviated and interaction based on physical interaction rendered obsolete. 
+
+        \section{Working principle}            
+
+            Before any deeper considerations in regard to the general scope of this study can be made, it is important to understand the working principle of the BCI, which will be used. Although the vendor of the BCI in question does not disclose any details of the inner workings itself, it is safe to assume that the underlying technique used is the so called \textit{Visually Evoked Potential} - VEP in short. \cite{Sokol.1976} provides detailed inside into the topic from a neuroscientific point of view. The general principle however is that any visual stimuli cause a certain pattern of waves within the visual cortex of the brain. These patterns can be used to evaluate if a certain pattern is being seen \textit{and} in fokus of the person. This is being done by subsequently feeding the sensor data through a trained neural network. The objects, which are being seen by the person, have been labeled \textit{neurotags} (\cite{NextMind.23112020}) from the vendor of the BCI. These neurotags can provide two different readouts: If it is triggered (i.E. \textit{seen}) and the confidence, which depicts the level of \textit{focus} of the user on the neurotag (\cite{NextMind.18112020}).
+            
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{electrodes-sensor} 
+                \caption{Physical layout of the sensor}\label{electrodes-sensor}
+            \end{figure}
+            
+            The physical layout of the sensor is show at figure \ref*{electrodes-sensor}. It has 18 eletrodes, which are arragend in pairs to cover the area, where the visual cortex is located at on the back of the cranium. It is battery driven and communicates via the Bluetooth LowEnergy protocol.
 
         \section{Related work}
 
-            Whats state of the art, what has been done so far in research and where is my study in context?
+            Non-Invasive BCI based on VEP has been around for while now and therefore a significant number of studies has been carried out to further examine ... \todo{Continue here...}
 
             \begin{itemize}
                 \item State of research
-                \item Applications in the medical domain
                 \item Applications in the HCI domain
                 \item other...
             \end{itemize}
 
         \section{Use case "Neural Interface in VR"}
+
+            \subsection{How does it even work?}\label{working-principle}
 
             % NextMind -> Proprietary
             % Best Guess: VEP – visuell evozierte Potentiale ermöglichen eine Beurteilung des Sehnerven
