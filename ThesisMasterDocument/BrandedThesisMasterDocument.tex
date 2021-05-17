@@ -59,7 +59,7 @@
         In certain use cases like motoric reactions to visual cues, this could potentially reduce total reaction time. This study aims to examine a potential use case with a device which is readily available to consumers.
         
 
-        \section{Brain-Computer-Interfaces}
+        \section{Brain-Computer-Interfaces}\label{intro-bci}
 
             In this section a general overview of the working principle of these interfaces will be provided. Since this study is aimed at computer science and HCI\footnote{Human Computer Interaction}, the neuroscience and medical domain will be only covered very briefly.
 
@@ -73,6 +73,8 @@
             Due to the direct contact, invasive BCI provide the best resolution of the measured signals. Non-invasive BCI in comparison suffer from signal degradation and deformation of the cranial bone tissue. 
             Therefore partially invasive BCI are a compromise between good signal strength and the risk of medical conditions.
 
+            %% TODO: Add section why non-invasive is beneficial to consumers!
+
             The way these interfaces work is based on the same principle: A human brain emits electrical signals, which can be picked up.
             According to \cite{Vidal.1973}, they can be described as follows:
 
@@ -82,7 +84,7 @@
 
             Based on the origin within the brain, these can be correlated to certain stimuli, mental and emotional states (\cite{JardimGoncalves.2018}) and according to \cite{Waldert.2016} been used to drive \emph{an external effector or affecting internal body parts and functions.} The external effector is the use case which is being examined in this study.
 
-            Without a BCI, interaction with a computer requires some physical interaction with devices such as keyboards, mouses or gestures on a touch screen. There are mainly two different reasons, why these devices are a constraint to speed and efficiency of HCI. The first reason is a limitation on interaction speed: Although there is no definitive concensus about the speed of thinking, the majority of people would agree, that typing along in the same speed as the thinking process is usually impossible - except for rare individuals who devoted a significant time practicing. Secondly: in applications such as games, where reaction time and accuracy is the fundamental element for success or failure, an interaction based on motoric interaction with a physical pointing device has some significant drawbacks like limited accuracy, if the whole chain of wrist movement in conjunction with a mouse is under scrutiny. 
+            Without a BCI, interaction with a computer requires some physical interaction with devices such as keyboards, mouses or gestures on a touch screen. There are mainly two different reasons, why these devices are a constraint to speed and efficiency of HCI. The first reason is a limitation on interaction speed: Although there is no definitive concensus about the speed of thinking, the \todo{majority of people would agree}, that typing along in the same speed as the thinking process is usually impossible - except for rare individuals who devoted a significant time practicing. Secondly: in applications such as games, where reaction time and accuracy is the fundamental element for success or failure, an interaction based on motoric interaction with a physical pointing device has some significant drawbacks like limited accuracy, if the whole chain of wrist movement in conjunction with a mouse is under scrutiny. 
 
             If a BCI was to replace these types interaction, these constraints could potentially be alleviated and interaction based on physical interaction rendered obsolete. 
 
@@ -108,32 +110,56 @@
                 \item other...
             \end{itemize}
 
+            \todo{This chapter is very much WIP}
+
         \section{Use case "Neural Interface in VR"}
 
-            \subsection{How does it even work?}\label{working-principle}
+            Before any use case can be conceived, it has to be determined what kind of interaction this interface allows. Section \ref*{intro-bci} covered briefly the concept of input taxonomies to elaborate optimization potentials with BCIs. According to \todo{Find some source} an input taxonomy depicts the DOF\footnote{Dimensions Of Freedom} and the granularity and magnitudes in regard to the interface which this interface offers.
 
-            % NextMind -> Proprietary
-            % Best Guess: VEP – visuell evozierte Potentiale ermöglichen eine Beurteilung des Sehnerven
-            % und der Sehbahn, sie werden über der Sehrinde im okzipitalen Kortex abgeleitet.
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{placeholder.jpg} 
+                \caption{Taxonomy of the nextmind BCI. \todo{Todo: Create taxo schema}}\label{bci-taxonomy}
+            \end{figure}
 
-            I don't have a certain use-case in mind at this stage. Therefore this section is still very generic at the moment.
+            Figure \ref*{bci-taxonomy} shows the input taxonomy of the BCI in question. It is derived from the API\footnote{Application Programming Interface} endpoints which the the SDK\footnote{Software Development Kit} of the sensor offers: \cite{NextMind.18112020}
+            . The only two \textit{tracking resuls} are \textit{hit} and \textit{confidence}. Where hit is a two state interaction: the neurotag is being seen by the user and subsequently recognized by the sensor and its backend or it is not. The confidence property depicts the attention which the user is paying to the \textit{neurotag}. This is a continuous decimal value between 0 and 1.
+            The fact that these types of interaction are based on neural activity raises the question if a pure mapping of continuous and discrete input modalities to established interfaces would be beneficial to the user experience. Under the reasonable assumption that without any training the metric \textit{focus} can only be deliberately controlled on a very coarse level, the necessary sensitiveness required for modern GUIs can not be achieved with this particular sensor. The remaining two state property, which can be utilized to select or deselect certain objects also only allows for limited interaction. However, these neurotags can be placed in arbitrary places. Although a \textit{toggle}-like behavior is not mentioned explicitly, it might be possible to de-select any activated neurotag when the \textit{focus} property falls under a certain value.
+
+            \bigskip
+
+            Based on the previous reasoning, the following questions can be raised in regard to the feasibility of any interface which could potententially be conceived with this technology:
 
             \begin{itemize}
-                \item Use Case description
-                \item Research goals
-            \end{itemize}        
+                \item How fast is the perceived and measured reaction time of these neurotags?
+                \item What is the minimum size the neurotags have to have in order to be recognizable?
+                \item Is the interface usable for brains of all ages or do gerontological effects have an effect on usability?
+                \item Do certain medical conditions (i.e. attentiveness disorder) have an impact on the usability?
+                \item How fast can a user switch between neurotags?
+                \item Is a BCI controlled GUI intuitive to use?
+                \item Does a personal affinity to technology have an influence on the perceived difficulty of interaction?
+            \end{itemize}
+
+            These questions can be clustered into two groups: \textit{neurological} and \textit{interaction}. Although these considerations open up a vast space of potential cases. Therefore the priority is to examine wheter these interfaces are generally usable by the majority of users and if these interfaces are intuitive to use. 
 
         \section{Hypothesis}
 
-            \begin{itemize}
-                \item definition of research goals
-                \item hypothesis
-            \end{itemize}
+            The considerations in the previous section leads to these two hypothesis:
+
+            \medskip
+            \emph{"Age does not have a detrimental effect on the ability to use a non-invasive BCI based on VEP technology."}
+            \medskip
+
+            and
+
+            \medskip
+            \emph{"VEP BCI operated GUIs are intuitive to use."}
+            \medskip
 
     \chapter{Technological challenges}
 
         Due to being non-invasive there must exist certain drawbacks with this technology. I want to examine the shortcomings and possible ways to overcome these.    
-        A valuable resource of information might be nextminds homepage \cite{NextMind.}.
+        A valuable resource of information might be nextminds homepage.
 
         \section{Resolution of the Interface}
 
@@ -205,174 +231,13 @@
 
         ...
 
-
-    % --- /Julius Text Sections ---
-
-    %--------------------------- Text -------------------------------
-
-    \chapter{Mathestuff}
-
-        \section{Pictures}
-
-            %----------- BILD ANFANG -------------
-            \begin{figure}[htp]     % h=here, t=top, b=bottom, p=page
-                \centering
-                \includegraphics[width=0.8\textwidth]{drums} 
-                % Bilddatei aus dem Unterverzeichnis bilder holen, skalieren auf 0.8*Satzspiegel
-                \caption{Abnahme einer Trommel mit speziellem Anklemm-Mikrofon}\label{trommelmik}
-                \end{figure}
-            %------------- BILD ENDE ---------------
-    
-            %----------- BILD ANFANG -------------
-            \begin{figure}[htp]     % h=here, t=top, b=bottom, p=page
-                \centering
-                \includegraphics[width=1.0\textwidth]{3x_richtchars}
-                \caption[Richtcharakteristiken von Kleinmembran-Studiomikrofonen]{Richtcharakteristiken von Kleinmembran-Studiomikrofonen. V.l.n.r.: Kugel, Acht, Niere. Die Bildbreite ist hier skaliert auf die volle Breite des Satzspiegels.}\label{richtch}
-                % bei langen Bildunterschriften kann der optionale Parameter des caption-Befehls so wie hier fxr die Kurzfassung im Abbildungsverzeichnis genutzt werden  
-                \end{figure}
-            %------------- BILD ENDE ---------------  
-
-        \section{Unterkapitel mit Mathematik, Bildern und Querverweisen}
-
-            Für Formelsatz stellt \LaTeX\ die nummerierte Umgebung equation und die nicht-nummerierte Umgebung displaymath zur Verfügung. Mit label und ref kann dann im Text Bezug auf die Gleichungen genommen werden (Gleichung \ref{gl_fourier}). 
-
-            \begin{equation}\label{gl_fourier}
-            S(f) = \int_{-\infty}^{\infty} s(t)e^{-j 2 \pi f t}dt
-            \end{equation}
-
-            Mathematik im Zeilenmodus sieht so aus $f_0 = \frac{1}{2\pi} \sqrt{\frac{s}{m}}$, wxhrend dieselbe Gleichung als abgesetzte Formel -- hier mit der displaymath-Umgebung -- so aussieht: 
-
-            \begin{displaymath}
-            f_0 = \frac{1}{2\pi} \sqrt{\frac{s}{m}} 
-            \end{displaymath}
-
-            Fxr mehrzeilige Herleitungen oder Berechnungen benutzt man in \LaTeX\ die Umgebung eqnarray.
-
-            Einheiten innerhalb von Formeln werden -- wie auch Text -- grundsxtzlich steil (nicht-kursiv) gesetzt. Innerhalb der mathematischen Umgebung nimmt man dafxr eine mbox (make box); die Abstxnde werden mit Komma, Semikolon oder quad eingestellt:
-
-            \begin{displaymath}
-            f_0 = \frac{1}{2\pi} \sqrt{\frac{s}{m}} \quad \mbox{[Hz]}
-            % \, kleiner Abstand \; mittlerer Abstand \quad groxer Abstand
-            \end{displaymath}
-
-            Gleiches gilt fxr Funktionsnamen (sin, cos, arctan, log, ...). Fxr die meisten Funktionsnamen gibt es aber zur Vereinfachung entsprechende Befehle, sodass man nicht immer die mbox braucht.
-
-
-        \section{Unterkapitel mit zwei Zitaten}
-
-            Das wxrtliche Zitat wird durch Kursivschrift und Anfxhrungszeichen kenntlich gemacht, und natxrlich kommt ein Quellenverweis dazu:
-
-            % \emph = Texthervorhebung durch Schriftumschaltung (emphasize), \medskip: vertikaler Abstand (\smallskip, \bigskip)
-            \medskip
-            \emph{Nisi irure excepteur eiusmod reprehenderit commodo ipsum exercitation.}
-            \medskip
-
-            Alternativ kann man ein Zitat auch in den laufenden Text einflechten, denn wie schon Sowodniok bemerkte, muss sich 
-            \emph{Laboris tempor pariatur cillum sunt veniam labore duis ipsum eu cupidatat enim id.}
-            Die Quellenverweise werden weiter unten erklxrt.
-
-
-    \chapter{Ein anderes Kapitel}
-                
-        \section{Unterkapitel mit Fuxnote, Aufzxhlungen und Tabellen}\label{sec_fussnot}
-                
-            Fuxnoten sollte man sparsam und bewusst verwenden, erklxrende Zusxtze und Quellenverweise mxglichst in den Text integrieren. Damit bleiben Fuxnoten v.A. reserviert fxr wenige Ergxnzungen, die den Lesefluss stxren wxrden, aber nicht weggelassen werden sollen\footnote{Und so sieht die Fuxnote dann aus}.
-
-            Fxr Aufzxhlungen stellt \LaTeX\ die beiden Umgebungen itemize und enumerate zur Verfxgung. So sieht eine itemize-Aufzxhlung aus:
-
-            \begin{itemize}\setlength{\itemsep}{0ex} % itemsep ist der Abstand zwischen den Punkten der Aufzxhlung
-                \item erster Punkt
-                \item zweiter Punkt
-            \end{itemize}
-
-            Und das ist eine enumerate-Aufzxhlung:
-
-            \begin{enumerate}\setlength{\itemsep}{0ex}
-                \item erster Punkt
-                \item zweiter Punkt
-            \end{enumerate}
-
-            Aufzxhlungen kxnnen auch verschachtelt werden. Als Beispiel dient hier eine enumerate-Umgebung innerhalb einer enumerate-Umgebung:
-
-            \begin{enumerate}\setlength{\itemsep}{0ex}
-                \item erster Punkt
-                \item 
-                    \begin{enumerate}\setlength{\itemsep}{-0.5ex}
-                    \item erster Unterpunkt im zweiten Punkt
-                    \item zweiter Unterpunkt im zweiten Punkt
-                    \item dritter Unterpunkt im zweiten Punkt
-                    \end{enumerate}
-                \item dritter Punkt
-            \end{enumerate}
-
-            Als nxchstes folgt ein Beispiel fxr eine einfache Tabelle. Wie auch die Bilder mxssen die Tabellen stets Unterschrift und Nummer und zwingend einen Verweis im Text haben. In \LaTeX\ wird das wie bei den Abbildungen durch den caption-Befehl und das Befehlspaar label und ref gelxst (Tabelle \ref{t_buli}). Fxr ein modernes Tabellenlayout wird das \LaTeX-booktabs-Paket benutzt (siehe dazu die Kommentare im Quelltext). Die mittlere Spalte ist hier auf feste Breite (6 cm) gesetzt, damit bei viel Text ein automatischer Umbruch erfolgen kann.
-
-            %----------- TABELLE START -------------
-            \begin{table}[htp] 
-                \centering
-                \begin{tabular}{r|p{6cm}|c|c}  % Spalten nach Ausrichtung: l, c, r, p{breite}, mit zwei vertikalen Spaltentrennern
-                    %bitte nicht das kleine L "l" und den Vertikalstrich "|" verwechseln!!! :)
-                    % kleines L steht fxr eine linksbxndige Spalte, Vertikalstrich erzeugt eine Trennlinie zwischen zwei Spalten
-                    \toprule
-                    \multicolumn{4}{c}{\large\bfseries Erste Bundesliga, Spielzeit 2011/2012}\\ \midrule
-                        Platz & Verein & TD & Punkte\\ \midrule
-                        1 & Borussia Dortmund & +20 & 29\\ \midrule
-                        2 & Borussia Mxnchengladbach & +14 & 29\\ \midrule
-                        3 & FC Bayern Mxnchen & +26 & 28\\ \midrule
-                        10 & Hertha BSC Berlin (Ballsportclub), Verein aus der Hauptstadt & $-$1 & 18 \\
-                    \bottomrule
-                \end{tabular}
-                \caption{Bundesligatabelle vom 14. Spieltag}\label{t_buli}
-            \end{table}
-            %--------- TABELLE ENDE ---------------
-
-            Tabelle \ref{t_buli2} zeigt eine Variante die ein kompakteres und eleganteres Ergebnis liefert, ohne vertikale Striche, dafxr mit eingefxrbten Zeilen.
-
-            %----------- TABELLE START -------------
-            \begin{table}[htp] 
-                \rowcolors{1}{}{lgray} % bei jeder Zeile die Farbe wechseln, abwechselnd nix und hellgrau
-                \centering
-                \begin{tabular}{rlcc}  % Spalten nach Ausrichtung: l, c, r, p{breite} 
-                    \toprule
-                    \multicolumn{4}{c}{\large\sffamily Erste Bundesliga, Spielzeit 2011/2012}\\ \midrule
-                        1 & Borussia Dortmund & +20 & 29\\ 
-                        2 & Borussia Mxnchengladbach & +14 & 29\\
-                        3 & FC Bayern Mxnchen & +26 & 28\\
-                        10 & Hertha BSC Berlin & $-$1 & 18 \\ \bottomrule
-                \end{tabular}
-                \caption{Noch eine Bundesligatabelle vom 14. Spieltag}\label{t_buli2}
-            \end{table}
-            %--------- TABELLE ENDE ---------------
-
-        \section{Unterkapitel mit drei exemplarischen Quellenverweisen}
-
-            Quellenverweise werden mit Autorennamen und Jahr in runden Klammern gesetzt. Dazu wird hier das \LaTeX-natbib-Paket genutzt; der citep-Befehl erzeugt die Quellenangabe auf Basis der Eintrxge im Literaturverzeichnis. Auf gleiche Weise lassen sich auch mehrere Quellen zusammenfassen
-
-            Auf Bxcher oder andere umfangreichere Quellen soll mit Seitenangabe verwiesen werden. Dafxr stellt der Befehle citep  einen optionalen Parameter zur Verfxgung. Und so sieht dann die vollstxndige Quellenangabe aus
-
-            Die Quellen sollen im Literaturverzeichnis alphabetisch sortiert sein.
-
-
-            \subsection{Unter-Unterkapitel zu Hyperlinks und Internetquellen}
-
-                Die Beispiele unten im Literaturverzeichnis zeigen exemplarisch, welche Angaben zu den Quellen erforderlich sind (siehe dazu auch die Kommentare im \LaTeX-Quelltext). 
-
-                Und noch eine \LaTeX-Spezialitxt zum Schluss: Durch die Einbindung von url- und hyperref-Paket im header werden die Quellenverweise im PDF-Dokument automatisch mit der jeweiligen Quelle im Literaturverzeichnis verlinkt, und bei Internetquellen werden die URLs anklickbar. Zudem werden die Verzeichnisse (Inhaltsverzeichnis, Abbildungs- und Tabellenverzeichnis) mit den jeweiligen Objekten verlinkt, und es werden Links zwischen jedem \emph{label} und  dazugehxrigem \emph{ref} erzeugt, also z.B. zwischen Bildverweis im Text und dem Bild. Die Farben der Links kxnnen im header frei eingestellt werden. Im hier vorgeschlagenen Layout sind die URLs und die Quellenverweise Dunkelblau, die anderen Links sind nicht hervorgehoben (Schwarz). 
-
-
-    \chapter{Ergebnisse}
-
-        Der thematische Teil schliext mit einer klaren inhaltlichen, auf der Grundidee aufbauenden thematischen Zusammenfassung, insbesondere bezogen auf die in der Arbeit gewonnenen eigenen Erkenntnisse und deren mxgliche Auswirkungen auf Forschung und Wissenschaft. 
-
-        Ganz am Schluss, nach eventuellen Anhxngen, nach Abbildungs- und evtl. Tabellenverzeichnis, und nach dem Literaturverzeichnis, folgt die Eigenstxndigkeitserklxrung, die unterschrieben werden muss.
-
     \appendix
 
         \chapter{Material}
 
-            \section{Fragebxgen, Messprotokolle etc.}
+            \section{Surveys, Protocols, etc.}
 
-                In den Anhxngen landen ggf. Listings, Fragebxgen, Datenblxtter, Messprotokolle, Skizzen zu Versuchsaufbauten und xhnliches Material zur Arbeit. Im \LaTeX-Dokument leitet der Befehl appendix die Anhxnge ein.
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
 
         %--------------------- VERZEICHNISSE ----------------
 
