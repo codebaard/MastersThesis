@@ -47,7 +47,7 @@
 
     % --- Julius Text Sections ---
 
-    \chapter{Introduction}
+    \chapter{Introduction}\label{introduction}
 
         %what is it
         %why does it make sense
@@ -135,9 +135,17 @@
 
             If a BCI was to replace these types interaction, these constraints could potentially be alleviated and interaction based on physical interaction rendered obsolete. 
 
-        \section{Working principle}            
+        \section{Working principle}\label{working-principle}         
 
-            Before any deeper considerations in regard to the general scope of this study can be made, it is important to understand the working principle of the BCI, which will be used. Although the vendor of the BCI in question does not disclose any details of the inner workings itself, it is safe to assume that the underlying technique used is the so called \textit{Visually Evoked Potential} - VEP in short. \cite{Sokol.1976} provides detailed inside into the topic from a neuroscientific point of view. The general principle however is that any visual stimuli cause a certain pattern of waves within the visual cortex of the brain. These patterns can be used to evaluate if a certain pattern is being seen \textit{and} in fokus of the person. This is being done by subsequently feeding the sensor data through a trained neural network. The objects, which are being seen by the person, have been labeled \textit{neurotags} (\cite{NextMind.23112020}) from the vendor of the BCI. These neurotags can provide two different readouts: If it is triggered (i.E. \textit{seen}) and the confidence, which depicts the level of \textit{focus} of the user on the neurotag (\cite{NextMind.18112020}).
+            Before any deeper considerations in regard to the general scope of this study can be made, it is important to understand the working principle of the BCI, which will be used. Although the vendor of the BCI in question does not disclose any details of the inner workings itself, it is safe to assume that the underlying technique used is the so called \textit{Visually Evoked Potential} - VEP in short. \cite{Sokol.1976} provides detailed inside into the topic from a neuroscientific point of view. The general principle however is that any visual stimuli cause a certain pattern of waves within the visual cortex of the brain. These patterns can be used to evaluate if a certain pattern is being seen \textit{and} in fokus of the person. 
+            
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{placeholder.jpg} 
+                \caption{How VEP works in principle \todo{citation?}}\label{vep-principle}
+            \end{figure}            
+            
+            This is being done by subsequently feeding the sensor data through a trained neural network. The objects, which are being seen by the person, have been labeled \textit{neurotags} (\cite{NextMind.23112020}) from the vendor of the BCI. These neurotags can provide two different readouts: If it is triggered (i.E. \textit{seen}) and the confidence, which depicts the level of \textit{focus} of the user on the neurotag (\cite{NextMind.18112020}).
             
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
@@ -149,17 +157,25 @@
 
         \section{Related work}\label{related-work}
 
-            Non-Invasive BCI based on VEP has been around for while now and therefore a significant number of studies have been carried out to further examine their performance, advance development and evaluate use-cases. To keep track of the recent advancements, it is best to consider recent conferences for the most recent resarch.
+            As previously mentioned in section \ref*{introduction}, research on BCIs is partitioned between four different domains: \textit{medical engineering, neuroscience, computer science and HCI}. Apart from commercial entities such as \textit{Microsoft} or \textit{IBM}, the majority of the research community is clustered in four organizations: 
 
             \begin{itemize}
-                \item State of research
-                \item Applications in the HCI domain
-                \item other...
+                \item ICBCI (\textit{International Conference of Brain Computer Interfaces}), which is a department of the WASET (\textit{World Academy of Science Engineering and Technology})
+                \item EMBS (\textit{Engineering in Medicine and Biology Society}), which is a department of the IEEE
+                \item BCI Society, which is an entity of its own
+                \item NeurIPS (\textit{Neural Informations Processing Systems})
             \end{itemize}
 
-            \todo{This chapter is very much WIP}
+            \medskip
 
-        \section{Use case "Neural Interface in VR"}
+            \emph{There are also research efforts in the east-asian region, according to corresponding tech-sites such as \cite{GlobalTimes.20042021} and \cite{TechwireAsia.24052021} but due to a language barrier, these sources cannot be considered.}
+
+            \medskip
+
+            To narrow the scope, where this research paper is located at, the considerations from section \ref*{use-case} are taken into accout. As already established in section \ref*{working-principle}, the sensor used in this study uses VEP and is non-invasive in nature. Therefore the general scope of this research is located in the realm of \textit{non-invasive BCI based on VEP used for HCI}.
+
+
+        \section{Use case "Neural Interface in VR"}\label{use-case}
 
             Before any use case can be conceived, it has to be determined what kind of interaction this interface allows. Section \ref*{intro-bci} covered briefly the concept of input taxonomies to elaborate optimization potentials with BCIs. According to \todo{Find some source} an input taxonomy depicts the DOF\footnote{Dimensions Of Freedom} and the granularity and magnitudes in regard to the interface which this interface offers.
 
