@@ -137,7 +137,7 @@
 
         \section{Working principle}\label{working-principle}         
 
-            Before any deeper considerations in regard to the general scope of this study can be made, it is important to understand the working principle of the BCI, which will be used. Although the vendor of the BCI in question does not disclose any details of the inner workings itself, it is safe to assume that the underlying technique used is the so called \textit{Visually Evoked Potential} - VEP in short. \cite{Sokol.1976} provides detailed inside into the topic from a neuroscientific point of view. The general principle however is that any visual stimuli cause a certain pattern of waves within the visual cortex of the brain. These patterns can be used to evaluate if a certain pattern is being seen \textit{and} in fokus of the person. 
+            Before any deeper considerations in regard to the general scope of this study can be made, it is important to understand the working principle of the BCI, which will be used. Although the vendor of the BCI in question does not disclose any details of the inner workings itself, it is safe to assume that the underlying technique used is the so called \textit{Steady State Visually Evoked Potential} - SSVEP in short. \cite{Sokol.1976} provides detailed inside into the topic from a neuroscientific point of view. The general principle however is that any visual stimuli cause a certain pattern of waves within the visual cortex of the brain. These patterns can be used to evaluate if a certain pattern is being seen \textit{and} in fokus of the person. 
             
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
@@ -157,13 +157,12 @@
 
         \section{Related work}\label{related-work}
 
-            As previously mentioned in section \ref*{introduction}, research on BCIs is partitioned between four different domains: \textit{medical engineering, neuroscience, computer science and HCI}. Apart from commercial entities such as \textit{Microsoft} or \textit{IBM}, the majority of the research community is clustered in four organizations: 
+            As previously mentioned in section \ref*{introduction}, research on BCIs is partitioned between four different domains: \textit{medical engineering, neuroscience, computer science and HCI}. Apart from commercial entities such as \textit{Microsoft} or \textit{IBM} and scientific journals, the majority of the research community is clustered in three organizations: 
 
             \begin{itemize}
                 \item ICBCI (\textit{International Conference of Brain Computer Interfaces}), which is a department of the WASET (\textit{World Academy of Science Engineering and Technology})
                 \item EMBS (\textit{Engineering in Medicine and Biology Society}), which is a department of the IEEE
                 \item BCI Society, which is an entity of its own
-                \item NeurIPS (\textit{Neural Informations Processing Systems})
             \end{itemize}
 
             \medskip
@@ -172,7 +171,23 @@
 
             \medskip
 
-            To narrow the scope, where this research paper is located at, the considerations from section \ref*{use-case} are taken into accout. As already established in section \ref*{working-principle}, the sensor used in this study uses VEP and is non-invasive in nature. Therefore the general scope of this research is located in the realm of \textit{non-invasive BCI based on VEP used for HCI}.
+            To narrow the scope, where this research paper is located at, the considerations from section \ref*{use-case} are taken into accout. As already established in section \ref*{working-principle}, the sensor used in this study uses SSVEP and is non-invasive in nature. Therefore the general scope of this research is located in the realm of \textit{non-invasive BCI based on SSVEP used for HCI}.
+
+            \medskip
+
+            \cite{Oralhan.2016} and \cite{Resalat.2011} investigated the effects of different twinkle frequencies and duty cycles on the efficiency on precision of SSVEP BCI. They found that a certain combination of these parametres on fact could improve the ITR\footnote{Information Transfer Rate}. \cite{Lee.2016} used a similar approach and found the ideal combination in conjuction with Korean characters.
+            \cite{S.M.Abdullah.2014} used a consumer ready BCI by \textit{EMOTIV} to create a \textit{Matrix-Speller} in the Bengali-Language to allow people who have lost the ability to communicate to express themselves again. 
+            \cite{Chen.2020} also used a SSVEP BCI to implement a BCI-speller and scrutinized the tradeoff between responsiveness and accuracy.
+            \cite{Chen.2020} designed an interface which is operated by a SSVEP BCI to control a robot arm, wich could administer food to disabled people.
+            \cite{Soroush.2018} developed a SSVEP BCI which overcomes the necessity for training the sensor to the user who wears it. The prototype reached a similar precision as \textit{trained} interfaces.
+            \cite{Gergondet.2015} investigated and selected certain visual stimuli which work best with certain use cases.
+            \cite{Merino.2017} made a study, where participants controlled a UAV by using a SSVEP.
+            \cite{Peters.2018} used simulated impairments to examine if usage of a SSVEP is still possible with medical conditions which affects speech and ocular impairments.
+
+            Although not strictly within the SSVEP domain, the study by \cite{Beveridge.2017} showed very promising results by not using visual stimuli but mechanical ones, where he had teenagers playing a racing videogame with the aid of mechanical stimuli.
+
+            Apart from the scope of SSVEP BCI, there is a massive ongoing research effort to make the life of people who are suffering under ALS\footnote{Amyotrophic lateral sclerosis} better and improve their ability to communiate with the outside world.
+            A significant number of relevant studies were published in the BCI Society Journal: \todo{put als studies here}.
 
 
         \section{Use case "Neural Interface in VR"}\label{use-case}
@@ -226,8 +241,12 @@
 
         \section{Resolution of the Interface}
 
+            %probablby make use of: https://www.tandfonline.com/doi/full/10.1080/2326263X.2018.1550710
+
             \begin{itemize}
                 \item definition of the resolution parameter
+                \item ITR
+                \item accuracy
                 \item input taxonomy diagram
                 \item how to examine with survey                                     
             \end{itemize}
@@ -291,6 +310,9 @@
             Summarizing the results and findings of the study briefly.
 
         \section{Future Work}
+
+            % might be a good suggestion to work on the shortcomings
+            % https://www.tandfonline.com/doi/full/10.1080/2326263X.2020.1729652
 
             Based on the findings and new devices on the horizon, this should give a brief outlook on how to continue this research.
 
