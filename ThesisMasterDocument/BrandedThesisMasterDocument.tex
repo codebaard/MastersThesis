@@ -54,10 +54,58 @@
         %what is the market evaluation
 
 
-        In recent years significant progress has been made on the development of interfaces which relies on direct interaction with the brain itself. \todo{find some sources} The latest popular example is \textit{Neuralink} with their monkey learning to play the game \textit{Pong} only by using its brain (\cite{Neuralink.2021}). However there are more examples of a working interface: \todo{Do som research here}.
-        These interfaces are generally called \textit{Brain-Computer-Interface} or \textit{BCI} in short. The general working principle is sensing the electrical signals of the brain and use this information to generate any kind of arbitrary output \todo{find source}. 
-        In certain use cases like motoric reactions to visual cues, this could potentially reduce total reaction time. This study aims to examine a potential use case with a device which is readily available to consumers.
+        In recent years significant progress has been made on the development of interfaces which relies on direct interaction with the brain itself. The latest popular example is \textit{Neuralink} with their monkey learning to play the game \textit{Pong} only by using its brain (\cite{Neuralink.2021}). However there are more examples of a working interfacem, which will be discussed in section \ref*{related-work}, since this vast area of resarch is an intersection between several areas of research: medical engineering, neuroscience, computer science and HCI\footnote{Human Computer Interaction}.
+        These interfaces are generally called \textit{Brain-Computer-Interface} or \textit{BCI} in short. \cite{MicrosoftResearch.23102020} has a very precise definition of the scope:
+
+        \medskip
+            \emph{Brain-Computer Interface (BCI) is a system that measures central nervous system (CNS) activity and converts it into artificial output that replaces, restores, enhances, supplements, or improves the natural CNS output and thereby changes the ongoing interactions between the CNS and its external or internal environment. BCI is direct communication pathway between an enhanced or wired brain and an external device.}
+        \medskip
+
+        As of Q2 2021 there are already devices available for consumers to buy, which fall into this category. This opens up possibilities for a widespread application of these kind of interfaces. Nevertheless, new ways of interacting with computers require some degree of resarch to define useful and user-friendly ways to interact with such technology. This study aims to provide insight into one aspect of this process.
+
+        After a thorough disussion about the state of research in this field, the research hypothesis will be defined based on considerations about future use cases. Subsequently a user survey will be designed, carried out and conclusively evaluated to put the results into context.
+
+        \clearpage\thispagestyle{empty}
         
+        \section{Management Summary}
+
+            In the \textit{2018 Gartner Hype Cycle} report (\cite{Gartner.24052021}), which is shown in figure \ref*{gartner-2018}, BCIs are denoted as to be on the brink of the peak of inflated expectations:
+
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.7\textwidth]{PR_490866_5_Trends_in_the_Emerging_Tech_Hype_Cycle_2018_Hype_Cycle.png} 
+                \caption{Gartner report of emerging technologies 2018}\label{gartner-2018}
+            \end{figure}
+
+            It is important to note though that as of 2018, it'll still take more than 10 years to reach a plateau of productivity.
+            Although there is no mention about this technology in subsequent reports in the following year, two market revenue forecasts from 2015 until 2022 and 2018 until 2022 show a similar pattern in figure \ref*{statista-revenue}.
+
+            \begin{figure}[h]
+                \centering
+                \subfloat[\centering \cite{Statista.24052021b}]{{\includegraphics[width=0.49\textwidth]{statistic_id1015039_brain-computer-interface-market-value-worldwide-2015-and-2022.png} }}%
+                %\qquad
+                \subfloat[\centering \cite{Statista.24052021}]{{\includegraphics[width=0.49\textwidth]{statistic_id1015013_brain-computer-interface-market-value-worldwide-2018-and-2025.png}}}%
+                \caption{Statista revenue forecast as of 2015 and 2018}%
+                \label{statista-revenue}
+            \end{figure}        
+
+            Essentially the market revenue expectation has been very inflated from 2015 on so that it was corrected downwards in 2018. But although the absolutes growth was projected to only a small fraction, the relative growth potential stayed about the same of doubling within the next seven years. This is very indicative for the technology being overhyped, as Gartner explains: (\cite{Gartner.24052021})
+
+            \medskip
+                \emph{A wave of “buzz” builds and the expectations for this innovation rise above the current reality of its capabilities. In some cases, an investment bubble forms, as happened with the web and social media}
+            \medskip
+
+            Nevertheless, what this technology sets apart from other featured technologies is the fact that is has been around for a few decades and has been continously researched upon. A strong indicator is the amount of organizations and conferences held about this entire discipline, as can be seen in section \ref*{related-work}. The fact that is has only been on the radar of early adopters and tech-enthusiasts in conjuction with market revenue projections is a strong indicator that this technology has reached a level of maturity which makes a widespread application outside of laboratories somewhat feasible.
+
+            The latest \textit{2020 Gartner Hype Cycle} report shows already the enhanced version of bidirectional BCIs (titled \textit{"2-Way Brain Machine Interface"}) on the slope of innovation:
+
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{gartner-hc-emerging-2020.png} 
+                \caption{Gartner report of emerging technologies 2020}\label{gartner-2020}
+            \end{figure}
+
+            All in all, there are strong indicators that the technology gained traction over the last few years and could be considered a worthwile investment if approached with care.
 
         \section{Brain-Computer-Interfaces}\label{intro-bci}
 
@@ -99,14 +147,9 @@
             
             The physical layout of the sensor is show at figure \ref*{electrodes-sensor}. It has 18 eletrodes, which are arragend in pairs to cover the area, where the visual cortex is located at on the back of the cranium. It is battery driven and communicates via the Bluetooth LowEnergy protocol.
 
-        \section{Related work}
+        \section{Related work}\label{related-work}
 
             Non-Invasive BCI based on VEP has been around for while now and therefore a significant number of studies have been carried out to further examine their performance, advance development and evaluate use-cases. To keep track of the recent advancements, it is best to consider recent conferences for the most recent resarch.
-
-            %conferences:
-            % https://www.aconf.org/conf_177761.html
-            % https://bcisociety.org/bci-meeting/
-            % 
 
             \begin{itemize}
                 \item State of research
