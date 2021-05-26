@@ -191,16 +191,10 @@
 
         \section{Use case "Neural Interface in VR"}\label{use-case}
 
-            Before any use case can be conceived, it has to be determined what kind of interaction this interface allows. Section \ref*{intro-bci} covered briefly the concept of input taxonomies to elaborate optimization potentials with BCIs. According to \todo{Find some source} an input taxonomy depicts the DOF\footnote{Dimensions Of Freedom} and the granularity and magnitudes in regard to the interface which this interface offers.
+            The first step in conceiving any potential way of using such a device is to evaluate the way any user could interact with a BCI with a computer. According to \cite[4.13]{Buxton.2010} the way users interact with a device require an agent of control i.e. a hand, what is being sensed by the device (position, motion or pressure) and the number of dimesions being sensed (1, 2, 3). This results in a different input taxonomy for any given device. However, a BCI does not have either of these parametres, since the interaction does not require physical interaction. Hence a classification by means of using a taxonomy cannot be achieved. Where the interactions of BCIs can be compared to those classified by taxonomies is by the way they functions they apply in relation to a user interface.
 
-            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
-                \centering
-                \includegraphics[width=0.8\textwidth]{placeholder.jpg} 
-                \caption{Taxonomy of the nextmind BCI. \todo{Todo: Create taxo schema}}\label{bci-taxonomy}
-            \end{figure}
-
-            Figure \ref*{bci-taxonomy} shows the input taxonomy of the BCI in question. It is derived from the API\footnote{Application Programming Interface} endpoints which the the SDK\footnote{Software Development Kit} of the sensor offers: \cite{NextMind.18112020}
-            . The only two \textit{tracking resuls} are \textit{hit} and \textit{confidence}. Where hit is a two state interaction: the neurotag is being seen by the user and subsequently recognized by the sensor and its backend or it is not. The confidence property depicts the attention which the user is paying to the \textit{neurotag}. This is a continuous decimal value between 0 and 1.
+            The API\footnote{Application Programming Interface} endpoints of the NextMind sensor offers two different modes of interaction. These are explained in the SDK\footnote{Software Development Kit} of the sensor: \cite{NextMind.18112020}.
+            They are depcited as \textit{tracking resuls} with a \textit{hit} property and a \textit{confidence} metric. Where hit is a two state interaction: the neurotag is being seen by the user and subsequently recognized by the sensor and its backend or it is not. The confidence property depicts the attention which the user is paying to the \textit{neurotag}. This is a continuous decimal value between 0 and 1.
             The fact that these types of interaction are based on neural activity raises the question if a pure mapping of continuous and discrete input modalities to established interfaces would be beneficial to the user experience. Under the reasonable assumption that without any training the metric \textit{focus} can only be deliberately controlled on a very coarse level, the necessary sensitiveness required for modern GUIs can not be achieved with this particular sensor. The remaining two state property, which can be utilized to select or deselect certain objects also only allows for limited interaction. However, these neurotags can be placed in arbitrary places. Although a \textit{toggle}-like behavior is not mentioned explicitly, it might be possible to de-select any activated neurotag when the \textit{focus} property falls under a certain value.
 
             \bigskip
