@@ -43,16 +43,9 @@
     \thispagestyle{empty}
     \selectlanguage{english}
     \section*{\centering\abstractname}
-    Modern technology evolved to pick up the eletric signals emitted from the human brain in order to generate user input to eletronic equipment. This study aims to evaluate a demo use-case by using a neural interface from nextmind to control user interactions in Virtual Reality.
-
-    % --- Julius Text Sections ---
+    In recent years, Brain Computer Interfaces - BCI in short - evolved to a level of maturity which allows for these devices to be produced cheaply and thus being available to consumers. This study uses a device from a manufacturer called \textit{Nextmind} to examine wheter age has an effect on the ability to use such a device. A study was carried out with a number of \todo{XXX} participants from different age groups. They were confronted with a task to use a Graphical User Interface to select elements by looking at them. \todo{not finished}
 
     \chapter{Introduction}\label{introduction}
-
-        %what is it
-        %why does it make sense
-        %what is the market evaluation
-
 
         In recent years significant progress has been made on the development of interfaces which relies on direct interaction with the brain itself. The latest popular example is \textit{Neuralink} with their monkey learning to play the game \textit{Pong} only by using its brain (\cite{Neuralink.2021}). However there are more examples of a working interfacem, which will be discussed in section \ref*{related-work}, since this vast area of resarch is an intersection between several areas of research: medical engineering, neuroscience, computer science and HCI\footnote{Human Computer Interaction}.
         These interfaces are generally called \textit{Brain-Computer-Interface} or \textit{BCI} in short. \cite{MicrosoftResearch.23102020} has a very precise definition of the scope:
@@ -110,8 +103,6 @@
         \section{Brain-Computer-Interfaces}\label{intro-bci}
 
             In this section a general overview of the working principle of these interfaces will be provided. Since this study is aimed at computer science and HCI\footnote{Human Computer Interaction}, the neuroscience and medical domain will be only covered very briefly.
-
-            %https://www.frontiersin.org/articles/10.3389/fnins.2016.00295/full
 
             First studies began by \cite{Vidal.1973}, who investigated the possibility to use EEG\footnote{Electroencephalogram} waves, which were first recorded by \cite{Berger.1929}, as a way to create a direct interaction between a machine and a human brain. 
 
@@ -195,7 +186,7 @@
 
             The API\footnote{Application Programming Interface} endpoints of the NextMind sensor offers two different modes of interaction. These are explained in the SDK\footnote{Software Development Kit} of the sensor in detail: \cite{NextMind.18112020}.
             They are depcited as \textit{tracking resuls} with a \textit{hit} property and a \textit{confidence} metric. Where hit is a two state interaction: the neurotag is being seen by the user and subsequently recognized by the sensor and its backend or it is not. The confidence property depicts the attention which the user is paying to the \textit{neurotag}. This is a continuous decimal value between 0 and 1.
-            The fact that these types of interaction are based on neural activity raises the question if a pure mapping of continuous and discrete input modalities to established interfaces would be beneficial to the user experience. Under the reasonable assumption that without any training the metric \textit{focus} can only be deliberately controlled on a very coarse level, the necessary sensitiveness required for modern GUIs can not be achieved with this particular sensor. The remaining two state property, which can be utilized to select or deselect certain objects also only allows for limited interaction. However, these neurotags can be placed in arbitrary places. Although a \textit{toggle}-like behavior is not mentioned explicitly, it might be possible to de-select any activated neurotag when the \textit{focus} property falls under a certain value.
+            The fact that these types of interaction are based on neural activity raises the question if a pure mapping of continuous and discrete input modalities to established interfaces would be beneficial to the user experience. Under the reasonable assumption that without any training the metric \textit{focus} can only be deliberately controlled on a very coarse level, the necessary sensitiveness required for modern GUIs\footnote{Graphical User Interface} can not be achieved with this particular sensor. The remaining two state property, which can be utilized to select or deselect certain objects also only allows for limited interaction. However, these neurotags can be placed in arbitrary places. Although a \textit{toggle}-like behavior is not mentioned explicitly, it might be possible to de-select any activated neurotag when the \textit{focus} property falls under a certain value.
 
             \bigskip
 
@@ -215,16 +206,10 @@
 
         \section{Hypothesis}
 
-            The considerations in the previous section leads to these two hypothesis:
+            The considerations in the previous section leads to the hypothesis that
 
             \medskip
             \emph{"Age does not have a detrimental effect on the ability to use a non-invasive BCI based on VEP technology."}
-            \medskip
-
-            and
-
-            \medskip
-            \emph{"VEP BCI operated GUIs are intuitive to use."}
             \medskip
 
     \chapter{Technological challenges}
@@ -246,7 +231,7 @@
 
         \section{Constraints}
 
-            As far as I understood, the interface allows for four different interaction goals. It would be interesting to see, which kinds of interaction are possible.                
+            As far as I understood, the interface allows for two different interaction goals. It would be interesting to see, which kinds of interaction are possible.                
 
             \begin{itemize}
                 \item Interaction objects
@@ -261,25 +246,36 @@
 
         \section{Considerations}
 
+            The primary goal of the survey is to find empirical evidence that age does not affect the ability to use a BCI. In order to exclude certain parametres, which might cause an unwanted effect, potential disturbance parametres have to be identified and discussed:
+
+            \begin{itemize}
+                \item Age
+                \item Gender
+                \item Quality of the sensor readings
+                \item Motion Sickness
+                \item User wears glasses
+            \end{itemize}
+
+            Apart from the demographic parametres of age and gender, the other factors have to be considered to prevent potential malformed data. Firstly, a condition which causes a detrimental effect on the ability to see and identify patterns might have a dampening effect for the visual cortex to create the required brain waves. However, the physical layout of the VR goggles used allow for prescription glasses to be worn. Hence this is not a concern in the context of this study. Secondly, when working with VR goggles, there is always the possibility of motion sickness involved. On the other side: this will unlikely have a negative effect since the experiments will be static. There won't be any movement from either the user itself within the environment nor the GUI involved, which removes the prevalent reason for motion sickenss according to \cite{Golding.2006}.
+            Lastly the readings of the sensor will very likely be different for each experiment. Since the sensor provides quality readings, these will be considered in the data evaluation. Nevertheless, there will be a questionnaire provided which will ask the user after experiment if he experienced any of these effects to have a possible explanation for potential outliers.
+
+            \medskip
+
+            Under the assumption that gender has no effect on the study, because the brain of men and women is at least structurally identical \todo{[Proof or rephrase]} age is the only parameter which is the variable in this study. To put the results into context, the survey participants will be clustered in even sized age groups according to \todo{Find a good source}.
+
+
+
+        \section{Survey}
+
             \begin{itemize}
                 \item what are my tools
                 \item how to I operationalize the values for context
                 \item What are my performance indicators
                 \item Quantitative sampling to prove hypothesis
                 \item gender equal
-                \item 
+                \item alpha and beta risk thresholds - calculate from ~20 person survey
+                \item make test blocks (according to DOE p. 109ff) to rule out systematic errors
             \end{itemize}
-
-        \section{Survey structure}
-
-            Based on the findings, I want to define the survey in this section.
-
-            \begin{itemize}
-                \item item 1
-                \item ...
-            \end{itemize}
-
-        \section{Survey}
 
             How is the survey carried out. This depends largely on the outcome of section survey structure.
 
