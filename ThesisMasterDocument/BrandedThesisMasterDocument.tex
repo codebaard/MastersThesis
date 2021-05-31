@@ -244,7 +244,7 @@
         Before any survey can be designed, certain considerations like sample size, population ... \todo{ref to döring/bortz for details}
         have to be taken into account. Also depending on the desired outcome of the survey, the questionnaire has to be defined.
 
-        \section{Considerations}
+        \section{Considerations}\label{considerations}
 
             The primary goal of the survey is to find empirical evidence that age does not affect the ability to use a BCI. In order to exclude certain parametres, which might cause an unwanted effect, potential disturbance parametres have to be identified and discussed:
 
@@ -263,9 +263,34 @@
 
             Under the assumption that gender has no effect on the study, because the brain of men and women is at least structurally identical \todo{[Proof or rephrase]} age is the only parameter which is the variable in this study. To put the results into context, the survey participants will be clustered in even sized age groups according to \todo{Find a good source}.
 
-        \section{Design of experiment}
+        \section{Design of experiment}\label{doe}
 
             The solid proof that the hypothesis holds true or not can not be made based on looking at diagrams and educated guesses. Hence the need for design of experiment to provide a numerical framework which defines threshholds and quantities to make results reproductable. This section is based on the theoretical framework which es described in \cite[87ff]{Siebertz.2017} under the considerations in the previous section.
+            There are two main parametres to consider, when it comes to the DoE\footnote{Design of Experiment}: 
+            
+            \begin{itemize}
+                \item How many samples are necessary to reliably prove that the hypothesis holds true?
+                \item Where is the threshold which determines whether an effect is significant or not?
+            \end{itemize}
+
+            In the context of DoE the former is often depicted as $\beta$ and the latter as $\alpha$.
+
+            \paragraph{Parameter alpha - $\alpha$:} Alpha is the governing parameter, which decides how big the risk in a given sample size is that the hypothesis is wrong and therefore falsified. Since the hypothesis can be either true or false, the probability that it is wrong decreases with the number of samples taken in a binomial fashion \cite[103]{Siebertz.2017}. That means in this case that the likelihood $p$ of a participant to be above or below the threshhold, which is discussed in section \ref*{operationalization}, is not determined by age. According to \cite[110]{Siebertz.2017} common values for alpha tend to be chosen such that the probability of a falsified hypothesis is at 1\%, 5\% and 10\%. Where a smaller value means a more strict threshhold. To account for the explorative character of this study the value of 5\% is chosen. Therefore the susceptibility for unaccounted side-effects is reduced and the total number of participants is still not unfeasibly large.
+
+            \paragraph{Parameter beta - $\beta$:} This parameter depicts how effective a potential effect is in a given sample size. The likelihood of a significant effect not being recognized decreases with an increasing number of samples, since it becomes increasingly unlikely that a systematic effect affects the samples always in a way which makes it undiscoverable.
+            Table \todo{ref table} shows that with an increasing number of samples, given the determined alpha value, the likelihood decreases rapidly:
+
+            \medskip
+            \todo{Create table here}
+            \medskip
+
+        \section{Operationalization}\label{operationalization}
+
+            Chapter \ref*{doe} provided the necessary framework to decided wheter the hypothesis holds true or not. However there is another factor to consider, which has not been discussed so far: Which way does the data have to be interpreted in context of the doe to be effective. 
+
+            \medskip
+
+            \todo{No definitive answer yet. Idea: The likelihood of having an average timing outside the stddev of all users.}
 
         \section{Survey}
 
