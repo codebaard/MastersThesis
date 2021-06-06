@@ -19,8 +19,8 @@
 \newcommand{\nachname}{Neudecker}
 \newcommand{\matrikelnummer}{2025850}
 
-\newcommand{\titel}{{[Working Title] Using a neural interface for interaction in virtual reality}\\[0.2ex] 
-				\Large an HCI study}
+\newcommand{\titel}{{The influence of age on the ability to use Brain-Computer-Interfaces}\\[0.2ex] 
+				\Large Use-case: TV remote control}
 
 \newcommand{\erstpruef}{Prof. Dr.Roland Greule}
 \newcommand{\zweitpruef}{Dipl. Inf. Rüdiger Höfert}
@@ -43,11 +43,11 @@
     \thispagestyle{empty}
     \selectlanguage{english}
     \section*{\centering\abstractname}
-    In recent years, Brain Computer Interfaces - BCI in short - evolved to a level of maturity which allows for these devices to be produced cheaply and thus being available to consumers. This study uses a device from a manufacturer called \textit{Nextmind} to examine wheter age has an effect on the ability to use such a device. A study was carried out with a number of \todo{XXX} participants from different age groups. They were confronted with a task to use a Graphical User Interface to select elements by looking at them. \todo{not finished}
+    In recent years, Brain Computer Interfaces - BCI in short - evolved to a level of maturity which allows for these devices to be produced cheaply and thus being available to consumers. The newest example with extensive media coverage was the video published by Elon Musks \textit{Neuralink} where an monkey learned to play pong. The study in this thesis uses a device from a manufacturer called \textit{Nextmind} to examine wheter age has an effect on the ability to use such a device. A study was carried out with a number of \todo{XXX} participants from different age groups. They were confronted with a task to use a Graphical User Interface to select elements by looking at them. \todo{not finished}
 
     \chapter{Introduction}\label{introduction}
 
-        In recent years significant progress has been made on the development of interfaces which relies on direct interaction with the brain itself. The latest popular example is \textit{Neuralink} with their monkey learning to play the game \textit{Pong} only by using its brain (\cite{Neuralink.2021}). However there are more examples of a working interfacem, which will be discussed in section \ref*{related-work}, since this vast area of resarch is an intersection between several areas of research: medical engineering, neuroscience, computer science and HCI\footnote{Human Computer Interaction}.
+        In recent years significant progress has been made on the development of interfaces which relies on direct interaction with the brain itself. The latest popular example is Elon Musks \textit{Neuralink} with their monkey learning to play the game \textit{Pong} only by using its brain (\cite{Neuralink.2021}). Apart from a solid scientific methodology, this study also presented a good media coverage including a showcase video which went viral. However there are more examples of a working interfacem, which will be discussed in section \ref*{related-work}, since this vast area of resarch is an intersection between several areas of research: medical engineering, neuroscience, computer science and HCI\footnote{Human Computer Interaction}.
         These interfaces are generally called \textit{Brain-Computer-Interface} or \textit{BCI} in short. \cite{MicrosoftResearch.23102020} has a very precise definition of the scope:
 
         \medskip
@@ -179,39 +179,81 @@
 
             There is a massive ongoing research effort to make the life of people who are suffering under ALS\footnote{Amyotrophic lateral sclerosis} better and improve their ability to communiate normally, by using SSVEP, a hybrid between an SSVEP and P300\footnote{An Event Related Potential (ERP) BCI} or purely P300 based BCI. A significant number of relevant studies has been published in the BCI Society Journal: \cite{Sugata.2016}, \cite{Holz.2015}, \cite{Speier.2017}, \cite{Geronimo.2017}, \cite{Speier.2018}, \cite{Mowla.2017}, \cite{Huggins.2016}. All these studies aimed to provide a better understanding and performance of using BCI on people with medical conditions, which cause serious physical impairments.
 
+            % The most important german community of scientists which conducts extensive research on this topic is the \textit{Gesellschaft für Computer} with the department \textit{Mensch-Computer-Interaktion}. They publish the \textit{Journal of interactive Media} and host a yearly conference: \textit{Mensch und Computer}.
 
-        \section{Use case "Neural Interface in VR"}\label{use-case}
 
-            The first step in conceiving any potential way of using such a device is to evaluate the way any user could interact with a BCI with a computer. According to \cite[4.13]{Buxton.2010} the way users interact with a device require an agent of control i.e. a hand, what is being sensed by the device (position, motion or pressure) and the number of dimesions being sensed (1, 2, 3). This results in a different input taxonomy for any given device. However, a BCI does not have either of these parametres, since the interaction does not require physical interaction. Hence a classification by means of using a taxonomy cannot be achieved. Where the interactions of BCIs can be compared to those classified by taxonomies is by the way they functions they apply in relation to a user interface.
+        \section{Establishing a use-case}\label{use-case}
 
-            The API\footnote{Application Programming Interface} endpoints of the NextMind sensor offers two different modes of interaction. These are explained in the SDK\footnote{Software Development Kit} of the sensor in detail: \cite{NextMind.18112020}.
-            They are depcited as \textit{tracking resuls} with a \textit{hit} property and a \textit{confidence} metric. Where hit is a two state interaction: the neurotag is being seen by the user and subsequently recognized by the sensor and its backend or it is not. The confidence property depicts the attention which the user is paying to the \textit{neurotag}. This is a continuous decimal value between 0 and 1.
-            The fact that these types of interaction are based on neural activity raises the question if a pure mapping of continuous and discrete input modalities to established interfaces would be beneficial to the user experience. Under the reasonable assumption that without any training the metric \textit{focus} can only be deliberately controlled on a very coarse level, the necessary sensitiveness required for modern GUIs\footnote{Graphical User Interface} can not be achieved with this particular sensor. The remaining two state property, which can be utilized to select or deselect certain objects also only allows for limited interaction. However, these neurotags can be placed in arbitrary places. Although a \textit{toggle}-like behavior is not mentioned explicitly, it might be possible to de-select any activated neurotag when the \textit{focus} property falls under a certain value.
+            Establishing a use-case in the context of this study is a pivotal point hence this section will be split up into several sections: 
 
-            \bigskip
+            \begin{enumerate}
+                \item General considerations
+                \item Deduction of the core points of this study
+                \item Evaluating the constraints of a participatory study
+                \item Deduction of use-case
+                \item Conclusion into hypothesis and use-case
+            \end{enumerate}
 
-            Based on the previous reasoning, the following questions can be raised in regard to the feasibility of any interface which could potententially be conceived with this technology:
+            \subsection{General considerations}
 
-            \begin{itemize}
-                \item How fast is the perceived and measured reaction time of these neurotags?
-                \item What is the minimum size the neurotags have to have in order to be recognizable?
-                \item Is the interface usable for brains of all ages or do gerontological effects have an effect on usability?
-                \item Do certain medical conditions (i.e. attentiveness disorder) have an impact on the usability?
-                \item How fast can a user switch between neurotags?
-                \item Is a BCI controlled GUI intuitive to use?
-                \item Does a personal affinity to technology have an influence on the perceived difficulty of interaction?
-            \end{itemize}
+                The first step in conceiving any potential way of using such a device is to evaluate the way any user could interact with a BCI with a computer. According to \cite[4.13]{Buxton.2010} the way users interact with a device require an agent of control i.e. a hand, what is being sensed by the device (position, motion or pressure) and the number of dimesions being sensed (1, 2, 3). This results in a different input taxonomy for any given device. However, a BCI does not have either of these parametres, since the interaction does not require physical interaction. Hence a classification by means of using a taxonomy cannot be achieved. Where the interactions of BCIs can be compared to those classified by taxonomies is by the way they functions they apply in relation to a user interface.
 
-            These questions can be clustered into two groups: \textit{neurological} and \textit{interaction}. Although these considerations open up a vast space of potential cases. Therefore the priority is to examine wheter these interfaces are generally usable by the majority of users and if these interfaces are intuitive to use. 
+                The API\footnote{Application Programming Interface} endpoints of the NextMind sensor offers two different modes of interaction. These are explained in the SDK\footnote{Software Development Kit} of the sensor in detail: \cite{NextMind.18112020}.
+                They are depcited as \textit{tracking resuls} with a \textit{hit} property and a \textit{confidence} metric. Where hit is a two state interaction: the neurotag is being seen by the user and subsequently recognized by the sensor and its backend or it is not. The confidence property depicts the attention which the user is paying to the \textit{neurotag}. This is a continuous decimal value between 0 and 1.
+                The fact that these types of interaction are based on neural activity raises the question if a pure mapping of continuous and discrete input modalities to established interfaces would be beneficial to the user experience. Under the reasonable assumption that without any training the metric \textit{focus} can only be deliberately controlled on a very coarse level, the necessary sensitiveness required for modern GUIs\footnote{Graphical User Interface} can not be achieved with this particular sensor. The remaining two state property, which can be utilized to select or deselect certain objects also only allows for limited interaction. However, these neurotags can be placed in arbitrary places. Although a \textit{toggle}-like behavior is not mentioned explicitly, it might be possible to de-select any activated neurotag when the \textit{focus} property falls under a certain value.
 
-        \section{Hypothesis}
+            \subsection{Corepoints of this study}\label{corepoints}
 
-            The considerations in the previous section leads to the hypothesis that
+                Based on the previous reasoning, the following questions can be raised in regard to the feasibility of any interface which could potententially be conceived with this technology:
 
-            \medskip
-            \emph{"Age does not have a detrimental effect on the ability to use a non-invasive BCI based on VEP technology."}
-            \medskip
+                \begin{enumerate}
+                    \item How fast is the perceived and measured reaction time of these neurotags?
+                    \item What is the minimum size the neurotags have to have in order to be recognizable?
+                    \item Is the interface usable for brains of all ages or do gerontological effects have an effect on usability?
+                    \item Do certain medical conditions (i.e. attentiveness disorder) have an impact on the usability?
+                    \item How fast can a user switch between neurotags?
+                    \item Is a BCI controlled GUI intuitive to use?
+                    \item Does a personal affinity to technology have an influence on the perceived difficulty of interaction?
+                \end{enumerate}
 
+                These questions can be clustered into two groups: \textit{neurological} and \textit{interaction}. But all these considerations open up a vast space of potential cases, hence the priority is to examine wheter these interfaces are generally usable by the majority of users and if these interfaces are intuitive to use. Out of this list only the points 1, 2, 3, 5, 6 and 7 can be applied to a general audience. Considered the possible interactions with the \textit{Nextmind} sensor, a study which focusses on the neurological domain makes more sense in the context. \todo{Revisit reasoning.} This leaves the points 3 and 5. Although these are two different topics, the setup of the experiment itself will show that in fact number 5 can be examined along the way as well, which wil be discussed in section \todo{Add ref + revisit argumentation.}
+
+            \subsection{Constraints of a participatory study}
+            
+                Although this study won't use the \textit{AttrakDiff} survey, which was designed by \cite{Prof.Dr.MarcHassenzahl.30092020}, it is still worth considering how a potential use-case might peform in the context of an \textit{AttrakDiff}. The reasoning is that a survey, which is entirely construted to serve the purpose of producing results in favour of the study, might be harder to grasph for the participants in the experiment. The reason being that an interaction purely for the sake of interacting with something does not provide an incentive for the user to do so. As a consequence, the results which are produced by the participants, might be skewed due to a lacking frame of reference.
+
+                \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{einzelauswertung_de.png} 
+                    \caption{\todo{MAKE ENGLISH} AttrakDiff results for a given interaction model, Source: \cite{Prof.Dr.MarcHassenzahl.30092020}}\label{AttrakDiff}
+                \end{figure}
+
+                Figure \ref*{AttrakDiff} shows two axes which depict the hedonistic quality of an interaction, which is a metric of pleasure and the pragmatic quality which depicts a metric of \textit{ease of use} or \textit{technical quality}. Even without any deeper knowledge it is safe to assume that it is preferential for the interaction to be located in the upper right corner, since this makes it \textit{"desireable"} instead of \textit{"unnesessary"}. Given that, it is certain that any interaction needs a way to facilitate pleasure in the user.
+
+            \subsection{Deduction of use-case}\label{use-case}
+
+                Concluding the two parametres \textit{frame of reference} and \textit{facilitation of pleasure} into a coherent picture, it can be inferred that the experiment has to be set up in way that gives the participants a familiar use case which facilitates positive feedback. 
+
+                As already established, this study will examine gerontological effects in the context of an interaction. Therefore the age of participants will very likely vary to a wide degree, what necessitates a use case which is common to all age groups alike. Because people above a certain age did not grow up with computers, an experiment which relies heavily on the usage of computer as main point of interaction is very likely not a good choice due to the difference in proficiency. One example where both these criteria are met is a remote control for a television. Although nowadays there are computers involved, the interaction hasn't really changed in the last decades on a general level.
+
+                Nevertheless the working principle of the BCI is a visible flashing pattern, as established in section \ref*{working-principle}. Therefore the representation of some kind of GUI on a display is still necessary. Since VR goggles provide better isolation from external visual stimuli, the representation within a VR application was chosen. 
+
+                \medskip
+
+            \subsection{Concluding hypothesis and use-case} 
+            
+                Section \ref*{corepoints} established that age is the first parameter to examine in this context, therefore the fundamental research hypothesis can be defined as follows:
+
+                \medskip
+                \emph{"Age does not have a detrimental effect on the ability to use a non-invasive BCI based on VEP technology."}
+                \medskip
+
+                In Section \ref*{use-case} the fundamental reasoning behind the use case, which provides the necessary framework for this study was established:
+
+                \medskip
+                \emph{A GUI which represents a tv remote control will be presented to the participants within a VR environment.}
+                \medskip
+            
     \chapter{Technological challenges}
 
         Due to being non-invasive there must exist certain drawbacks with this technology. I want to examine the shortcomings and possible ways to overcome these.    
