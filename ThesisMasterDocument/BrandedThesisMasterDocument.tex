@@ -329,7 +329,7 @@
 
             %probablby make use of: https://www.tandfonline.com/doi/full/10.1080/2326263X.2018.1550710                
 
-    \chapter{Survey Structure and layout}\label{survey-structure}
+    \chapter{Survey Framework}\label{survey-framework}
 
         Before any survey can be designed, certain considerations like sample size, population ... \todo{ref to döring/bortz for details}
         have to be taken into account. Also depending on the desired outcome of the survey, the questionnaire has to be defined.
@@ -395,7 +395,13 @@
 
             Going into detail regarding (1), it has to be elaborated, why the used sensor is within the set constraints. These are: synchronism, bijectivity regarding the mapping of available symbols and possible selections, no memory, lack of error correction and prediction and no goal directed behavior.
 
-            \paragraph{Synchronism} A BCI works \textit{synchroneous}, when the time which passes from the presentation of a cue to the user until the symbol has been confirmed or erroneously chosen is solely determined by the system itself. A BCI might be considered \textit{asynchroneous} if there are measures in place to artificially increase the response time. \todo{add timing figure here}
+            \paragraph{Synchronism} A BCI works \textit{synchroneous}, when the time which passes from the presentation of a cue to the user until the symbol has been confirmed or erroneously chosen is solely determined by the system itself. A BCI might be considered \textit{asynchroneous} if there are measures in place to artificially increase the response time. 
+
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{placeholder.jpg} 
+                \caption{Timing of symbol recognition and activation \todo{/ create picture, revisit caption}}\label{itr-timing}
+            \end{figure}
 
             \paragraph{Bijectivity} In regard to the equation in (3) this means are strict 1:1 relationship between the possible input symbols shown to the user and the resulting output symbols. \cite{Yuan.2013} describes possible scenarios, where this rule applies as \textit{idle-states} for example, where a user can deliberately choose to deactivate the interface.
 
@@ -409,66 +415,93 @@
 
             \medskip
 
-            In section \ref*{survey-main} the design of the interface will be shown and it wil be proven that all these criteria will be met in this study. Section \ref{operationalization} will elaborate how this data will be used to evaluate the hypothesis from section \ref{hypothesis}.
+            In section \ref*{survey-contents} the design of the interface will be shown and it wil be proven that all these criteria will be met in this study. Section \ref{operationalization} will elaborate how this data will be used to evaluate the hypothesis from section \ref{hypothesis}.
 
-        \section{Survey}\label{survey-main}
+    \chapter{Survey Contents}\label{survey-contents}
 
-            Chapter \ref*{survey-structure} established the theoretical framework of the survey. This chapter aims to define the experiment which will be used to gather the data. To do so, the following considerations have to be made:
+        Chapter \ref{survey-framework} established the theoretical framework of the survey. This chapter aims to define the experiment which will be used to gather the data. To do so, the following considerations have to be made:
 
-            \begin{enumerate}
-                \item What tools will be used?
-                \item What data will be collected?
-                \item How are the age groups structured?
-                \item How is the data collected?
-                \item What is the structure of the questionnaire?
-            \end{enumerate}
+        \begin{enumerate}
+            \item What tools will be used?
+            \item How is the interface going to look like?
+            \item What data will be collected?
+            \item How are the age groups structured?
+            \item How is the data collected?
+            \item What are the questions in the questionnaire?
+        \end{enumerate}
 
-            \subsection{What tools will be used}
 
-                \begin{itemize}
-                    \item Quest2
-                    \item Nextmind BCI
-                    \item iPad for questions
-                \end{itemize}
+        \section{What tools will be used}
 
-            \subsection{What data will be collected}
+            \paragraph{Oculus Quest2}
 
-                \begin{itemize}
-                    \item demographics
-                    \item considerations from section \ref*{considerations}
-                    \item Speed of the neurotag activation
-                    \item confidence score of active neurotag
-                    \item quality readings from each electrode
-                \end{itemize}
+                The Oculus Quest2 is a state-of-the-art VR headset as of Q2 2021. This headset will be used to show the user the visual stimuli in the experimental \textit{remote control interface}. Using a visually hermetic closed headset has the added benefit of blockimg every external stimuli and therefore increasing the ability of the user to concentrate on the experiment. The expected result will be a reduced $t_{1}$ time, shown in figure \ref*{itr-timing}.
 
-            \subsection{How are the age groups structured}
+            \paragraph{Nextmind BCI}                
 
-                \todo{t.b.d.}
+                Shown in figure \ref*{electrodes-sensor} is the Nextmind BCI, which will be used to gather the data from the VEP. The vendor provides a SDK which integrates really well in Unity and in consequence with the Quest2. During the experiments, this sensor will be located at the back of the participant's head, where the visual cortex is located at (figure \ref*{visual-cortex}.)
 
-            \subsection{How is the data collected}
+                \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{visualcortex.png} 
+                    \caption{Position of the visual cortex. Left is front. Source: \cite{Dr.KenBrodaBahm.14062021}}\label{visual-cortex}
+                \end{figure}
 
-                \begin{itemize}
-                    \item questionnaire
-                    \item logfiles from vr-application
-                \end{itemize}
+                The Sensor will be strapped to the VR headset and thus these two devices will be easy to put on or off.
 
-            \subsection{What is the structure of the questionnaire}
+            \paragraph{Tablet for questions}
 
-                \todo{see \ref*{considerations} for details}
+                A tablet will be used to collect anonymized demographic data from the participant. This is necessary for the evaluation of the results. See section \ref*{datacollection} for details.
+
+        \section{What data will be collected}\label{datacollection}
+
+            The data collection will be structured in two blocks: Questions which the participant will be asked directly. The answers are given by the participant on the tablet mentioned in the previous section:
+
+            \begin{itemize}
+                \item Demographics: Age and Sex
+                \item If the participant wears glasses
+                \item If the user felt motion sickness during the experiment
+            \end{itemize}
+
+            The data, which will be collected during the experiment is collected on the VR headset and stored in a file, which will be available after the finished experiment. This data will contain the following readings:
+
+            \begin{itemize}
+                \item Speed of each neurotag activation from the point where a cue was given. This is the start of $t1$ until the end of $t2$, where the sensor is confident that a certain neurotag was looked at.
+                \item Confidence score of each activated neurotag upon activation until another neurotag is activated.
+                \item Quality readings from each single electrode to monitor the tracking quality of the sensor, in order to explain outliers in the collected data.
+            \end{itemize}
+
+        \section{Remote control interface}
+            
+            Figure \ref*{gui-remote} shows the interface, which the user will see in the experiment. It resembles the number pad on a conventional TV remote control in structure. The rectangles with the numbers will be the neurotags, where the user has to look at. To measure the activation time, one neurotag will be visually cued - represented by the highlighted \textit{6}. As soon as this neurotag has been activated, a new visual que will be given. The number of occurences in total and of each neurotag will guarantee that the requirements for equation \ref*{itr-basic} will be met.
+
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{IMG_8217.jpg} 
+                \caption{Layout of the remote control experiment.}\label{gui-remote}
+            \end{figure}            
+
+        \section{How are the age groups structured}
+
+            To create a meaningful result, the participants have to be divided into age groups.
+
+            \medskip
+
+            \todo{Mail an Anna Wolf - warte auf Rückmeldung}
 
     \chapter{Survey results}
 
         \section{Interpretation of the collected data}\label{operationalization}
 
-        Chapter \ref*{doe} provided the necessary framework to decided wheter the hypothesis holds true or not and Chapter \ref*{itr} explains how BCI performance has to interpreted in a given context. This section focusses the contextualization of these metrics in regard to the hypothesis and doe.
+            Chapter \ref*{doe} provided the necessary framework to decided wheter the hypothesis holds true or not and Chapter \ref*{itr} explains how BCI performance has to interpreted in a given context. This section focusses the contextualization of these metrics in regard to the hypothesis and doe.
 
-        \medskip
+            \medskip
 
-        \todo{create coherent argument about ITR and DOE.}
+            \todo{create coherent argument about ITR and DOE.}
 
-        In regard to figure 2, 3, 4 in \cite{Yuan.2013}: use t1, t2, T and deltaB as argument for performance in experiment.    
+            In regard to figure 2, 3, 4 in \cite{Yuan.2013}: use t1, t2, T and deltaB as argument for performance in experiment.    
 
-            Once the study has been structured and carried out, I can write down the results.
+                Once the study has been structured and carried out, I can write down the results.
 
     \chapter{Findings}
 
