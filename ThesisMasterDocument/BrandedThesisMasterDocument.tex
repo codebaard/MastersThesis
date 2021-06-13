@@ -162,7 +162,7 @@
 
             \medskip
 
-            To narrow the scope, where this research paper is located at, the considerations from section \ref*{use-case} are taken into accout. As already established in section \ref*{working-principle}, the sensor used in this study uses SSVEP and is non-invasive in nature. Therefore the general scope of this research is located in the realm of \textit{non-invasive BCI based on SSVEP used for HCI}.
+            To narrow the scope, where this research paper is located at, the considerations from section \ref*{use-case-main} are taken into accout. As already established in section \ref*{working-principle}, the sensor used in this study uses SSVEP and is non-invasive in nature. Therefore the general scope of this research is located in the realm of \textit{non-invasive BCI based on SSVEP used for HCI}.
 
             \medskip
 
@@ -179,10 +179,7 @@
 
             There is a massive ongoing research effort to make the life of people who are suffering under ALS\footnote{Amyotrophic lateral sclerosis} better and improve their ability to communiate normally, by using SSVEP, a hybrid between an SSVEP and P300\footnote{An Event Related Potential (ERP) BCI} or purely P300 based BCI. A significant number of relevant studies has been published in the BCI Society Journal: \cite{Sugata.2016}, \cite{Holz.2015}, \cite{Speier.2017}, \cite{Geronimo.2017}, \cite{Speier.2018}, \cite{Mowla.2017}, \cite{Huggins.2016}. All these studies aimed to provide a better understanding and performance of using BCI on people with medical conditions, which cause serious physical impairments.
 
-            % The most important german community of scientists which conducts extensive research on this topic is the \textit{Gesellschaft für Computer} with the department \textit{Mensch-Computer-Interaktion}. They publish the \textit{Journal of interactive Media} and host a yearly conference: \textit{Mensch und Computer}.
-
-
-        \section{Establishing a use-case}\label{use-case}
+        \section{Establishing a use-case}\label{use-case-main}
 
             Establishing a use-case in the context of this study is a pivotal point hence this section will be split up into several sections: 
 
@@ -254,7 +251,7 @@
                 \emph{A GUI which represents a tv remote control will be presented to the participants within a VR environment.}
                 \medskip
 
-        \section{Beyond the scope}
+        \section{Beyond the scope}\label{beyond}
 
             The case in this study is fairly limited in the realm of BCI. Section \ref*{related-work} already briefly mentioned that the general research on BCI has several fascinating topics to explore. This section aims to broad the horizon on the realm of BCI technology.
 
@@ -308,22 +305,29 @@
 
                 She concludes that \emph{As BMIs enter the marketplace, legal and ethical questions pertaining to brain data privacy are certain to arise}\cite[43]{Greenberg.2019} and makes policy recommendations to be implented in order to guarantee privacy. These recommendations outline a \textit{privacy by design}, improvement of transparency and general sharpening of existing policies to better suit the requirements of brain data applications.
 
-    \chapter{Technological challenges}
-
-        Section \ref*{intro-bci} established different types of BCI and their advantages and disadvantages. This chapter will adress these problems, differences of cheap vs. expensive EEG acquisition devices and provide an outlook on mitigation techniques. Furthermore the topic of ITR\footnote{Information Transfer Rate} and input taxonomies will be discussed.
-
         \section{EEG acquisition devices}
 
-            %probablby make use of: https://www.tandfonline.com/doi/full/10.1080/2326263X.2018.1550710
-            % https://galea.co/#splash
+            Concluding section \ref*{intro-bci} and \ref*{beyond}, it is reasonable to talk about some technical implications of BCIs and their limitations. In technical terms, they are EEG acquisition devices from the medical domain more and less optimized for certain workloads.
 
-            \subsection{Resolution}
+            There is a great variety of these different EEG acquisition devices on the market. Ranging from consumer-grade cheaply and readily available sensors which cost a few hundred Euros up to medical grade devices. According to \cite{Zerafa.2018} the difference in price and quality are mainly determined by the factors amplifiers, electrode type and transmission technique.
+                
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{placeholder.jpg} 
+                \caption{Three different EEQ acquistion devices \todo{/ create picture with three priced devices}}\label{eeg-devices}
+            \end{figure}
 
-        \section{Information Transfer Rate - ITR}
+            Figure \ref*{eeg-devices} shows a range of three devices of a different price point. The most prominent difference is the amount of electrodes, which each device consists of. The amount and quality of these electrodes have a profound effect on the overall cost of a single device:
 
-        \section{Input Taxonomy}
+            \begin{enumerate}[label=\Alph*]
+                \item Nextmind DevKit, 399US\$
+                \item OpenBCI All-in-One EEG Electrode Cap, 1399US\$
+                \item Nihon Kohden Neurofax EEG-1200, 7650US\$\footnote{Prices are only available on request. This is the price of a used device off ebay.}\footnote{Prices are without the electrodes, which come at around 80US\$ each electrode.}
+            \end{enumerate}
 
-        \section{Constraints}
+            \todo{\textbf{Amend and revisit this section after access to \cite{Zerafa.2018}}}
+
+            %probablby make use of: https://www.tandfonline.com/doi/full/10.1080/2326263X.2018.1550710                
 
     \chapter{Survey Structure and layout}
 
@@ -370,13 +374,25 @@
             \todo{Create table here}
             \medskip
 
+        \section{Information Transfer Rate - ITR}\label{itr}
+
+            Although \cite{Martins.2019} makes claims about the amount of data gathered from a potential fully connected brain down to the single neuron, this is only an educated guess solely based on the estimated number of neurons in every individual brain. From a research perspective this number has no real application yet. But there are several papers, which touched on the problem of a metric to measure the rate of data transmission from a human brain to a machine. This metric is crucial for the study in this thesis as there has to be definitive parameter to gauge the performance of any given participant in the experiment. \cite{Yuan.2013} stated that... Synchroneous, Asynchroneous, non-stable (memory), error correction, prediction, goal directed behavior
+
+            \begin{itemize}
+                \item no consensus about the metric
+                \item cite different papers
+                \item settle for one approach
+            \end{itemize}            
+
         \section{Operationalization}\label{operationalization}
 
-            Chapter \ref*{doe} provided the necessary framework to decided wheter the hypothesis holds true or not. However there is another factor to consider, which has not been discussed so far: Which way does the data have to be interpreted in context of the doe to be effective. 
+            Chapter \ref*{doe} provided the necessary framework to decided wheter the hypothesis holds true or not and Chapter \ref*{itr} explains how BCI performance has to interpreted in a given context. This section focusses the contextualization of these metrics in regard to the hypothesis and doe.
 
             \medskip
 
-            \todo{No definitive answer yet. Idea: The likelihood of having an average timing outside the stddev of all users.}
+            \todo{create coherent argument about ITR and DOE.}
+
+            In regard to figure 2, 3, 4 in \cite{Yuan.2013}: use t1, t2, T and deltaB as argument for performance in experiment.
 
         \section{Survey}
 
@@ -447,7 +463,7 @@
 
     \chapter{Acknowledgements}
 
-        I want to thank Prof. Dr. Roland Greule and Dipl. Inf. Rüdiger Höfert to examine this study and always set the right impulses to guide the outcome of this thesis. Rüdiger Höfert in particular helped me out with the procurement of necessary equipment to conduct the study. I also want to express my gratitude to the Hamburg University of Applied Sciences to provide the necessary framework to obtain my degree and aid with the procurement of necessary equipment. 
+        I want to thank Prof. Dr. Roland Greule and Dipl. Inf. Rüdiger Höfert to examine this study and always set the right impulses to guide the outcome of this thesis. Rüdiger Höfert in particular helped me out with the procurement of necessary equipment to conduct the study. I also want to express my gratitude to the Hamburg University of Applied Sciences to provide the necessary framework to obtain my degree and aid with the procurement of necessary equipment. I also want to express my appreciation for every single participant who took part in my experiments despite certain constraints due to the Covid19 pandemic.
         A special thanks goes to B.Sc. Moritz Bednorz, who helped me sharpen and clarify my knowledge in the field of medical engineering and design of experiment, which gave this thesis a coherent perspective on all domains. 
         I will be eternally grateful to my father Dr. Thomas Neudecker to set the right impulses which made pursue an academic degree. He may rest in piece. 
         My biggest thanks is dedicated to my girlfriend B.A. Alexandra Michels for her emotional support and creative input to some of the figures in this thesis.
