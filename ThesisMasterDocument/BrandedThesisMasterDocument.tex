@@ -350,8 +350,6 @@
 
             Furthermore participants of the study should disclose if they had previous or ongoing conditions of seizures or epilepsy, especially in case of light or flashing related cases.
 
-            \todo{\cite{Zerafa.2018} - Check for further considerations regarding eyesight and medical conditions}
-
             Apart from the demographic parametres of age and gender, the other factors have to be considered to prevent potential malformed data. Firstly, a condition which causes a detrimental effect on the ability to see and identify patterns might have a dampening effect for the visual cortex to create the required brain waves. However, the physical layout of the VR goggles used allow for prescription glasses to be worn. Hence this is not a concern in the context of this study. Secondly, when working with VR goggles, there is always the possibility of motion sickness involved. On the other side: this will unlikely have a negative effect since the experiments will be static. There won't be any movement from either the user itself within the environment nor the GUI involved, which removes the prevalent reason for motion sickenss according to \cite{Golding.2006}.
             Lastly the readings of the sensor will very likely be different for each experiment. Since the sensor provides quality readings, these will be considered in the data evaluation. Nevertheless, there will be a questionnaire provided which will ask the user after experiment if he experienced any of these effects to have a possible explanation for potential outliers.
 
@@ -460,6 +458,16 @@
 
                 A tablet will be used to collect anonymized demographic data from the participant. This is necessary for the evaluation of the results. See section \ref*{datacollection} for details.
 
+        \section{Remote control interface}
+        
+            Figure \ref*{gui-remote} shows the interface, which the user will see in the experiment. It resembles the number pad on a conventional TV remote control in structure. The rectangles with the numbers will be the neurotags, where the user has to look at. To measure the activation time, one neurotag will be visually cued - represented by the highlighted \textit{6}. As soon as this neurotag has been activated, a new visual que will be given. The number of occurences in total and of each neurotag will guarantee that the requirements for equation \ref*{itr-basic} will be met.
+
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{IMG_8217.jpg} 
+                \caption{Layout of the remote control experiment.}\label{gui-remote}
+            \end{figure}                    
+
         \section{What data will be collected}\label{datacollection}
 
             The data collection will be structured in two blocks: Questions which the participant will be asked directly. The answers are given by the participant on the tablet mentioned in the previous section:
@@ -476,17 +484,7 @@
                 \item Speed of each neurotag activation from the point where a cue was given. This is the start of $t1$ until the end of $t2$, where the sensor is confident that a certain neurotag was looked at.
                 \item Confidence score of each activated neurotag upon activation until another neurotag is activated.
                 \item Quality readings from each single electrode to monitor the tracking quality of the sensor, in order to explain outliers in the collected data.
-            \end{itemize}
-
-        \section{Remote control interface}
-            
-            Figure \ref*{gui-remote} shows the interface, which the user will see in the experiment. It resembles the number pad on a conventional TV remote control in structure. The rectangles with the numbers will be the neurotags, where the user has to look at. To measure the activation time, one neurotag will be visually cued - represented by the highlighted \textit{6}. As soon as this neurotag has been activated, a new visual que will be given. The number of occurences in total and of each neurotag will guarantee that the requirements for equation \ref*{itr-basic} will be met.
-
-            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
-                \centering
-                \includegraphics[width=0.8\textwidth]{IMG_8217.jpg} 
-                \caption{Layout of the remote control experiment.}\label{gui-remote}
-            \end{figure}            
+            \end{itemize}        
 
         \section{How are the age groups structured}
 
@@ -496,11 +494,42 @@
 
             \todo{Mail an Prof Lorenz - warte auf Rückmeldung}
 
+        \section{Questionnaire}
+
+            \todo{create questionnaire}
+
+            Before:
+
+            \begin{itemize}
+                \item Demographics
+                \item considerations 
+                \item ...
+            \end{itemize}
+
+            Afterwards:
+
+            \begin{itemize}
+                \item comfort
+                \item feeling
+                \item ...
+            \end{itemize}
+
         \section{Experimental Protocol}
 
-            \todo{describe how the study was conducted on each participant}
+            The data was collected in a single session lasting around 30mins with each participant. Each session started by the participant having to complete the first questionnaire and the form of consent of their participation. At this stage potential hazards and problems and dispositions as discussed in section \ref{considerations} are identified.
+            Afterwards each participant was introduced into the experiment. The working principle of a SSVEP was explained and questions regarding data privacy were discussed. Subsequently the user was shown the GUI of the experiment with a short introduction what the nature of the task was.
 
-            Refer to \cite{Zerafa.2018}
+            Then the participant was equipped with the VR Goggles and the BCI Sensor (\todo{placed 1m in front of the screen}) and the correct position of the sensor was verified. The first step of the experiment was the calibration of the sensor to the participant. In case of non-optimal readings, the position of the sensor was adjusted accordingly until all electrodes showed at least \textit{very good} contact (figure \ref*{electrode-quality}).
+
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{placeholder.jpg} 
+                \caption{Quality readings of the sensor}\label{electrode-quality}
+            \end{figure}
+
+            Then the experiment was started. The participant was exposed to \todo{50 (?)} different neurotag activations. Each one consisted of a visual que (see figure \ref*{gui-remote}) to which the participant had to focus on. Upon activation of this neurotag, the readings were saved to the logfile the immediately the next cue was given in order to keep the $t1$ timing as short as possible.
+
+            After completion of the experiment, each participant had to fill the second questionnaire, which gathered information such as comford and perceived cognitive load (\todo{find better phrasing maybe?}). 
 
     \chapter{Survey results}
 
