@@ -307,27 +307,23 @@
 
         \section{EEG acquisition devices}
 
-            Concluding section \ref*{intro-bci} and \ref*{beyond}, it is reasonable to talk about some technical implications of BCIs and their limitations. In technical terms, they are EEG acquisition devices from the medical domain more and less optimized for certain workloads.
+            Concluding section \ref*{intro-bci} and \ref*{beyond}, it is reasonable to talk about some technical implications of BCIs and their limitations. In technical terms, these are EEG acquisition devices from the medical domain and only gather EEG brainwaves from certain regions of the brain. The placement of the electrodes on the skull determines which domain of brain activity will be recorded. 
 
-            There is a great variety of these different EEG acquisition devices on the market. Ranging from consumer-grade cheaply and readily available sensors which cost a few hundred Euros up to medical grade devices. According to \cite{Zerafa.2018} the difference in price and quality are mainly determined by the factors amplifiers, electrode type and transmission technique.
-                
+            There is a great variety of these different EEG acquisition devices on the market. Ranging from consumer-grade cheaply and readily available sensors which cost a few hundred Euros up to medical grade devices. According to \cite{Zerafa.2018} the difference in price and quality are mainly determined by the factors amplifiers, electrode type and count and transmission technique, which could be wired or wireless.
+
+            Since these sensors measure electrical potentials, the actual resolution of the electrodes and amplifiers ist the single most influental parameter governing quality. \cite{Zerafa.2018} used the SNR\footnote{Signal to Noise Ratio} of different sensors to compare them to one another, because quality in electrical measurements is best compared using the SNR value of each measurement:
+
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{placeholder.jpg} 
-                \caption{Three different EEQ acquistion devices \todo{/ create picture with three priced devices}}\label{eeg-devices}
-            \end{figure}
+                \includegraphics[width=0.8\textwidth]{eur-vs-snr.PNG} 
+                \caption{SNR plotted against price, Source: \cite{Zerafa.2018}}\label{snr-eur}
+            \end{figure}              
+                
+            Figure \ref{snr-eur} shows the picture that \textit{cheaper} sensors tend to have a worse SNR than more expensive ones with one exception which performed better. However, the cheaper sensors were perceived more comfortable and their set-up time was significantly less compared to fully fledged medical devices, which made them the better choice for experimenting and rapid prototyping. Also the expensive sensors required special treatment with gels and saline solutions, which wasn't necessary on the dry-electrode setup of the cheaper sensors. The conclusion of \cite{Zerafa.2018} was that either of those two caterogories have their advantages in their own domain and there is no \textit{best choice}.
 
-            Figure \ref*{eeg-devices} shows a range of three devices of a different price point. The most prominent difference is the amount of electrodes, which each device consists of. The amount and quality of these electrodes have a profound effect on the overall cost of a single device:
+            \medskip
 
-            \begin{enumerate}[label=\Alph*]
-                \item Nextmind DevKit, 399US\$
-                \item OpenBCI All-in-One EEG Electrode Cap, 1399US\$
-                \item Nihon Kohden Neurofax EEG-1200, 7650US\$\footnote{Prices are only available on request. This is the price of a used device off ebay.}\footnote{Prices are without the electrodes, which come at around 80US\$ each electrode.}
-            \end{enumerate}
-
-            \todo{\textbf{Amend and revisit this section after access to \cite{Zerafa.2018}}}
-
-            %probablby make use of: https://www.tandfonline.com/doi/full/10.1080/2326263X.2018.1550710                
+            \todo{Check if paper can be quoted like that.}
 
     \chapter{Survey Framework}\label{survey-framework}
 
