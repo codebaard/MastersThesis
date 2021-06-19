@@ -466,21 +466,32 @@
 
         \section{What data will be collected}\label{datacollection}
 
-            The data collection will be structured in two blocks: Questions which the participant will be asked directly. The answers are given by the participant on the tablet mentioned in the previous section:
+            The data collection will be structured in three blocks: Two questionnaires before and after the experiment which the participant had to answer and data collection during the experiment. The first questionnaire consisted of general questions regarding demographics and medical conditions:
 
             \begin{itemize}
                 \item Demographics: Age and Sex
                 \item If the participant wears glasses
                 \item If the user felt motion sickness during the experiment
+                \item Cognitive impairments
+                \item Medication known to affect EEG readings
             \end{itemize}
 
-            The data, which will be collected during the experiment is collected on the VR headset and stored in a file, which will be available after the finished experiment. This data will contain the following readings:
+            The collected data during the experiment was collected on the VR headset (\todo{applicatioin}) and stored in a file, which was available after the finished experiment. This data contained the following readings:
 
             \begin{itemize}
                 \item Speed of each neurotag activation from the point where a cue was given. This is the start of $t1$ until the end of $t2$, where the sensor is confident that a certain neurotag was looked at.
                 \item Confidence score of each activated neurotag upon activation until another neurotag is activated.
                 \item Quality readings from each single electrode to monitor the tracking quality of the sensor, in order to explain outliers in the collected data.
-            \end{itemize}        
+            \end{itemize}
+            
+            After the experiment the participant answered the second block of questions, which consisted of questions about the general experience of using the BCI:
+            
+            \begin{itemize}
+                \item If the user felt motion sickness during the experiment (rated 1...5)
+                \item comfort of wearing the sensor (rated 1...5)
+                \item perceived time to setup the sensor (rated 1...5)
+                \item ease of use (rated 1...5) %did it work well?
+            \end{itemize}           
 
         \section{How are the age groups structured}
 
@@ -489,26 +500,6 @@
             \medskip
 
             \todo{Mail an Prof Lorenz - warte auf Rückmeldung}
-
-        \section{Questionnaire}
-
-            \todo{create questionnaire}
-
-            Before:
-
-            \begin{itemize}
-                \item Demographics
-                \item considerations 
-                \item ...
-            \end{itemize}
-
-            Afterwards:
-
-            \begin{itemize}
-                \item comfort
-                \item feeling
-                \item ...
-            \end{itemize}
 
         \section{Experimental Protocol}
 
