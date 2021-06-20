@@ -13,7 +13,7 @@ namespace Model
             this.timestamp = DateTime.Now;
         }
 
-        public virtual string toString()
+        public virtual string getLogString()
         {
             return timestamp.ToString() + "," + EventType;
         }

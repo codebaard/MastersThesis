@@ -1,4 +1,6 @@
-﻿namespace Model
+﻿using System;
+
+namespace Model
 {
     public class NeuroTagConfidenceLogEntry : LogEntry
     {
@@ -10,9 +12,9 @@
             this.EventType = typeof(NeuroTagConfidenceLogEntry).ToString();
         }
 
-        public override string toString()
+        public override string getLogString()
         {
-            return base.toString() + "," + value;
+            return base.getLogString() + "," + value;
         }
     }
 }

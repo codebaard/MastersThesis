@@ -4,6 +4,7 @@ namespace Model
 {
     public class NeuroTagHitLogEntry : LogEntry
     {
+        public NeuroTagHitLogEntry() { }
         public int TargetIndex;
 
         public NeuroTagHitLogEntry(int index)
@@ -12,9 +13,9 @@ namespace Model
             this.EventType = typeof(NeuroTagHitLogEntry).ToString();
         }
 
-        public override string toString()
+        public override string getLogString()
         {
-            return base.toString() + "," + TargetIndex;
+            return base.getLogString() + "," + TargetIndex;
         }
     }
 }

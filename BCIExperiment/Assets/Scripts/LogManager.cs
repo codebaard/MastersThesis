@@ -7,7 +7,11 @@ using NextMind.Events;
 
 public class LogManager : MonoBehaviour, ILogWriter
 {
-    #region NeuroTag events
+
+    public LogManager()
+    {
+        Debug.Log("I'm actually Alive!");
+    }
 
     public void OnTriggered(int index)
     {
@@ -25,10 +29,22 @@ public class LogManager : MonoBehaviour, ILogWriter
         }
     }
 
-    #endregion
+    public void OnTargetSet(int index)
+    {
+        using (NeuroTagMarkedAsTargetLogEntry
+            neuroTagMarkedAsTargetLogEntry = new NeuroTagMarkedAsTargetLogEntry(index))
+        {
+            PostDataToLogfile(neuroTagMarkedAsTargetLogEntry);
+        }
+    }
+
+    public void onExperimentFinished()
+    {
+        //save log
+    }
     
     public void PostDataToLogfile(LogEntry logEntry)
     {
-        print(logEntry.ToString());
+        Debug.Log(logEntry.getLogString());
     }
 }

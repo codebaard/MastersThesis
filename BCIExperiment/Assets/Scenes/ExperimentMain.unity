@@ -503,6 +503,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UITag_1
       objectReference: {fileID: 0}
+    - target: {fileID: 6194260608835990875, guid: a4fe664e7c46384419a98df0f18d34d9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Neurotag
+      objectReference: {fileID: 0}
     - target: {fileID: 6194260608835990876, guid: a4fe664e7c46384419a98df0f18d34d9,
         type: 3}
       propertyPath: m_Material
