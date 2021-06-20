@@ -1,11 +1,17 @@
 ﻿namespace Model
 {
-    public class NeuroTagMarkedAsTargetLogEntry : NeuroTagHitLogEntry
+    public class NeuroTagMarkedAsTargetLogEntry : LogEntry
     {
-        public NeuroTagMarkedAsTargetLogEntry(int index)
+        public string name;
+        public NeuroTagMarkedAsTargetLogEntry(string name)
         {
-            this.TargetIndex = index;
+            this.name = name;
             this.EventType = typeof(NeuroTagMarkedAsTargetLogEntry).ToString();
+        }
+        
+        public override string getLogString()
+        {
+            return base.getLogString() + ";" + name;
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Interfaces
     public interface ILogWriter
     {
         void PostDataToLogfile(LogEntry logEntry);
-        void OpenLogForWriting(string subject);
+        void OpenLogForWriting();
     }
     
 }

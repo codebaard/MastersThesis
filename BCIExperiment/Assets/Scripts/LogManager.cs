@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using DefaultNamespace;
 using Interfaces;
 using Model;
@@ -10,6 +11,7 @@ using DefaultNamespace;
 
 public class LogManager : MonoBehaviour, ILogWriter
 {
+    private StreamWriter streamWriter;
     public void OnTriggered(int index)
     {
         using (NeuroTagHitLogEntry neuroTagHitLogEntry = new NeuroTagHitLogEntry(index))
@@ -17,48 +19,74 @@ public class LogManager : MonoBehaviour, ILogWriter
             PostDataToLogfile(neuroTagHitLogEntry);           
         }
     }
-    
     public void OnConfidenceChanged(float value)
     {
-        using (NeuroTagConfidenceLogEntry neuroTagConfidenceLogEntry = new NeuroTagConfidenceLogEntry(value))
+        using (NeuroTagConfidenceLogEntry msg = new NeuroTagConfidenceLogEntry(value))
         {
-            PostDataToLogfile(neuroTagConfidenceLogEntry);           
+            PostDataToLogfile(msg);           
         }
     }
-
-    public void OnTargetSet(int index)
+    void onExperimentStarted(string message)
     {
-        using (NeuroTagMarkedAsTargetLogEntry
-            neuroTagMarkedAsTargetLogEntry = new NeuroTagMarkedAsTargetLogEntry(index))
+        using (ExperimentEventLogEntry msg = new ExperimentEventLogEntry(message))
         {
-            PostDataToLogfile(neuroTagMarkedAsTargetLogEntry);
+            PostDataToLogfile(msg);
         }
     }
 
+    void onExperimentFinished(string message)
+    {
+        using (ExperimentEventLogEntry msg = new ExperimentEventLogEntry(message))
+        {
+            PostDataToLogfile(msg);
+        }
+        streamWriter.FlushAsync();
+        streamWriter.Close();
+    }
+    public void OnTargetSet(string name)
+    {
+        using (NeuroTagMarkedAsTargetLogEntry msg = new NeuroTagMarkedAsTargetLogEntry(name))
+        {
+            PostDataToLogfile(msg);
+        }
+    }
     private void OnEnable()
     {
+        OpenLogForWriting();
         ExperimentManager.onExperimentStarted += onExperimentStarted;
         ExperimentManager.onTargetSet += OnTargetSet;
+        ExperimentManager.onExperimentFinished += onExperimentFinished;
     }
 
     private void OnDisable()
     {
         ExperimentManager.onExperimentStarted -= onExperimentStarted;
         ExperimentManager.onTargetSet -= OnTargetSet;
+        ExperimentManager.onExperimentFinished -= onExperimentFinished;
     }
-
-    void onExperimentStarted()
-    {
-        //OpenLogForWriting("4711");
-    }
-    
     public void PostDataToLogfile(LogEntry logEntry)
     {
-        //Debug.Log(logEntry.getLogString());
+        Debug.Log(logEntry.getLogString());
+        if (!streamWriter.Equals(default))
+        {
+            streamWriter.WriteLineAsync(logEntry.getLogString());           
+        }
     }
-
-    public void OpenLogForWriting(string subject)
+    public void OpenLogForWriting()
     {
-        print(subject);
+        string filepath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        string filename = "BCILog.csv";
+
+        try
+        {
+            streamWriter = new StreamWriter(Path.Combine(filepath, filename), true);
+        }
+        catch (Exception e)
+        {
+            using (ErrorLogEntry msg = new ErrorLogEntry("streamwriter error: " + e.Message))
+            {
+                PostDataToLogfile(msg);
+            }
+        }
     }
 }

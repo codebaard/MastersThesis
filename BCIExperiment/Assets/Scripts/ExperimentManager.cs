@@ -10,27 +10,27 @@ namespace DefaultNamespace
 {
     public class ExperimentManager : MonoBehaviour
     {
-        private static System.Random rnd = new System.Random(); //Use explicitly system library
         private List<GameObject> _neuroTags;
         private bool _isExperimentRunning;
         [SerializeField] private int NeurotagsToSample;
 
-        public delegate void ExperimentStarted();
+        public delegate void ExperimentStarted(string message);
         public static event ExperimentStarted onExperimentStarted;
 
-        public delegate void TargetSet(int index);
+        public delegate void ExperimentFinished(string message);
+        public static event ExperimentFinished onExperimentFinished;
+
+        public delegate void TargetSet(string name);
         public static event TargetSet onTargetSet;
 
         public void Start()
         {
             _neuroTags = GameObject.FindGameObjectsWithTag("Neurotag").ToList();
         }
-
         public ExperimentManager()
         {
             _isExperimentRunning = false;
         }
-
         public void OnTriggered()
         {
             if (NeurotagsToSample > 0)
@@ -40,38 +40,37 @@ namespace DefaultNamespace
             }
             else
             {
-                ExperimentFinished();
+                if (onExperimentFinished != null)
+                {
+                    onExperimentFinished("finished");
+                }
             }
 
         }
-
         public void StartExperiment()
         {
-            Debug.Log("Experiment started");
-            _isExperimentRunning = true;
             _setNewTarget();
+            _isExperimentRunning = true;
             if (onExperimentStarted != null)
             {
-                onExperimentStarted();
+                onExperimentStarted("started");
             }
         }
-
-        public Event ExperimentFinished()
+        public void AbortExperiment()
         {
-            print("done");
-            return null;
+            if (onExperimentFinished != null)
+            {
+                onExperimentFinished("aborted");
+            }            
         }
-
         private void _setNewTarget()
         {
-            int randomIndex = rnd.Next(_neuroTags.Count);
+            int randomIndex = Random.Range(0, _neuroTags.Count-1);
             GameObject neurotag = _neuroTags[randomIndex];
             string name = neurotag.name;
-            int index = Convert.ToInt16(name[name.Length - 1]);
-            
             if (onTargetSet != null)
             {
-                onTargetSet(index);
+                onTargetSet(name);
             }
         }
     }
