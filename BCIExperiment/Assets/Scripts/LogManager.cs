@@ -1,18 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using Interfaces;
 using Model;
 using UnityEngine;
 using NextMind.Events;
+using DefaultNamespace;
 
 public class LogManager : MonoBehaviour, ILogWriter
 {
-
-    public LogManager()
-    {
-        Debug.Log("I'm actually Alive!");
-    }
-
     public void OnTriggered(int index)
     {
         using (NeuroTagHitLogEntry neuroTagHitLogEntry = new NeuroTagHitLogEntry(index))
@@ -38,13 +35,30 @@ public class LogManager : MonoBehaviour, ILogWriter
         }
     }
 
-    public void onExperimentFinished()
+    private void OnEnable()
     {
-        //save log
+        ExperimentManager.onExperimentStarted += onExperimentStarted;
+        ExperimentManager.onTargetSet += OnTargetSet;
+    }
+
+    private void OnDisable()
+    {
+        ExperimentManager.onExperimentStarted -= onExperimentStarted;
+        ExperimentManager.onTargetSet -= OnTargetSet;
+    }
+
+    void onExperimentStarted()
+    {
+        //OpenLogForWriting("4711");
     }
     
     public void PostDataToLogfile(LogEntry logEntry)
     {
-        Debug.Log(logEntry.getLogString());
+        //Debug.Log(logEntry.getLogString());
+    }
+
+    public void OpenLogForWriting(string subject)
+    {
+        print(subject);
     }
 }

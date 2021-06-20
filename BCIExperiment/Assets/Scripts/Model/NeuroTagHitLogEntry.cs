@@ -15,7 +15,7 @@ namespace Model
 
         public override string getLogString()
         {
-            return base.getLogString() + "," + TargetIndex;
+            return base.getLogString() + ";" + TargetIndex;
         }
     }
 }

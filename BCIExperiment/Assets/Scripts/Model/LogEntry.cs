@@ -15,7 +15,7 @@ namespace Model
 
         public virtual string getLogString()
         {
-            return timestamp.ToString() + "," + EventType;
+            return timestamp.ToString() + ";" + EventType;
         }
 
         public void Dispose()
