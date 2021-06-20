@@ -5,6 +5,6 @@ namespace Interfaces
 {
     public interface ILogWriter
     {
-        void PostDataToLogfile(AbstractLogEntry logEntry);
+        void PostDataToLogfile(LogEntry logEntry);
     }
 }
