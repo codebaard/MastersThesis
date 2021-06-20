@@ -12,6 +12,9 @@ using DefaultNamespace;
 public class LogManager : MonoBehaviour, ILogWriter
 {
     private StreamWriter streamWriter;
+
+    [SerializeField]
+    private bool _enableConfidenceLogging;
     public void OnTriggered(int index)
     {
         using (NeuroTagHitLogEntry neuroTagHitLogEntry = new NeuroTagHitLogEntry(index))
@@ -23,7 +26,8 @@ public class LogManager : MonoBehaviour, ILogWriter
     {
         using (NeuroTagConfidenceLogEntry msg = new NeuroTagConfidenceLogEntry(value))
         {
-            PostDataToLogfile(msg);           
+            if(_enableConfidenceLogging)
+                PostDataToLogfile(msg);           
         }
     }
     void onExperimentStarted(string message)
@@ -40,7 +44,7 @@ public class LogManager : MonoBehaviour, ILogWriter
         {
             PostDataToLogfile(msg);
         }
-        streamWriter.FlushAsync();
+        streamWriter.Flush();
         streamWriter.Close();
     }
     public void OnTargetSet(string name)
@@ -54,15 +58,15 @@ public class LogManager : MonoBehaviour, ILogWriter
     {
         OpenLogForWriting();
         ExperimentManager.onExperimentStarted += onExperimentStarted;
-        ExperimentManager.onTargetSet += OnTargetSet;
         ExperimentManager.onExperimentFinished += onExperimentFinished;
+        TargetManager.onTargetSet += OnTargetSet;
     }
 
     private void OnDisable()
     {
         ExperimentManager.onExperimentStarted -= onExperimentStarted;
-        ExperimentManager.onTargetSet -= OnTargetSet;
         ExperimentManager.onExperimentFinished -= onExperimentFinished;
+        TargetManager.onTargetSet -= OnTargetSet;
     }
     public void PostDataToLogfile(LogEntry logEntry)
     {
