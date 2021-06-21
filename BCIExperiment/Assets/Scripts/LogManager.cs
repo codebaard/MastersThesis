@@ -15,6 +15,8 @@ public class LogManager : MonoBehaviour, ILogWriter
 
     [SerializeField]
     private bool _enableConfidenceLogging;
+    
+    // works
     public void OnTriggered(int index)
     {
         using (NeuroTagHitLogEntry neuroTagHitLogEntry = new NeuroTagHitLogEntry(index))
@@ -22,7 +24,7 @@ public class LogManager : MonoBehaviour, ILogWriter
             PostDataToLogfile(neuroTagHitLogEntry);           
         }
     }
-    public void OnConfidenceChanged(float value)
+    public void OnConfidenceChanged(float value, int index)
     {
         using (NeuroTagConfidenceLogEntry msg = new NeuroTagConfidenceLogEntry(value))
         {
