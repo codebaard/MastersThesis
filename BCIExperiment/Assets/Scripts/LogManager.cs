@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using DefaultNamespace;
 using Interfaces;
 using Model;
 using UnityEngine;
-using NextMind.Events;
 using NextMind;
-using DefaultNamespace;
 using NextMind.Devices;
-using NextMind.NeuroTags;
 
 public class LogManager : MonoBehaviour, ILogWriter
 {

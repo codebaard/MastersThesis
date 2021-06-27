@@ -1,5 +1,4 @@
-﻿using System;
-using DefaultNamespace;
+﻿using DefaultNamespace;
 using NextMind.NeuroTags;
 using UnityEngine;
 
@@ -18,8 +17,7 @@ namespace Model
             _neuroTag = gameObject.GetComponent<NeuroTag>();
             _identifier = gameObject.GetComponent<NeuroTagIdentifier>();
 
-            ExperimentManager.onExperimentStarted += onExperimentStarted;
-            ExperimentManager.onExperimentFinished += onExperimentFinished;
+            TargetManager.onTargetSet += ActivationHandler;
         }
         
         public void OnTriggered()
@@ -32,13 +30,22 @@ namespace Model
                     _logManager.PostDataToLogfile(new NeuroTagConfidenceLogEntry(value, _identifier.getIndex()));
         }
 
-        public void onExperimentStarted(string msg)
+        public void ActivationHandler(GameObject neurotag)
+        {
+            NeuroTagLogWrapper tag = neurotag.GetComponent<NeuroTag>().GetComponent<NeuroTagLogWrapper>();
+            if (tag.Equals(this))
+                onActivated("is active");
+            else
+                onDeactivated("deactivated");
+        }
+
+        public void onActivated(string msg)
         {
             _neuroTag.onConfidenceChanged.AddListener(OnConfidenceChanged);
             _neuroTag.onTriggered.AddListener(OnTriggered);
         }
 
-        public void onExperimentFinished(string msg)
+        public void onDeactivated(string msg)
         {
             _neuroTag.onConfidenceChanged.RemoveListener(OnConfidenceChanged);
             _neuroTag.onTriggered.RemoveListener(OnTriggered);

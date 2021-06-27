@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using NextMind;
-using NextMind.NeuroTags;
-using Random = UnityEngine.Random;
+﻿using UnityEngine;
 
 namespace DefaultNamespace
 {

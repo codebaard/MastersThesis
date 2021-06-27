@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using NextMind;
-using NextMind.NeuroTags;
-using TMPro.EditorUtilities;
 using Random = UnityEngine.Random;
 
 namespace DefaultNamespace
@@ -12,7 +8,7 @@ namespace DefaultNamespace
     public class TargetManager : MonoBehaviour
     { 
         private List<GameObject> _neuroTags;
-        
+
         public delegate void TargetSet(GameObject neuroTag);
         public static event TargetSet onTargetSet;
 

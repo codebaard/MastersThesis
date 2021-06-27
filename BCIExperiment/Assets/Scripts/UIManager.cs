@@ -9,6 +9,9 @@ namespace DefaultNamespace
         
         public delegate void AbortButtonClicked();
         public static event AbortButtonClicked onAbortbuttonClicked;
+
+        public delegate void FinishButtonClicked();
+        public static event FinishButtonClicked onFinishButtonClicked;
         
         public void StartButtonHandler()
         {
@@ -23,6 +26,14 @@ namespace DefaultNamespace
             if (onAbortbuttonClicked != null)
             {
                 onAbortbuttonClicked();
+            }
+        }
+
+        public void FinishButtonHandler()
+        {
+            if (onFinishButtonClicked != null)
+            {
+                onFinishButtonClicked();
             }
         }
     }

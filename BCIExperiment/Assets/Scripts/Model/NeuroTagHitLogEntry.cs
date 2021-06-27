@@ -1,6 +1,4 @@
-﻿using NextMind.Events;
-
-namespace Model
+﻿namespace Model
 {
     public class NeuroTagHitLogEntry : LogEntry
     {

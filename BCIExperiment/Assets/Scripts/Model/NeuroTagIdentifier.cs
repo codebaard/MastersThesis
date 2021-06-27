@@ -8,7 +8,7 @@ namespace Model
         private int index;
 
         private int countActivated;
-
+        
         public int getIndex()
         {
             return index;

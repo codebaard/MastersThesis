@@ -25,7 +25,7 @@ namespace Model
 
         public override string getLogString()
         {
-            return base.getLogString() + _qualityReadings() + _calibrationResults.Grade;
+            return base.getLogString()+ ";" + _qualityReadings() + _calibrationResults.Grade;
         }
 
         private string _qualityReadings()
