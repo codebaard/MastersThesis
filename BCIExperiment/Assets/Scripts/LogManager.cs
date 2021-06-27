@@ -7,11 +7,13 @@ using Model;
 using UnityEngine;
 using NextMind;
 using NextMind.Devices;
+using UnityEngine.UI;
 
 public class LogManager : MonoBehaviour, ILogWriter
 {
     private StreamWriter _streamWriter;
     [SerializeField] private bool _enableConfidenceLogging; //during development for less clutter in the logs
+    [SerializeField] private GameObject _participationNumber;
 
     private void _onExperimentStarted(string message)
     {
@@ -36,10 +38,10 @@ public class LogManager : MonoBehaviour, ILogWriter
     }
     private void OnEnable()
     {
-        OpenLogForWriting();
         ExperimentManager.onExperimentStarted += _onExperimentStarted;
         ExperimentManager.onExperimentFinished += _onExperimentFinished;
         TargetManager.onTargetSet += _onTargetSet;
+        UIManager.onParticipantNumberEntered += OpenLogForWriting;
     }
 
     private void OnDisable()
@@ -47,6 +49,7 @@ public class LogManager : MonoBehaviour, ILogWriter
         ExperimentManager.onExperimentStarted -= _onExperimentStarted;
         ExperimentManager.onExperimentFinished -= _onExperimentFinished;
         TargetManager.onTargetSet -= _onTargetSet;
+        UIManager.onParticipantNumberEntered -= OpenLogForWriting;
         
         _streamWriter.Flush();
         _streamWriter.Close();
@@ -62,8 +65,9 @@ public class LogManager : MonoBehaviour, ILogWriter
     }
     public void OpenLogForWriting()
     {
+        string participant = _participationNumber.GetComponent<Text>().text;
         string filepath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-        string filename = "BCILog.csv";
+        string filename = "BCILog_" + participant + ".csv";
 
         try
         {

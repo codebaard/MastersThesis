@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using System;
+using Model;
 using NextMind.NeuroTags;
 using UnityEditor;
 using UnityEngine;
@@ -10,12 +11,19 @@ namespace DefaultNamespace
         private Animator _animator;
         private GameObject _parentNeurotag;
         
-        private void Awake()
+        private void OnEnable()
         {
             _animator = GetComponent<Animator>();
             TargetManager.onTargetSet += ActivationHandler;
+            ExperimentManager.onExperimentFinished += OnFinishedHandler;
         }
-        
+
+        private void OnDisable()
+        {
+            TargetManager.onTargetSet -= ActivationHandler;
+            ExperimentManager.onExperimentFinished -= OnFinishedHandler;
+        }
+
         public void ActivationHandler(GameObject neurotag)
         {
             Highlighter highlighter = neurotag.GetComponentInChildren<Highlighter>();
@@ -23,6 +31,11 @@ namespace DefaultNamespace
                 onActivated("is active");
             else
                 onDeactivated("deactivated");
+        }
+
+        private void OnFinishedHandler(string msg)
+        {
+            _animator.SetFloat("ConfidenceValue",0);
         }
 
         private void onActivated(string msg)

@@ -1,4 +1,5 @@
-﻿using DefaultNamespace;
+﻿using System;
+using DefaultNamespace;
 using NextMind.NeuroTags;
 using UnityEngine;
 
@@ -18,8 +19,15 @@ namespace Model
             _identifier = gameObject.GetComponent<NeuroTagIdentifier>();
 
             TargetManager.onTargetSet += ActivationHandler;
+            ExperimentManager.onExperimentFinished += onDeactivated;
         }
-        
+
+        private void OnDisable()
+        {
+            TargetManager.onTargetSet -= ActivationHandler;
+            ExperimentManager.onExperimentFinished -= onDeactivated;
+        }
+
         public void OnTriggered()
         {
             _logManager.PostDataToLogfile(new NeuroTagHitLogEntry(_identifier.getIndex()));
