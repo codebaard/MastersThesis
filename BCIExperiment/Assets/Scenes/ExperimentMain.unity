@@ -2373,7 +2373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetManager: {fileID: 393108930}
-  _neurotagsToSample: 5
+  _neurotagsToSample: 50
 --- !u!4 &508996948
 Transform:
   m_ObjectHideFlags: 0

@@ -30,17 +30,19 @@ namespace DefaultNamespace
 
         public void OnTriggered()
         {
-            if (_neurotagsToSample > 0)
+            if (_neurotagsToSample > 0 && _isExperimentRunning)
             {
                 _targetManager.SetNewTarget();
                 _neurotagsToSample--;               
             }
-            else
+            else if (_isExperimentRunning)
             {
                 if (onExperimentFinished != null)
                 {
                     onExperimentFinished("finished");
                 }
+
+                _isExperimentRunning = false;
             }
         }
         public void StartExperiment()
