@@ -2,16 +2,16 @@
 {
     public class NeuroTagMarkedAsTargetLogEntry : LogEntry
     {
-        public string name;
-        public NeuroTagMarkedAsTargetLogEntry(string name)
+        public int index;
+        public NeuroTagMarkedAsTargetLogEntry(int index)
         {
-            this.name = name;
+            this.index = index;
             this.EventType = typeof(NeuroTagMarkedAsTargetLogEntry).ToString();
         }
         
         public override string getLogString()
         {
-            return base.getLogString() + ";" + name;
+            return base.getLogString() + ";" + index;
         }
     }
 }

@@ -7,26 +7,49 @@ using Interfaces;
 using Model;
 using UnityEngine;
 using NextMind.Events;
+using NextMind;
 using DefaultNamespace;
+using NextMind.Devices;
+using NextMind.NeuroTags;
 
 public class LogManager : MonoBehaviour, ILogWriter
 {
-    private StreamWriter streamWriter;
+    private StreamWriter _streamWriter;
+    private NeuroTag _currentNeuroTag;
+    private NeuroTagIdentifier _identifier;
 
     [SerializeField]
     private bool _enableConfidenceLogging;
+
+    private void _subscribeToNeuroTag(GameObject neurotag)
+    {
+        _unsubscribeFromNeuroTag();
+        _currentNeuroTag = neurotag.GetComponent<NeuroTag>();
+        _identifier = neurotag.GetComponent<NeuroTagIdentifier>();
+        
+        _currentNeuroTag.onConfidenceChanged.AddListener(OnConfidenceChanged);
+        _currentNeuroTag.onTriggered.AddListener(OnTriggered);        
+    }
+
+    private void _unsubscribeFromNeuroTag()
+    {
+        _currentNeuroTag.onConfidenceChanged.RemoveListener(OnConfidenceChanged);
+        _currentNeuroTag.onTriggered.RemoveListener(OnTriggered);
+        _currentNeuroTag = null;
+        _identifier = null;
+    }
     
     // works
-    public void OnTriggered(int index)
+    public void OnTriggered()
     {
-        using (NeuroTagHitLogEntry neuroTagHitLogEntry = new NeuroTagHitLogEntry(index))
+        using (NeuroTagHitLogEntry neuroTagHitLogEntry = new NeuroTagHitLogEntry(_identifier.getIndex()))
         {
             PostDataToLogfile(neuroTagHitLogEntry);           
         }
     }
-    public void OnConfidenceChanged(float value, int index)
+    public void OnConfidenceChanged(float value)
     {
-        using (NeuroTagConfidenceLogEntry msg = new NeuroTagConfidenceLogEntry(value))
+        using (NeuroTagConfidenceLogEntry msg = new NeuroTagConfidenceLogEntry(value, _identifier.getIndex()))
         {
             if(_enableConfidenceLogging)
                 PostDataToLogfile(msg);           
@@ -46,12 +69,22 @@ public class LogManager : MonoBehaviour, ILogWriter
         {
             PostDataToLogfile(msg);
         }
-        streamWriter.Flush();
-        streamWriter.Close();
+        _streamWriter.Flush();
+        _streamWriter.Close();
     }
-    public void OnTargetSet(string name)
+    public void OnTargetSet(GameObject neurotag)
     {
-        using (NeuroTagMarkedAsTargetLogEntry msg = new NeuroTagMarkedAsTargetLogEntry(name))
+        _subscribeToNeuroTag(neurotag);
+        
+        using (NeuroTagMarkedAsTargetLogEntry msg = new NeuroTagMarkedAsTargetLogEntry(_identifier.getIndex()))
+        {
+            PostDataToLogfile(msg);
+        }
+    }
+
+    public void LogDeviceQualityReadings(Device sensor)
+    {
+        using (SensorTelemetryLogEntry msg = new SensorTelemetryLogEntry(sensor))
         {
             PostDataToLogfile(msg);
         }
@@ -73,9 +106,9 @@ public class LogManager : MonoBehaviour, ILogWriter
     public void PostDataToLogfile(LogEntry logEntry)
     {
         Debug.Log(logEntry.getLogString());
-        if (!streamWriter.Equals(default))
+        if (!_streamWriter.Equals(default))
         {
-            streamWriter.WriteLineAsync(logEntry.getLogString());           
+            _streamWriter.WriteLineAsync(logEntry.getLogString());           
         }
     }
     public void OpenLogForWriting()
@@ -85,7 +118,7 @@ public class LogManager : MonoBehaviour, ILogWriter
 
         try
         {
-            streamWriter = new StreamWriter(Path.Combine(filepath, filename), true);
+            _streamWriter = new StreamWriter(Path.Combine(filepath, filename), true);
         }
         catch (Exception e)
         {

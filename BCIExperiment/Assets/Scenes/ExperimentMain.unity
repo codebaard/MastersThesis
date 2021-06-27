@@ -1085,6 +1085,36 @@ PrefabInstance:
       propertyPath: simulateFocus
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5772243408818577054, guid: e2403c56af46d314fbc68b86f62a1315,
+        type: 3}
+      propertyPath: onDeviceConnected.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772243408818577054, guid: e2403c56af46d314fbc68b86f62a1315,
+        type: 3}
+      propertyPath: onDeviceConnected.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772243408818577054, guid: e2403c56af46d314fbc68b86f62a1315,
+        type: 3}
+      propertyPath: onDeviceConnected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 685229203}
+    - target: {fileID: 5772243408818577054, guid: e2403c56af46d314fbc68b86f62a1315,
+        type: 3}
+      propertyPath: onDeviceConnected.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772243408818577054, guid: e2403c56af46d314fbc68b86f62a1315,
+        type: 3}
+      propertyPath: onDeviceConnected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LogDeviceQualityReadings
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772243408818577054, guid: e2403c56af46d314fbc68b86f62a1315,
+        type: 3}
+      propertyPath: onDeviceConnected.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5772243408818577057, guid: e2403c56af46d314fbc68b86f62a1315,
         type: 3}
       propertyPath: m_Name
@@ -1312,6 +1342,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a03d815513271a479ed2cd541302527, type: 3}
+--- !u!1 &2013933583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1391980575429665942, guid: 5a03d815513271a479ed2cd541302527,
+    type: 3}
+  m_PrefabInstance: {fileID: 2013933582}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2013933584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013933583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad8cbe4ea5034681839cdc164bda9238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 1
 --- !u!1 &2020326935
 GameObject:
   m_ObjectHideFlags: 0

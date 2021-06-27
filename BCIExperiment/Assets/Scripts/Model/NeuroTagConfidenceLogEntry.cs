@@ -5,16 +5,18 @@ namespace Model
     public class NeuroTagConfidenceLogEntry : LogEntry
     {
         public float Value;
+        public int Index;
 
-        public NeuroTagConfidenceLogEntry(float value)
+        public NeuroTagConfidenceLogEntry(float value, int index)
         {
-            this.Value = value;
-            this.EventType = typeof(NeuroTagConfidenceLogEntry).ToString();
+            Value = value;
+            Index = index;
+            EventType = typeof(NeuroTagConfidenceLogEntry).ToString();
         }
 
         public override string getLogString()
         {
-            return base.getLogString() + ";" + Value;
+            return base.getLogString() + ";" + Index + ";" + Value;
         }
     }
 }

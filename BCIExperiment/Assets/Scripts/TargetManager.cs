@@ -11,33 +11,28 @@ namespace DefaultNamespace
 {
     public class TargetManager : MonoBehaviour
     { 
-        private List<NeuroTag> _neuroTags;
+        private List<GameObject> _neuroTags;
         
-        public delegate void TargetSet(string name);
+        public delegate void TargetSet(GameObject neuroTag);
         public static event TargetSet onTargetSet;
 
         public void OnEnable()
         {
-            _neuroTags = new List<NeuroTag>();
+            _neuroTags = new List<GameObject>();
         }
 
         public void Start()
         {
             List<GameObject> gameObjects = GameObject.FindGameObjectsWithTag("Neurotag").ToList();
-            foreach (GameObject go in gameObjects)
-            {
-                _neuroTags.Add(go.GetComponent<NeuroTag>());
-            }
         }
         
         public void SetNewTarget()
         {
             int randomIndex = Random.Range(0, _neuroTags.Count-1);
-            NeuroTag neurotag = _neuroTags[randomIndex];
-            string name = neurotag.name;
+            GameObject neurotag = _neuroTags[randomIndex];
             if (onTargetSet != null)
             {
-                onTargetSet(name);
+                onTargetSet(neurotag);
             }
         }
     }
