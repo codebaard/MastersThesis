@@ -18,8 +18,7 @@ namespace Model
             _neuroTag = gameObject.GetComponent<NeuroTag>();
             _identifier = gameObject.GetComponent<NeuroTagIdentifier>();
 
-            _neuroTag.onConfidenceChanged.AddListener(OnConfidenceChanged);
-            _neuroTag.onTriggered.AddListener(OnTriggered);
+            ExperimentManager.onExperimentStarted += onExperimentStarted;
             ExperimentManager.onExperimentFinished += onExperimentFinished;
         }
         
@@ -31,6 +30,12 @@ namespace Model
         {
             if(_logManager.LogConfidenceData())
                     _logManager.PostDataToLogfile(new NeuroTagConfidenceLogEntry(value, _identifier.getIndex()));
+        }
+
+        public void onExperimentStarted(string msg)
+        {
+            _neuroTag.onConfidenceChanged.AddListener(OnConfidenceChanged);
+            _neuroTag.onTriggered.AddListener(OnTriggered);
         }
 
         public void onExperimentFinished(string msg)

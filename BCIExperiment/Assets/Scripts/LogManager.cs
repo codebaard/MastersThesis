@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using DefaultNamespace;
 using Interfaces;
 using Model;
@@ -19,6 +20,8 @@ public class LogManager : MonoBehaviour, ILogWriter
 
     private void _onExperimentStarted(string message)
     {
+        Device sensor = NeuroManager.Instance.Devices.FirstOrDefault();
+        PostDataToLogfile(new SensorTelemetryLogEntry(sensor));
         PostDataToLogfile(new ExperimentEventLogEntry(message));
     }
 
@@ -35,7 +38,6 @@ public class LogManager : MonoBehaviour, ILogWriter
     public void LogDeviceQualityReadings(Device sensor)
     {
         PostDataToLogfile(new SensorTelemetryLogEntry(sensor));
-
     }
     private void OnEnable()
     {
