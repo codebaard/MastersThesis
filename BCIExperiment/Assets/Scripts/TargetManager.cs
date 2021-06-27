@@ -23,7 +23,7 @@ namespace DefaultNamespace
 
         public void Start()
         {
-            List<GameObject> gameObjects = GameObject.FindGameObjectsWithTag("Neurotag").ToList();
+            _neuroTags = GameObject.FindGameObjectsWithTag("Neurotag").ToList();
         }
         
         public void SetNewTarget()

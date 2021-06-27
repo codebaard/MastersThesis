@@ -15,100 +15,52 @@ using NextMind.NeuroTags;
 public class LogManager : MonoBehaviour, ILogWriter
 {
     private StreamWriter _streamWriter;
-    private NeuroTag _currentNeuroTag;
-    private NeuroTagIdentifier _identifier;
+    [SerializeField] private bool _enableConfidenceLogging; //during development for less clutter in the logs
 
-    [SerializeField]
-    private bool _enableConfidenceLogging;
-
-    private void _subscribeToNeuroTag(GameObject neurotag)
+    private void _onExperimentStarted(string message)
     {
-        _unsubscribeFromNeuroTag();
-        _currentNeuroTag = neurotag.GetComponent<NeuroTag>();
-        _identifier = neurotag.GetComponent<NeuroTagIdentifier>();
-        
-        _currentNeuroTag.onConfidenceChanged.AddListener(OnConfidenceChanged);
-        _currentNeuroTag.onTriggered.AddListener(OnTriggered);        
+        PostDataToLogfile(new ExperimentEventLogEntry(message));
     }
 
-    private void _unsubscribeFromNeuroTag()
+    private void _onExperimentFinished(string message)
     {
-        _currentNeuroTag.onConfidenceChanged.RemoveListener(OnConfidenceChanged);
-        _currentNeuroTag.onTriggered.RemoveListener(OnTriggered);
-        _currentNeuroTag = null;
-        _identifier = null;
+        PostDataToLogfile(new ExperimentEventLogEntry(message));
     }
-    
-    // works
-    public void OnTriggered()
+    private void _onTargetSet(GameObject neurotag)
     {
-        using (NeuroTagHitLogEntry neuroTagHitLogEntry = new NeuroTagHitLogEntry(_identifier.getIndex()))
-        {
-            PostDataToLogfile(neuroTagHitLogEntry);           
-        }
-    }
-    public void OnConfidenceChanged(float value)
-    {
-        using (NeuroTagConfidenceLogEntry msg = new NeuroTagConfidenceLogEntry(value, _identifier.getIndex()))
-        {
-            if(_enableConfidenceLogging)
-                PostDataToLogfile(msg);           
-        }
-    }
-    void onExperimentStarted(string message)
-    {
-        using (ExperimentEventLogEntry msg = new ExperimentEventLogEntry(message))
-        {
-            PostDataToLogfile(msg);
-        }
-    }
-
-    void onExperimentFinished(string message)
-    {
-        using (ExperimentEventLogEntry msg = new ExperimentEventLogEntry(message))
-        {
-            PostDataToLogfile(msg);
-        }
-        _streamWriter.Flush();
-        _streamWriter.Close();
-    }
-    public void OnTargetSet(GameObject neurotag)
-    {
-        _subscribeToNeuroTag(neurotag);
-        
-        using (NeuroTagMarkedAsTargetLogEntry msg = new NeuroTagMarkedAsTargetLogEntry(_identifier.getIndex()))
-        {
-            PostDataToLogfile(msg);
-        }
+        PostDataToLogfile(new NeuroTagMarkedAsTargetLogEntry(
+                neurotag.GetComponent<NeuroTagLogWrapper>().getNeuroTagIndex()));
     }
 
     public void LogDeviceQualityReadings(Device sensor)
     {
-        using (SensorTelemetryLogEntry msg = new SensorTelemetryLogEntry(sensor))
-        {
-            PostDataToLogfile(msg);
-        }
+        PostDataToLogfile(new SensorTelemetryLogEntry(sensor));
+
     }
     private void OnEnable()
     {
         OpenLogForWriting();
-        ExperimentManager.onExperimentStarted += onExperimentStarted;
-        ExperimentManager.onExperimentFinished += onExperimentFinished;
-        TargetManager.onTargetSet += OnTargetSet;
+        ExperimentManager.onExperimentStarted += _onExperimentStarted;
+        ExperimentManager.onExperimentFinished += _onExperimentFinished;
+        TargetManager.onTargetSet += _onTargetSet;
     }
 
     private void OnDisable()
     {
-        ExperimentManager.onExperimentStarted -= onExperimentStarted;
-        ExperimentManager.onExperimentFinished -= onExperimentFinished;
-        TargetManager.onTargetSet -= OnTargetSet;
+        ExperimentManager.onExperimentStarted -= _onExperimentStarted;
+        ExperimentManager.onExperimentFinished -= _onExperimentFinished;
+        TargetManager.onTargetSet -= _onTargetSet;
+        
+        _streamWriter.Flush();
+        _streamWriter.Close();
     }
     public void PostDataToLogfile(LogEntry logEntry)
     {
         Debug.Log(logEntry.getLogString());
         if (!_streamWriter.Equals(default))
         {
-            _streamWriter.WriteLineAsync(logEntry.getLogString());           
+            _streamWriter.WriteLine(logEntry.getLogString());
+            _streamWriter.Flush();
         }
     }
     public void OpenLogForWriting()
@@ -127,5 +79,10 @@ public class LogManager : MonoBehaviour, ILogWriter
                 PostDataToLogfile(msg);
             }
         }
+    }
+
+    public bool LogConfidenceData()
+    {
+        return _enableConfidenceLogging;
     }
 }

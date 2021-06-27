@@ -19,11 +19,13 @@ namespace Model
             {
                 _contactQuality.Add(sensor.GetContact(i));
             }
+
+            EventType = typeof(SensorTelemetryLogEntry).ToString();
         }
 
         public override string getLogString()
         {
-            return base.getLogString() + ";" + _qualityReadings() + _calibrationResults;
+            return base.getLogString() + _qualityReadings() + _calibrationResults.Grade;
         }
 
         private string _qualityReadings()
