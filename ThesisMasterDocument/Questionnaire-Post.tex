@@ -1,5 +1,5 @@
 \documentclass[a4paper,10pt,oneside,headsepline]{scrartcl}
-%\usepackage[ngerman]{babel}
+\usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{wasysym}% provides \ocircle and \Box
 \usepackage{enumitem}% easy control of topsep and leftmargin for lists
@@ -11,7 +11,7 @@
 \setlength{\topmargin}{-1cm}
 \usepackage{scrlayer-scrpage}
 \pagestyle{scrheadings}
-\ihead{The influence of age on the ability to use Brain-Computer-Interfaces}
+\ihead{Example questionnaire created with \LaTeX}
 \ohead{\pagemark}
 \chead{}
 \cfoot{}
@@ -121,26 +121,22 @@
 \begin{document}
 
 \begin{center}
-\textbf{\huge Questionnaire prior to experiment \LaTeX}
+\textbf{\huge Example questionnaire created with \LaTeX}
 \end{center}\vskip1em
 
-\section*{Einleitung}
+\noindent Welcome to this very important survey with which we
+researchers want to look deep inside of you (be afraid!). Anyway,
+thank you for filling it all out.
 
-\noindent Dieser Fragebogen hat zum Ziel demografische und medizinische Daten zu sammeln, die im weiteren Verlauf der Studie zur Auswertung herangezogen werden können. Sämtliche Daten werden anonymisiert verarbeitet.
+\noindent \textit{Please note that no tabular environment is used in
+this example questionnaire. Of course, you could use tabular to
+create more complex layout.}
 
-\noindent Teilnehmernummer: \Qline{3cm} \textit{Wird Ihnen mitgeteilt.}
+\section*{About you}
 
-\section*Fragebogen}
+\Qitem{ \Qq{Your name}: \Qline{8cm} }
 
-\Qitem{ \Qq{Alter}: \Qline{3cm} }
-
-\Qitem{ \Qq{Tragen Sie eine Brille?} \hskip0.5cm Yes \QO{} \hskip0.5cm No \QO{}}
-
-\Qitem{ \Qq{Leiden Sie unter neurologischen Beeinträchtigungen (Demenz, Epilepsie, etc.) ?} \hskip0.5cm Yes \QO{} \hskip0.5cm No \QO{}}
-
-\Qitem{ \Qq{Nehmen Sie Medikamente zu sich, die sich auf das Gehirn auswirken?} \hskip0.5cm Yes \QO{} \hskip0.5cm No \QO{}}
-
-\Qitem{ \Qq{Haben Sie in den letzten 24h Alkohol zu sich genommen?} \hskip0.5cm Yes \QO{} \hskip0.5cm No \QO{}}
+\Qitem{ \Qq{How old are you?} I am \Qline{1.5cm} years old.}
 
 \Qitem{ \Qq{Are you in a good mood right now?} \hskip0.4cm \QO{}
 absolutely \hskip0.5cm \QO{} not really because: \Qline{3cm} }
