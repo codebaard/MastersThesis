@@ -114,6 +114,31 @@
 }
 }
 
+%code snippets
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+    language=HTML,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\small\ttfamily},
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=3
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% End of questionnaire command definitions %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -121,36 +146,62 @@
 \begin{document}
 
 \begin{center}
-\textbf{\huge Fragebogen vor dem Experiment}
+\textbf{\huge Informationsbogen vor dem Experiment}
 \end{center}\vskip1em
 
-\section*{Einleitung}
+\section*{Informationsblatt}
 
-\noindent Dieser Fragebogen hat zum Ziel demografische und medizinische Daten zu sammeln, die im weiteren Verlauf der Studie zur Auswertung herangezogen werden können. Sämtliche Daten werden anonymisiert verarbeitet.
+\noindent In diesem Experiment wird ein sogenanntes \textit{Brain-Computer-Interface} - BCI - verwendet, um wie bei einem medizinischen EEG (Elektroenzephalogramm), ähnlich einem EKG (Elektrokardiogramm), Gehirnströme zu messen. Dabei werden sogenannte \textit{Visuell Evozierte Potenziale} - VEP - mittels spezieller visueller Stimuli angeregt. Diese Muster lassen sich mit spezialisierten Sensoren messen. Die Messergebnisse werden anschließend maschinell in einem mathematischen Modell verarbeitet und Steuerbefehle für einen Computer daraus generiert.
 
+\medskip Das Experiment verursacht \textbf{keine} Schmerzen oder sonstige ungewohnte oder unangenehme Empfindungen.
+
+\medskip Das Experiment verursacht \textbf{keinerlei} gesundheitliche Schäden oder Strahlenexposition und keine Einbringung von Fremdkörpern in den Körper.
+
+\medskip Es können \textbf{keine} Gedanken gelesen und \textbf{keine} Daten gesammelt werden, die später einem Individuum und seinen politischen oder persönlichen Ansichten zugeordnet werden können.
+
+\medskip Es werden \textbf{keine} Daten gesammelt, die an eine dritte Partei über das Internet oder sonstwie übertragen werden.
+
+\medskip Es findet \textbf{keinerlei} Beeinflussung des Gehirns durch den Sensor statt. Zu jedem Zeitpunkt des Versuchs ist das Datenfluss strikt unidirektional in Richtung des Computers.
+
+\medskip Es wird \textbf{keine} Manipulation des Gehirns durchgeführt, die in irgendeiner Weise unmittelbar oder zukünftig eine der obengenannten Szenarien ermöglicht.
+
+Alle Daten werden strikt anonym anhand der Teilnehmernummer verarbeitet und zu keiner Zeit werden anhand der Daten Rückschlüsse auf den Teilnehmer möglich sein.
+
+\bigskip
+
+Die gesammelten Daten belaufen sich auf zwei Fragebögen und eine maschinell generierte Log-Datei mit dem folgenden exemplarischen Inhalt: 
+
+\begin{lstlisting}
+    1624828886;Model.NeuroTagMarkedAsTargetLogEntry;0
+    1624828886;Model.SensorTelemetryLogEntry;-1;-1;-1;-1;-1;-1;-1;-1;E
+    1624828886;Model.ExperimentEventLogEntry;started
+    1624828888;Model.NeuroTagConfidenceLogEntry;0;0.8680739
+    1624828888;Model.NeuroTagConfidenceLogEntry;0;0.8920873
+    1624828888;Model.NeuroTagMarkedAsTargetLogEntry;9
+    1624828888;Model.NeuroTagHitLogEntry;0
+    1624828889;Model.NeuroTagConfidenceLogEntry;9;0.0129531
+    1624828898;Model.NeuroTagConfidenceLogEntry;9;0.8898549
+    1624828898;Model.ExperimentEventLogEntry;finished
+    1624828898;Model.NeuroTagHitLogEntry;4
+\end{lstlisting}
+
+\bigskip
+
+\section*{Einverständniserklärung}
+
+Ich bin über den Inhalt des Experiments und die Verarbeitung der gesammelten Daten belehrt worden und stimme der Teilnahme und der anonymen Verarbeitung der gesammelten Daten zu.
+
+\bigskip
 \bigskip
 
 \noindent Teilnehmernummer: \Qline{3cm} \textit{(Wird Ihnen mitgeteilt.)}
 
-\section*{Fragebogen}
+\bigskip
+\bigskip
+\bigskip
 
-\Qitem{ \Qq{Alter}: \Qline{3cm} }
 
-\Qitem{ \Qq{Biologisches Geschlecht}:  \hskip0.5cm W \QO{} \hskip0.5cm M \QO{} \hskip0.5cm keine Angabe \QO{}}
+\noindent Datum und Unterschrift: \Qline{10cm}
 
-\Qitem{ \Qq{Tragen Sie eine Brille?} \hskip0.5cm Ja \QO{} \hskip0.5cm Nein \QO{}}
-
-\Qitem{ \Qq{Leiden Sie unter neurologischen Erkrankungen?} \hskip0.5cm Ja \QO{} \hskip0.5cm Nein \QO{}}
-
-\Qitem{ \Qq{Nehmen Sie Medikamente zu sich, die sich auf das Gehirn auswirken?} \hskip0.5cm Ja \QO{} \hskip0.5cm Nein \QO{}}
-
-\Qitem{ \Qq{Haben Sie in den letzten 12h Alkohol zu sich genommen?} \hskip0.5cm Ja \QO{} \hskip0.5cm Nein \QO{}}
-
-\Qitem{ \Qq{Haben Sie eine Farbsehschwäche?} \hskip0.5cm Ja \QO{} \hskip0.5cm Nein \QO{}}
-
-\minisec{Bitte beantworten Sie die foldenden Fragen auf einer Skala von 1 (schlechteste) bis 5 (beste):}
-\vskip.5em
-
-\Qitem[a]{ \Qq{Wie fühlen Sie sich?} {1 \Qrating{5} 5}}
 
 \end{document}

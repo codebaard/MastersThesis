@@ -121,132 +121,38 @@
 \begin{document}
 
 \begin{center}
-\textbf{\huge Fragebogen vor dem Experiment \LaTeX}
+\textbf{\huge Fragebogen nach dem Experiment}
 \end{center}\vskip1em
 
 \section*{Einleitung}
 
-\noindent Dieser Fragebogen hat zum Ziel demografische und medizinische Daten zu sammeln, die im weiteren Verlauf der Studie zur Auswertung herangezogen werden können. Sämtliche Daten werden anonymisiert verarbeitet.
+\noindent Dieser Fragebogen hat zum Ziel Daten zur Versuchsdurchführung zu sammeln, die im weiteren Verlauf der Studie zur Auswertung herangezogen werden können. Sämtliche Daten werden anonymisiert verarbeitet.
+
+\bigskip
 
 \noindent Teilnehmernummer: \Qline{3cm} \textit{(Wird Ihnen mitgeteilt.)}
 
 \section*{Fragebogen}
 
-\minisec{Please evaluate the following composers}
+\minisec{Bitte beantworten Sie die foldenden Fragen auf einer Skala von 1 (wenig/angenehm) bis 5 (viel/unangenehm):}
 \vskip.5em
 
-\Qitem[a]{ \Qq{Mozart} \Qtab{3cm}{horrible \Qrating{5} fantastic}}
+\Qitem[a]{ \Qq{Haben Sie während der Versuchs Schwindel gefühlt?} {1 \Qrating{5} 5}}
 
-\Qitem[b]{ \Qq{Beethoven} \Qtab{3cm}{horrible \Qrating{5} fantastic}}
+\Qitem[b]{ \Qq{Wie gut konnten Sie sich auf das Experiment konzentrieren?} {1 \Qrating{5} 5}}
 
-\Qitem[c]{ \Qq{Johann S. Bach} \Qtab{3cm}{horrible \Qrating{5}
-fantastic}}
+\Qitem[c]{ \Qq{Beurteilen Sie den Tragecomfort des Sensors?} {1 \Qrating{5} 5}}
 
-\Qitem[d]{ \Qq{John Lennon}\Qtab{2.5cm}{\parbox[t]{3.3cm}{\raggedleft
-Uh, well, I do not like his music very much}
-\Qrating{7} \parbox[t]{3cm}{Oh, yes, you know, really great
-stuff}}}
+\Qitem[d]{ \Qq{Beurteilen Sie die wahrgenommene Zeit zum Einrichten des Sensors} {1 \Qrating{5} 5}}
 
-\Qitem[e]{ \Qq{Elvis}\Qtab{2.5cm}{\parbox[t]{3.3cm}{\raggedleft Uh,
-well, I do not like his music very much}
-\Qrating{7} \parbox[t]{3cm}{Oh, yes, you know, really great
-stuff}}}
+\Qitem[e]{ \Qq{Beurteilen Sie wie schwer Ihnen diese Übung fiel:} {1 \Qrating{5} 5}}
 
-\section*{About this questionnaire}
+\section*{Fragen zur Technologie}
 
-\Qitem{\Qq{Do you like the style so far?} \Qtab{5.5cm}{\QO{} Yes
-\hskip0.5cm \QO{} No}}
+\Qitem{ \Qq{Stehen Sie der Technologie skeptisch gegenüber?} \hskip0.5cm Ja \QO{} \hskip0.5cm Nein \QO{} \hskip0.5cm keine Angabe \QO{}}
 
-\Qitem{\Qq{Is it really worth the ink?} \Qtab{5.5cm}{\QO{} Guess so.
-\hskip0.5cm \QO{} Probably not. \hskip0.5cm \QO{} Don't know.}}
+\Qitem{ \Qq{Würden Sie ein BCI selbst verwenden?} \hskip0.5cm Ja \QO{} \hskip0.5cm Nein \QO{} \hskip0.5cm keine Angabe \QO{}}
 
-\Qitem{\Qq{How does this item look different from the previous one?}
-\Qtab{10.5cm}{\QO{}\Qtab{0.6cm}{Oh. Does it?}}\par
-\Qtab{10.5cm}{\QO{}\Qtab{0.6cm}{No clue. I just can't figure it out.
-So sorry.}}\par
-\Qtab{10.5cm}{\QO{}\Qtab{0.6cm}{I guess what you mean is that here
-the different answer options are below each other.}}\par
-}
-
-\Qitem[a]{ \Qq{Please describe your first impression.} \Qlines{2} }
-
-\Qitem[b]{ \Qq{In case you would like some more lines to write, here
-they are:} \Qlines{4} }
-
-\section*{Another feature}
-
-\noindent Now, here is another nice feature: you can automatically
-alter the background color of the items. Here is how it can look like.
-Because we are too lazy to think of new questions we will just ask you
-the same questions again. There is one difference to the above though,
-can you find it?
-
-\renewcommand{\QO}{$\ocircle$}% Use circles now instead of boxes.
-
-\section*{About you}
-
-\QItem{ \Qq{Your name}: \Qline{8cm} }
-
-\QItem{ \Qq{How old are you?} I am \Qline{1.5cm} years old.}
-
-\QItem{ \Qq{Are you in a good mood right now?} \hskip0.4cm \QO{}
-absolutely \hskip0.5cm \QO{} not really because: \Qline{3cm} }
-
-\QItem{ \Qq{Do you like having an option?}
-\begin{Qlist}
-\item Yes, this meets my need for autonomy.
-\item No, I'd rather have someone else decide for me.
-\item Not sure.
-\end{Qlist}
-}
-
-\QItem{ \Qq{What kind of music do you like best?}
-\begin{Qlist}
-\item Johann Sebastian Bach
-\item Jazz
-\item The Beatles
-\item Other: \Qline{4cm}
-\end{Qlist}
-}
-
-\minisec{Please evaluate the following composers}
-\vskip.5em
-
-\QItem[a]{ \Qq{Mozart} \Qtab{3cm}{horrible \Qrating{5} fantastic}}
-
-\QItem[b]{ \Qq{Beethoven} \Qtab{3cm}{horrible \Qrating{5} fantastic}}
-
-\QItem[c]{ \Qq{Johann S. Bach} \Qtab{3cm}{horrible \Qrating{5} fantastic}}
-
-\QItem[d]{ \Qq{John Lennon}\Qtab{2.5cm}{\parbox[t]{3.3cm}{\raggedleft
-Uh, well, I do not like his music very much}
-\Qrating{7} \parbox[t]{3cm}{Oh, yes, you know, really great
-stuff}}}
-
-\QItem[e]{ \Qq{Elvis}\Qtab{2.5cm}{\parbox[t]{3.3cm}{\raggedleft
-Uh, well, I do not like his music very much}
-\Qrating{7} \parbox[t]{3cm}{Oh, yes, you know, really great
-stuff}}}
-
-\section*{About this questionnaire}
-
-\QItem{\Qq{Do you like the style so far?} \Qtab{5.5cm}{\QO{} Yes
-\hskip0.5cm \QO{} No}}
-
-\QItem{\Qq{Is it really worth the ink?} \Qtab{5.5cm}{\QO{} Guess so.
-\hskip0.5cm \QO{} Probably not. \hskip0.5cm \QO{} Don't know.}}
-
-\QItem{\Qq{How does this item look different from the previous one?}
-\Qtab{10.5cm}{\QO{}\Qtab{0.6cm}{Oh. Does it?}}\par
-\Qtab{10.5cm}{\QO{}\Qtab{0.6cm}{No clue. I just can't figure it out.
-So sorry.}}\par
-\Qtab{10.5cm}{\QO{}\Qtab{0.6cm}{I guess what you mean is that here
-the different answer options are below each other.}}\par
-}
-
-\QItem[a]{ \Qq{Please describe your first impression.} \Qlines{2} }
-
-\QItem[b]{ \Qq{In case you would like some more lines to write, here
-they are:} \Qlines{4} }
+\Qitem{ \Qq{Sehen Sie einen Mehrwert an dieser Technologie?} \hskip0.5cm Ja \QO{} \hskip0.5cm Nein \QO{} \hskip0.5cm keine Angabe \QO{}}
 
 \end{document}

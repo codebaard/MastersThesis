@@ -13,7 +13,7 @@ namespace Model
         }
         public virtual string getLogString()
         {
-            this.timestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
+            this.timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
             return timestamp + ";" + EventType;
         }
 
