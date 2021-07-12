@@ -11,3 +11,7 @@ participant;age;sex;glasses;neurocondition;drugs;alcohol;colorblind;wellbeing;di
 10;40;f;FALSE;FALSE;FALSE;FALSE;FALSE;5;1;5;2;1;1;FALSE;TRUE;TRUE;dry eyes because of prolonged openness due to focus
 11;38;f;FALSE;FALSE;FALSE;FALSE;FALSE;5;2;5;2;1;1;FALSE;TRUE;TRUE;police officer
 12;8;f;FALSE;FALSE;FALSE;FALSE;FALSE;5;2;5;1;1;1;FALSE;TRUE;TRUE;
+13;27;m;TRUE;FALSE;FALSE;FALSE;FALSE;4;1;4;2;3;1;TRUE;TRUE;TRUE;
+14;29;m;FALSE;FALSE;FALSE;FALSE;FALSE;4;1;5;3;5;1;FALSE;FALSE;TRUE;Felt he had to blink more often
+15;24;m;FALSE;FALSE;FALSE;FALSE;FALSE;4;;;;;;;;;Kalibration didn’t work despite perfect sensor readings
+16;34;m;FALSE;FALSE;FALSE;FALSE;FALSE;5;1;4;2;4;2;TRUE;FALSE;TRUE;Felt tickling and pumping sensation in back of the head
