@@ -3,7 +3,7 @@ participant;age;sex;glasses;neurocondition;drugs;alcohol;colorblind;wellbeing;di
 2;67;f;FALSE;FALSE;FALSE;FALSE;FALSE;4;2;3;5;3;1;FALSE;FALSE;abstention;experiment aborted and difficult to focus and two calibrations
 3;8;f;FALSE;FALSE;FALSE;FALSE;FALSE;5;1;5;1;1;1;FALSE;FALSE;abstention;two times calibration
 4;33;f;TRUE;FALSE;FALSE;FALSE;FALSE;4;3;3;4;4;3;FALSE;TRUE;TRUE;Contact Lenses and flashing patterns caused dry eyes
-5;;;;;;;;;;;;;;;;;
+5;35;f;TRUE;FALSE;FALSE;FALSE;FALSE;2;1;3;3;4;2;FALSE;FALSE;TRUE;Repositioning of the sensor during kalibration yielded better result
 6;13;m;FALSE;FALSE;FALSE;FALSE;FALSE;5;1;4;1;1;4;FALSE;TRUE;TRUE;Hard time to focus but person very ambitious
 7;9;m;FALSE;FALSE;FALSE;FALSE;FALSE;3;1;5;3;3;1;FALSE;FALSE;TRUE;dry eyes and sometimes very fast and sometimes very slow
 8;11;m;FALSE;FALSE;FALSE;FALSE;FALSE;5;1;4;3;1;1;FALSE;TRUE;TRUE;
