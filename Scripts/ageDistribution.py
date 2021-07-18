@@ -4,9 +4,15 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 def main():
-    dataframe = loadCSV(FileNames.userSurvey)
+    df = loadCSV(FileNames.userSurvey)
 
-    dataframe.hist(column='age', bins=10)
+    plt.hist(df.age, bins=16)
+
+    plt.xlabel('Age groups')
+    plt.ylabel('Participants')
+
+    plt.grid()
+    plt.show()
 
 if __name__ == '__main__':
     main()
