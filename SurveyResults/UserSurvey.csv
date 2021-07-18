@@ -13,7 +13,7 @@ participant;age;sex;glasses;neurocondition;drugs;alcohol;colorblind;wellbeing;di
 12;8;f;FALSE;FALSE;FALSE;FALSE;FALSE;5;2;5;1;1;1;FALSE;TRUE;TRUE;
 13;27;m;TRUE;FALSE;FALSE;FALSE;FALSE;4;1;4;2;3;1;TRUE;TRUE;TRUE;
 14;29;m;FALSE;FALSE;FALSE;FALSE;FALSE;4;1;5;3;5;1;FALSE;FALSE;TRUE;Felt he had to blink more often
-15;24;m;TRUE;FALSE;FALSE;FALSE;FALSE;3;1;2;2;5;3;TRUE;FALSE;TRUE;Kalibration didn’t work despite perfect sensor readings - realignment fixed it
+15;24;m;TRUE;FALSE;FALSE;FALSE;FALSE;3;1;2;2;5;3;TRUE;FALSE;TRUE;Kalibration did not work despite perfect sensor readings - realignment fixed it
 16;34;m;FALSE;FALSE;FALSE;FALSE;FALSE;5;1;4;2;4;2;TRUE;FALSE;TRUE;Felt tickling and pumping sensation in back of the head
 17;55;m;TRUE;FALSE;FALSE;FALSE;FALSE;5;1;5;5;5;5;FALSE;TRUE;TRUE;
 18;26;m;TRUE;FALSE;FALSE;FALSE;FALSE;4;1;3;3;1;1;FALSE;TRUE;TRUE;
