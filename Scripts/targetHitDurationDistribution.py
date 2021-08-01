@@ -1,5 +1,4 @@
 from FileNames import FileNames
-from LoadResults import open as loadCSV
 import matplotlib.pyplot as plt
 import pandas as pd
 import os, re

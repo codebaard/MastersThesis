@@ -25,3 +25,7 @@ participant;age;sex;glasses;neurocondition;drugs;alcohol;colorblind;wellbeing;di
 24;68;f;FALSE;FALSE;FALSE;FALSE;FALSE;4;1;4;5;1;2;FALSE;FALSE;TRUE;Calibration score 2 experiment took very long
 25;72;m;TRUE;FALSE;FALSE;FALSE;FALSE;5; ;;;;;;;;Calibration did not work due to missing glasses
 26;23;m;TRUE;FALSE;FALSE;FALSE;FALSE;4;1;5;5;5;1;FALSE;TRUE;TRUE;
+27;39;f;FALSE;FALSE;FALSE;FALSE;FALSE;4;1;4;2;4;1;FALSE;FALSE;TRUE;
+28;31;m;FALSE;FALSE;FALSE;FALSE;FALSE;5;1;4;1;3;2;FALSE;FALSE;TRUE;
+29;16;m;FALSE;FALSE;FALSE;FALSE;FALSE;4;1;4;3;1;1;FALSE;TRUE;TRUE;
+30;6;m;TRUE;FALSE;FALSE;FALSE;FALSE;5;1;2;5;5;3;abstention;abstention;abstention;
