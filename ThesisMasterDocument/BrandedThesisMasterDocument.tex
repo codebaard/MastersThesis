@@ -462,7 +462,7 @@
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
                 \includegraphics[width=0.8\textwidth]{IMG_8217.jpg} 
-                \caption{Layout of the remote control experiment.}\label{gui-remote}
+                \caption{Interface of the remote control experiment. Ques are highlighted.}\label{gui-remote}
             \end{figure}                    
 
         \section{What data will be collected}\label{datacollection}
@@ -497,16 +497,18 @@
 
         \section{How are the age groups structured}
 
-            To create a meaningful result, the participants have to be divided into age groups.
+            \todo{Write some elaborate text about the age distribution}
 
-            \medskip
-
-            \todo{Mail an Prof Lorenz - warte auf Rückmeldung}
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{ageDistribution.png} 
+                \caption{Age distribution of the participants}\label{age-dist}
+            \end{figure}  
 
         \section{Experimental Protocol}
 
-            The data was collected in a single session lasting between 10-20mins with each participant. Each session started with the participant having to complete the first questionnaire \todo{Appendix!} and and the form of consent for anonymized data processing. At this stage potential hazards, problems and dispositions as discussed in section \ref{considerations} were identified. One individual could not participate as she had epilepsy, what might have gotten triggered by the experiment.
-            Afterwards each participant was introduced into the experiment. The working principle of a SSVEP was explained and questions regarding data privacy were discussed. Subsequently the user has been shown the GUI of the experiment with a short introduction about  the nature of the task.
+            The data was collected in a single session lasting between 10-20mins for each participant. Each session started with the participant having to complete the first questionnaire \ref*{q-prior} and and the form of consent \ref*{consent} for anonymized data processing. At this stage potential hazards, problems and dispositions as discussed in section \ref{considerations} were identified. One individual could not participate as she had epilepsy, what might have gotten triggered by the experiment.
+            Afterwards each participant was introduced into the experiment. The working principle of a SSVEP was explained and questions regarding data privacy were discussed. Subsequently the the GUI of the experiment was been shown to the participant with a short introduction about the nature of the task.
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
@@ -514,7 +516,7 @@
                 \caption{Experimental setup}\label{experimental-setup}
             \end{figure}            
 
-            Then the participant was equipped with the BCI Sensor and placed roughly 70cm in front of the screen as shown in figure \ref*{experimental-setup}. The distance to the screen was varying since each participant needed to adjust according to eyesight. The first step of the experiment was the calibration of the sensor to the participant. In case of non-optimal readings, the position of the sensor was adjusted accordingly until all electrodes showed at least \textit{very good} contact (figure \ref*{electrode-quality}).
+            Then the participant was equipped with the BCI Sensor and placed in front of the screen as shown in figure \ref*{experimental-setup}. The distance to the screen was varying since each participant needed to adjust according to eyesight. The first step of the experiment was the calibration of the sensor to the participant. In case of non-optimal readings, the position of the sensor was adjusted accordingly until all electrodes showed at least \textit{very good} contact (figure \ref*{electrode-quality}).
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
@@ -522,11 +524,27 @@
                 \caption{Quality readings of the sensor}\label{electrode-quality}
             \end{figure}
 
-            Then the experiment was started. The participant had to perform 50 neurotag activations. Each one consisted of a visual que (see figure \ref*{gui-remote}) on which the participant had to focus on. Upon activation of this neurotag, the readings were saved to the logfile (see \todo{Appendix logfile}) and the next cue was given. in order to keep the $t1$ timing as short as possible.
+            Then the experiment was started. The participant had to perform 50 neurotag activations. Each one consisted of a visual que (see figure \ref*{gui-remote}) on which the participant had to focus on. Upon a sucessful activation of the cued neurotag, the readings were saved to the logfile (see \ref*{logfile}) and the next cue was given in order to keep the $t1$ timing as short as possible.
 
-            After completion of the experiment, each participant had to fill the second questionnaire \todo{Appendix 3}, which gathered information about the experiment such as wearing comfort, perceived difficulty and questions about the opinion towards the technology in general. 
+            After completion of the experiment, each participant had to fill the second questionnaire \ref*{q-post}, which gathered information about the experiment such as wearing comfort, perceived difficulty and questions about the opinion towards the technology in general. 
 
     \chapter{Survey results}
+
+        \todo{evaluate the following topics:}
+
+        \begin{itemize}
+            \item scatterplot data points
+            \item results from post survey
+            \item impact of position of the neurotag in regards to screenspace (No8 prb slower?)
+            \item average speed per age group (boxplot?)
+            \item speed increase on later cues (learning) (different for age groups?)
+            \item special thing while conducting experiment (sensor position moving (paul), calibration quality, people complaining about dry eyes, ...)
+            \item Telemetry evaluation (some box plots or so...)
+            \item What happens, if sensor moves bc subjects turns the head
+            \item General Opinions about technology
+        \end{itemize}
+
+        \todo{use results to construct an argument about statistical significance (DOE)}
 
         \section{Interpretation of the collected data}\label{operationalization}
 
@@ -581,7 +599,7 @@
                 \includepdf[fitpaper=true, pages=-]{Questionnaire-Prior.pdf}\label{q-prior}
                 \includepdf[fitpaper=true, pages=-]{Questionnaire-Post.pdf}\label{q-post}
 
-            \section{Example logfile}                
+            \section{Example logfile}\label{logfile}                
 
                 This is an excerpt of a genuine logfile and shows all the relevant data which was gathered during a trial. 
                 
