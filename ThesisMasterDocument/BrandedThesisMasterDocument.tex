@@ -568,12 +568,77 @@
 
         \chapter{Material}
 
-            \section{Surveys, Protocols, etc.}
+            \section{Survey forms}
 
-            \input{Questionnaire-Prior.tex}\label{q-prior}
-            \input{InfoSheetAndConsent.tex}\label{consent}
-            \input{Questionnaire-Post.tex}\label{q-post}
+                The following forms were used during the experiment. They are written in the german language since every participant was native german. 
 
+                \medskip
+
+                \textit{Every document is in its original layout, hence the difference in terms of layout to the rest of this document.}
+
+
+                \includepdf[fitpaper=true, pages=-]{InfoSheetAndConsent.pdf}\label{consent}
+                \includepdf[fitpaper=true, pages=-]{Questionnaire-Prior.pdf}\label{q-prior}
+                \includepdf[fitpaper=true, pages=-]{Questionnaire-Post.pdf}\label{q-post}
+
+            \section{Example logfile}                
+
+                This is an excerpt of a genuine logfile and shows all the relevant data which was gathered during a trial. 
+                
+                \medskip
+
+                \textit{Since the data is anonymized, there is no way to identify a certain individual from this excerpt.}
+
+                \begin{lstlisting}
+                    1626361044463;Model.NeuroTagMarkedAsTargetLogEntry;7
+                    1626361044468;Model.SensorTelemetryLogEntry;94;95;94;93;93;85;97;94;C
+                    1626361044468;Model.ExperimentEventLogEntry;started
+                    1626361044559;Model.NeuroTagConfidenceLogEntry;7;0.03284512
+                    1626361044858;Model.NeuroTagConfidenceLogEntry;7;0.02825086
+                    1626361045158;Model.NeuroTagConfidenceLogEntry;7;0.04584821
+                    1626361045458;Model.NeuroTagConfidenceLogEntry;7;0.0324579
+                    1626361045758;Model.NeuroTagConfidenceLogEntry;7;0.1790879
+                    1626361046075;Model.NeuroTagConfidenceLogEntry;7;0.2322663
+                    1626361046374;Model.NeuroTagConfidenceLogEntry;7;0.2289219
+                    1626361046658;Model.NeuroTagConfidenceLogEntry;7;0.2858692
+                    1626361046958;Model.NeuroTagConfidenceLogEntry;7;0.2982492
+                    1626361047258;Model.NeuroTagMarkedAsTargetLogEntry;2
+                    1626361047259;Model.NeuroTagHitLogEntry;7
+                    1626361049623;Model.NeuroTagMarkedAsTargetLogEntry;9
+                    1626361049623;Model.NeuroTagHitLogEntry;2
+                    1626361051955;Model.NeuroTagMarkedAsTargetLogEntry;8
+                    1626361051955;Model.NeuroTagHitLogEntry;9
+                    1626361054287;Model.NeuroTagMarkedAsTargetLogEntry;7
+                    1626361054287;Model.NeuroTagHitLogEntry;8
+                    1626361054287;Model.NeuroTagConfidenceLogEntry;7;0.07452609
+                    1626361056636;Model.NeuroTagMarkedAsTargetLogEntry;1
+                    1626361056636;Model.NeuroTagHitLogEntry;7
+                    1626361058985;Model.NeuroTagMarkedAsTargetLogEntry;2
+                    1626361058986;Model.NeuroTagHitLogEntry;1
+                    1626361061335;Model.NeuroTagMarkedAsTargetLogEntry;7
+                    1626361061335;Model.NeuroTagHitLogEntry;2
+                    1626361061335;Model.NeuroTagConfidenceLogEntry;7;0
+                    1626361063699;Model.NeuroTagMarkedAsTargetLogEntry;0
+                    1626361063700;Model.NeuroTagHitLogEntry;7
+                    1626361066049;Model.NeuroTagMarkedAsTargetLogEntry;8
+                    1626361066049;Model.NeuroTagHitLogEntry;0
+                    1626361066049;Model.NeuroTagConfidenceLogEntry;8;0.1005409
+                    1626361068381;Model.NeuroTagMarkedAsTargetLogEntry;7
+                    1626361068381;Model.NeuroTagHitLogEntry;8
+                    1626361070729;Model.NeuroTagMarkedAsTargetLogEntry;6
+                    1626361070729;Model.NeuroTagHitLogEntry;7
+                    1626361073079;Model.NeuroTagConfidenceLogEntry;6;0.1839611
+                    1626361073396;Model.NeuroTagConfidenceLogEntry;6;0.2086784
+                    1626361073696;Model.NeuroTagConfidenceLogEntry;6;0.2204314
+                    1626361073995;Model.NeuroTagConfidenceLogEntry;6;0.220725
+                    1626361074278;Model.NeuroTagConfidenceLogEntry;6;0.2152889
+                    1626361074578;Model.NeuroTagConfidenceLogEntry;6;0.1819418
+                    1626361074861;Model.NeuroTagConfidenceLogEntry;6;0.225923
+                    1626361075195;Model.NeuroTagConfidenceLogEntry;6;0.1962474
+                    1626361075495;Model.NeuroTagConfidenceLogEntry;6;0.2939416
+                    1626361075795;Model.NeuroTagMarkedAsTargetLogEntry;2
+                \end{lstlisting}
+            
         %--------------------- VERZEICHNISSE ----------------
 
         \listoffigures % Abbildungsverzeichnis erzeugen
