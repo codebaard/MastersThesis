@@ -505,10 +505,16 @@
 
         \section{Experimental Protocol}
 
-            The data was collected in a single session lasting around 30mins with each participant. Each session started with the participant having to complete the first questionnaire and the fill out the form of consent to the participation. At this stage potential hazards and problems and dispositions as discussed in section \ref{considerations} are identified.
-            Afterwards each participant was introduced into the experiment. The working principle of a SSVEP was explained and questions regarding data privacy were discussed. Subsequently the user was shown the GUI of the experiment with a short introduction what the nature of the task was.
+            The data was collected in a single session lasting between 10-20mins with each participant. Each session started with the participant having to complete the first questionnaire \todo{Appendix!} and and the form of consent for anonymized data processing. At this stage potential hazards, problems and dispositions as discussed in section \ref{considerations} were identified. One individual could not participate as she had epilepsy, what might have gotten triggered by the experiment.
+            Afterwards each participant was introduced into the experiment. The working principle of a SSVEP was explained and questions regarding data privacy were discussed. Subsequently the user has been shown the GUI of the experiment with a short introduction about  the nature of the task.
 
-            Then the participant was equipped with the VR Goggles and the BCI Sensor (\todo{placed 1m in front of the screen}) and the correct position of the sensor was verified. The first step of the experiment was the calibration of the sensor to the participant. In case of non-optimal readings, the position of the sensor was adjusted accordingly until all electrodes showed at least \textit{very good} contact (figure \ref*{electrode-quality}).
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{lotta.jpg} 
+                \caption{Experimental setup}\label{experimental-setup}
+            \end{figure}            
+
+            Then the participant was equipped with the BCI Sensor and placed roughly 70cm in front of the screen as shown in figure \ref*{experimental-setup}. The distance to the screen was varying since each participant needed to adjust according to eyesight. The first step of the experiment was the calibration of the sensor to the participant. In case of non-optimal readings, the position of the sensor was adjusted accordingly until all electrodes showed at least \textit{very good} contact (figure \ref*{electrode-quality}).
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
@@ -516,9 +522,9 @@
                 \caption{Quality readings of the sensor}\label{electrode-quality}
             \end{figure}
 
-            Then the experiment was started. The participant was exposed to \todo{50 (?)} different neurotag activations. Each one consisted of a visual que (see figure \ref*{gui-remote}) to which the participant had to focus on. Upon activation of this neurotag, the readings were saved to the logfile the immediately the next cue was given in order to keep the $t1$ timing as short as possible.
+            Then the experiment was started. The participant had to perform 50 neurotag activations. Each one consisted of a visual que (see figure \ref*{gui-remote}) on which the participant had to focus on. Upon activation of this neurotag, the readings were saved to the logfile (see \todo{Appendix logfile}) and the next cue was given. in order to keep the $t1$ timing as short as possible.
 
-            After completion of the experiment, each participant had to fill the second questionnaire, which gathered information such as comford and perceived cognitive load (\todo{find better phrasing maybe?}). 
+            After completion of the experiment, each participant had to fill the second questionnaire \todo{Appendix 3}, which gathered information about the experiment such as wearing comfort, perceived difficulty and questions about the opinion towards the technology in general. 
 
     \chapter{Survey results}
 
@@ -564,7 +570,9 @@
 
             \section{Surveys, Protocols, etc.}
 
-                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
+            \input{Questionnaire-Prior.tex}\label{q-prior}
+            \input{InfoSheetAndConsent.tex}\label{consent}
+            \input{Questionnaire-Post.tex}\label{q-post}
 
         %--------------------- VERZEICHNISSE ----------------
 
