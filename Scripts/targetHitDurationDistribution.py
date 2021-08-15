@@ -14,7 +14,9 @@ for filename in os.listdir(FileNames.logfiles):
         data_CSV = csv.reader(file_CSV, delimiter = ';')
         list_CSV = list(data_CSV)
 
-        for row in list_CSV:
+        for index, row in enumerate(list_CSV):
+            # use 'index' to access n++ or n-- element in list
+            # consider: https://iambipin.medium.com/accessing-next-element-while-iterating-python-tips-44a6fc563490
             if row[1] == 'Model.NeuroTagMarkedAsTargetLogEntry':
                 row = number + row
                 data.append(row)
