@@ -15,8 +15,7 @@ for filename in os.listdir(FileNames.logfiles):
         list_CSV = list(data_CSV)
 
         for index, row in enumerate(list_CSV):
-            # use 'index' to access n++ or n-- element in list
-            # consider: https://iambipin.medium.com/accessing-next-element-while-iterating-python-tips-44a6fc563490
+
             if row[1] == 'Model.NeuroTagMarkedAsTargetLogEntry':
                 row = number + row
                 data.append(row)
@@ -26,6 +25,12 @@ for filename in os.listdir(FileNames.logfiles):
 
     except Exception as e:
         print(e)
+
+# use 'index' to access n++ or n-- element in list
+# consider: https://iambipin.medium.com/accessing-next-element-while-iterating-python-tips-44a6fc563490
+for index, row in enumerate(data):
+    if data[index+1][2] != 'Model.NeuroTagHitLogEntry' and data[index+2][2] != 'Model.NeuroTagHitLogEntry':
+        print("Gotcha!")
 
 df = pd.DataFrame(data)
 df.columns = ['participant', 'timestamp', 'eventtype', 'value']
