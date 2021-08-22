@@ -1,3 +1,5 @@
+import copy
+
 from FileNames import FileNames
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -29,8 +31,12 @@ for filename in os.listdir(FileNames.logfiles):
 # use 'index' to access n++ or n-- element in list
 # consider: https://iambipin.medium.com/accessing-next-element-while-iterating-python-tips-44a6fc563490
 for index, row in enumerate(data):
-    if data[index+1][2] != 'Model.NeuroTagHitLogEntry' and data[index+2][2] != 'Model.NeuroTagHitLogEntry':
-        print("Gotcha!")
+    if index < (len(data)-2) and data[index+1][2] != 'Model.NeuroTagHitLogEntry' and data[index+2][2] != 'Model.NeuroTagHitLogEntry':
+        newDataset = copy.deepcopy(data[index+1])
+        newDataset[2] = 'Model.NeuroTagHitLogEntry'
+        newDataset[3] = data[index-1][3]
+        data.insert(index+2, newDataset)
+        #print("Gotcha!")
 
 df = pd.DataFrame(data)
 df.columns = ['participant', 'timestamp', 'eventtype', 'value']
