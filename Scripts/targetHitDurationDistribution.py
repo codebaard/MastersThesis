@@ -28,17 +28,24 @@ for filename in os.listdir(FileNames.logfiles):
     except Exception as e:
         print(e)
 
-# use 'index' to access n++ or n-- element in list
-# consider: https://iambipin.medium.com/accessing-next-element-while-iterating-python-tips-44a6fc563490
 for index, row in enumerate(data):
     if index < (len(data)-2) and data[index+1][2] != 'Model.NeuroTagHitLogEntry' and data[index+2][2] != 'Model.NeuroTagHitLogEntry':
         newDataset = copy.deepcopy(data[index+1])
         newDataset[2] = 'Model.NeuroTagHitLogEntry'
         newDataset[3] = data[index-1][3]
         data.insert(index+2, newDataset)
-        #print("Gotcha!")
 
-df = pd.DataFrame(data)
-df.columns = ['participant', 'timestamp', 'eventtype', 'value']
 
-print(df)
+surveyData = pd.read_csv(FileNames.userSurvey, sep=';',
+                           header=0, encoding='ascii', engine='python')
+combinedData = list()
+for row in data:
+    set = surveyData.loc[surveyData['participant'] == int(row[0]) ]
+    setList = set.values.tolist()
+    row = row + setList[0][1:]
+    combinedData.append(row)
+
+logData = pd.DataFrame(combinedData)
+
+print(combinedData)
+
