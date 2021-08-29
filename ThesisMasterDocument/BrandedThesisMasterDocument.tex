@@ -547,6 +547,26 @@
                 \includegraphics[width=0.8\textwidth]{TargetTimeHistogram_narrow.png} 
                 \caption{Narrowed window of achieved detection times}\label{time-hist-narrow}
             \end{figure} 
+
+        \section{Demographic differences}
+
+            To rule out potential side effects, the first questionnaire had more questions apart from age. Namely being gender, whether the participant wears glasses, neurological conditions, alcohol or drugs and colourblindness. However the latter four questions were answered negative entirely. The only exception was a neurological condition which prohibited conducting the experiment alltogether. This leads the sex and if the participant wears glasses as the only major demographic parametres.
+            
+            When the genders are compared side by side in figure \ref*{gender}, there is a tendency of women having a more consistent timing. The average value of both in approximately on the same level but the male results have a larger upper quartile and whisker therefore being less consistent in timing. As in figure \ref*{time-hist-narrow}, the window was narrowed down to 10s max, to cut large outliers. \todo{Check if there is a skew in age/gender distribution}.
+
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{gender.png} 
+                \caption{Detection times between Male and Female participants}\label{gender}
+            \end{figure} 
+
+            Figure \ref*{glasses} also shows the result that participants without glasses have a higher consistency in their target times. Although the average being at roughly the same level, the upper quartile and whisker is far more spread with the participants who are wearing glasses. \todo{Check if theres a strong correlation with age!}
+
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{glasses.png} 
+                \caption{Detection times between participants with and without glasses}\label{glasses}
+            \end{figure}
             
         \section{Conduction of the Survey}
             
@@ -592,7 +612,6 @@
             \item average speed per age group (boxplot?)
             \item speed increase on later cues (learning) (different for age groups?)
             \item Telemetry evaluation (some box plots or so...)
-            \item General Opinions about technology
             \item impact of gender and glasses
         \end{itemize}
 

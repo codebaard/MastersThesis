@@ -62,29 +62,72 @@ for index, row in enumerate(combinedData):
         elif combinedData[index+3][2] == 'Model.NeuroTagHitLogEntry' and combinedData[index+3][3] == row[3] and combinedData[index+3][0] == row[0]:
             result = int(combinedData[index+3][1]) - int(row[1])
 
-        if result < 120000 and result > 2000:
-        #if result > 2000 and result < 10000:
+        #if result < 120000 and result > 2000:
+        #if result > 2000 and result < 10000: # for reduced window
+        if result > 2000 and result < 10000: # for glasses and gender
             hitSet = [row[0], row[3], result/1000, row[4], row[5], row[6]]
             hitTimes.append(hitSet)
 
 hitTimeData = pd.DataFrame(hitTimes)
 hitTimeData.columns = ['participant', 'target', 'time', 'age', 'gender', 'glasses']
 
-bins = pd.IntervalIndex.from_tuples([(0, 30), (31, 60), (61, 90)])
-#bins = np.arrange(0, 31, 61)
-#TimesByAge = hitTimeData.groupby(['age', pd.cut(hitTimeData.time, bins)])
+## Glasses or not
+# withGlasses = list()
+# noGlasses = list()
+#
+# for index, row in enumerate(hitTimes):
+#     #row[2] = int(row[2])
+#     if row[5]: # true
+#         withGlasses.append(row[2])
+#     else:
+#         noGlasses.append(row[2])
+#
+# #glasses = [np.array(withGlasses)[:, 2] ,np.array(noGlasses)[:,2]]
+# glasses = [withGlasses ,noGlasses]
+# plt.boxplot(glasses)
+#
+# plt.xticks([1, 2],['Glasses', 'No Glasses'])
+# plt.ylabel('Time (s)')
+#
+# plt.show()
 
-plt.hist(hitTimeData.time, bins=64, ec='k', stacked=True)
+## Gender
+male = list()
+female = list()
 
-#plt.xlabel('Detection Time (seconds) for 2<t<10')
-plt.xlabel('Detection Time (seconds)')
-plt.ylabel('Occurence')
+for index, row in enumerate(hitTimes):
+    #row[2] = int(row[2])
+    if row[4] == 'm': # true
+        male.append(row[2])
+    else:
+        female.append(row[2])
 
-#plt.xscale('log')
-plt.yscale('log')
+#glasses = [np.array(withGlasses)[:, 2] ,np.array(noGlasses)[:,2]]
+glasses = [male ,female]
+plt.boxplot(glasses)
 
-plt.grid()
+plt.xticks([1, 2],['Male', 'Female'])
+plt.ylabel('Time (s)')
+
 plt.show()
+
+## Time Distribution
+
+# bins = pd.IntervalIndex.from_tuples([(0, 30), (31, 60), (61, 90)])
+# #bins = np.arrange(0, 31, 61)
+# #TimesByAge = hitTimeData.groupby(['age', pd.cut(hitTimeData.time, bins)])
+#
+# plt.hist(hitTimeData.time, bins=64, ec='k', stacked=True)
+#
+# #plt.xlabel('Detection Time (seconds) for 2<t<10')
+# plt.xlabel('Detection Time (seconds)')
+# plt.ylabel('Occurence')
+#
+# #plt.xscale('log')
+# plt.yscale('log')
+#
+# plt.grid()
+# plt.show()
 
 
 
