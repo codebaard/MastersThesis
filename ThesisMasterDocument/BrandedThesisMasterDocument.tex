@@ -530,28 +530,44 @@
 
     \chapter{Survey results}
 
-        \section{Conduction of the experiment and first glance }
+        \section{Raw results}
 
-            The study gathered 1370 different target data hits from 28 participants. Two participants had not undergone the experiment itself due to an insufficient calibration score. One case was due to missing glasses for a clear view of the screen and another case had concentration problems. Both cases were in the above 60 age group.
+            The study gathered 1370 different target hits datapoints from 28 participants figure \ref*{time-hist} shows a histogram of the achieved detection times. The y-axis is scaled logarithmically because approximately 870 out of all detections were made in under three seconds. 
+
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{TargetTimeHistogram.png} 
+                \caption{Historgram of achieved detection times}\label{time-hist}
+            \end{figure}    
+            
+            This is also shown very clearly in figure \ref*{time-hist-narrow}, where the time windows shows only the results between two and ten seconds, which also constitutes for the majority of data points (over 95\%). The clustering of the detection right at the 2.3s mark, which is indicated by the red line with almost no other data points below that threshold might indicate, that this threshold is the minimum amount of time required to confidently identify a target. The logfiles show that a confidence score of >0.3 qualifies for a successful identification. See Appendix \ref*{logfile} for details. This score is not displayed for targets, which are identified under a certain amount of time, since there aren't enough samples supposedly.
+
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{TargetTimeHistogram_narrow.png} 
+                \caption{Narrowed window of achieved detection times}\label{time-hist-narrow}
+            \end{figure} 
+            
+        \section{Participants}
+            
+            Two participants had not undergone the experiment itself due to an insufficient calibration score. One case was due to missing glasses for a clear view of the screen and another case had concentration problems. Both cases were in the above 60 age group.
             One participant also from the above 60 age group had to end the experiment prematurely due to concentration difficulties and eye strain.
 
-            Eye strain was reported from four participants. There was no prevalence among a certain age group in this case. Two participants wore contact lenses. One participant reported that the focus on the experiment made her forget about blinking her eyes.
+            Eye strain was reported from four participants. However there was no majority among any age group in this case which might indicate a correlation. Two participants wore contact lenses. One participant reported that focussing on the experiment made her forget about blinking her eyes.
 
-            Two participants reported that they felt the SSVEP physically inside their brain in a pulsating manner. However, this was not reported to be painful.
+            Two participants reported that they felt the SSVEP physically inside their brain with a pulsating or tickling sensation. However, this was not reported to be painful.
 
-            In many cases the calibration wasn't successful at first try. Usually an at least sufficient score was reached after 3-5 attemps. Also for some participants the optimal sensor position was a different place on the back of the skull than recommended by \textit{NextMind}. In these cases the results we perfect instantly after a relocation of the sensor to a different position.
+            In many cases the calibration wasn't successful at first try. Usually a sufficient score was reached after 3-5 attemps. Also for some participants the optimal sensor position was in a different place on the back of the skull than recommended by \textit{NextMind}. In these cases the results we perfect instantly after a relocation of the sensor to a different position.
 
-        \todo{evaluate the following topics:}
-
-        \begin{itemize}
-            \item scatterplot data points
+            One participant inadvertenly altered the position of the sensor which did not have a significant effect on the detection time. Also with this same participant the calibration score was comparatively low. Although not explicitly tested in this survey, this might indicate that the \textit{NextMind} sensor has a resilient design to a shifting position.
+     
+        \section*{\todo{evaluate the following topics:}}
+       \begin{itemize}
             \item results from post survey
             \item impact of position of the neurotag in regards to screenspace (No8 prb slower?)
             \item average speed per age group (boxplot?)
             \item speed increase on later cues (learning) (different for age groups?)
-            \item special thing while conducting experiment (sensor position moving (paul), calibration quality, people complaining about dry eyes, ...)
             \item Telemetry evaluation (some box plots or so...)
-            \item What happens, if sensor moves bc subjects turns the head
             \item General Opinions about technology
             \item impact of gender and glasses
         \end{itemize}

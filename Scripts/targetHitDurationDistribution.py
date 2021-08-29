@@ -62,8 +62,8 @@ for index, row in enumerate(combinedData):
         elif combinedData[index+3][2] == 'Model.NeuroTagHitLogEntry' and combinedData[index+3][3] == row[3] and combinedData[index+3][0] == row[0]:
             result = int(combinedData[index+3][1]) - int(row[1])
 
-        #if result < 17000 and result > 2700:
-        if result > 500 and result < 120000:
+        if result < 120000 and result > 2000:
+        #if result > 2000 and result < 10000:
             hitSet = [row[0], row[3], result/1000, row[4], row[5], row[6]]
             hitTimes.append(hitSet)
 
@@ -72,11 +72,12 @@ hitTimeData.columns = ['participant', 'target', 'time', 'age', 'gender', 'glasse
 
 bins = pd.IntervalIndex.from_tuples([(0, 30), (31, 60), (61, 90)])
 #bins = np.arrange(0, 31, 61)
-TimesByAge = hitTimeData.groupby(['age', pd.cut(hitTimeData.time, bins)])
+#TimesByAge = hitTimeData.groupby(['age', pd.cut(hitTimeData.time, bins)])
 
 plt.hist(hitTimeData.time, bins=64, ec='k', stacked=True)
 
-plt.xlabel('Detection Time')
+#plt.xlabel('Detection Time (seconds) for 2<t<10')
+plt.xlabel('Detection Time (seconds)')
 plt.ylabel('Occurence')
 
 #plt.xscale('log')
