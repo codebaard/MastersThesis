@@ -2,6 +2,7 @@ import copy
 
 from FileNames import FileNames
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 import os, re
 import csv
@@ -47,25 +48,42 @@ for row in data:
 
 logData = pd.DataFrame(combinedData)
 
-print(combinedData)
+#print(combinedData)
 
 hitTimes = list()
 
 for index, row in enumerate(combinedData):
     result = 0
     if row[2] == 'Model.NeuroTagMarkedAsTargetLogEntry':
-        if combinedData[index+1][2] == 'Model.NeuroTagHitLogEntry' and combinedData[index+1][3] == row[3]:
+        if combinedData[index+1][2] == 'Model.NeuroTagHitLogEntry' and combinedData[index+1][3] == row[3] and combinedData[index+1][0] == row[0]:
             result = int(combinedData[index+1][1]) - int(row[1])
-        if combinedData[index+2][2] == 'Model.NeuroTagHitLogEntry' and combinedData[index+2][3] == row[3]:
+        elif combinedData[index+2][2] == 'Model.NeuroTagHitLogEntry' and combinedData[index+2][3] == row[3] and combinedData[index+2][0] == row[0]:
             result = int(combinedData[index+2][1]) - int(row[1])
-        if combinedData[index+3][2] == 'Model.NeuroTagHitLogEntry' and combinedData[index+3][3] == row[3]:
+        elif combinedData[index+3][2] == 'Model.NeuroTagHitLogEntry' and combinedData[index+3][3] == row[3] and combinedData[index+3][0] == row[0]:
             result = int(combinedData[index+3][1]) - int(row[1])
 
-    hitSet = [row[0], row[3], result, row[4], row[5], row[6]]
+        #if result < 17000 and result > 2700:
+        if result > 500 and result < 120000:
+            hitSet = [row[0], row[3], result/1000, row[4], row[5], row[6]]
+            hitTimes.append(hitSet)
 
-    hitTimes.append(hitSet)
+hitTimeData = pd.DataFrame(hitTimes)
+hitTimeData.columns = ['participant', 'target', 'time', 'age', 'gender', 'glasses']
 
-print(hitTimes)
+bins = pd.IntervalIndex.from_tuples([(0, 30), (31, 60), (61, 90)])
+#bins = np.arrange(0, 31, 61)
+TimesByAge = hitTimeData.groupby(['age', pd.cut(hitTimeData.time, bins)])
+
+plt.hist(hitTimeData.time, bins=64, ec='k', stacked=True)
+
+plt.xlabel('Detection Time')
+plt.ylabel('Occurence')
+
+#plt.xscale('log')
+plt.yscale('log')
+
+plt.grid()
+plt.show()
 
 
 
