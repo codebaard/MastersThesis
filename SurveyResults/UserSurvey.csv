@@ -20,10 +20,10 @@ participant;age;sex;glasses;neurocondition;drugs;alcohol;colorblind;wellbeing;di
 19;31;m;FALSE;FALSE;FALSE;FALSE;FALSE;3;1;4;3;2;1;FALSE;abstention;TRUE;
 20;37;m;FALSE;FALSE;FALSE;FALSE;FALSE;4;1;5;4;1;1;abstention;TRUE;TRUE;Experiment puts strain on the eyes
 21;40;m;FALSE;FALSE;FALSE;FALSE;FALSE;3;3;2;1;1;4;FALSE;TRUE;TRUE;Had concentration issues because of long work
-22;65;m;TRUE;FALSE;FALSE;FALSE;FALSE;3;;;;;;;;;Calibration did not work due to concentration
+22;65;m;TRUE;FALSE;FALSE;FALSE;FALSE;3;1.321;3.929;2.964;2.643;1.821;;;;Calibration did not work due to concentration
 23;29;m;FALSE;FALSE;FALSE;FALSE;FALSE;5;3;3;2;3;1;FALSE;TRUE;TRUE;
 24;68;f;FALSE;FALSE;FALSE;FALSE;FALSE;4;1;4;5;1;2;FALSE;FALSE;TRUE;Calibration score 2 experiment took very long
-25;72;m;TRUE;FALSE;FALSE;FALSE;FALSE;5; ;;;;;;;;Calibration did not work due to missing glasses
+25;72;m;TRUE;FALSE;FALSE;FALSE;FALSE;5;1.321;3.929;2.964;2.643;1.821;;;;Calibration did not work due to missing glasses
 26;23;m;TRUE;FALSE;FALSE;FALSE;FALSE;4;1;5;5;5;1;FALSE;TRUE;TRUE;
 27;39;f;FALSE;FALSE;FALSE;FALSE;FALSE;4;1;4;2;4;1;FALSE;FALSE;TRUE;
 28;31;m;FALSE;FALSE;FALSE;FALSE;FALSE;5;1;4;1;3;2;FALSE;FALSE;TRUE;
