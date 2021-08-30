@@ -461,7 +461,7 @@
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{IMG_8217.jpg} 
+                \includegraphics[width=0.8\textwidth]{Experiment.PNG} 
                 \caption{Interface of the remote control experiment. Ques are highlighted.}\label{gui-remote}
             \end{figure}                    
 
@@ -548,6 +548,18 @@
                 \caption{Narrowed window of achieved detection times}\label{time-hist-narrow}
             \end{figure} 
 
+        \section{Telemetry}
+
+            The \textit{NextMind} Engine provides telemetry readings on request. Figure \ref*{telemetry} shows a boxplot of all quality readings prior to all successful conducted experiments. Each boxplot stands for one distinct electrode at the sensor.
+
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{telemetry.png} 
+                \caption{Quality readings of the sensor prior to the experiments}\label{telemetry}
+            \end{figure} 
+            
+            Apart from some outliers, there are no significant systematic errors, which might lead to a significant error in the acquired data. There is a very small tendency in the outermost electrodes to have slightly less quality over the course of the whole experiement what can be attributed to being to outer and bottom electrodes which might not have ideal contact on an individual basis if the skull shape is more elliptical than usual.
+
         \section{Demographic differences}
 
             To rule out potential side effects, the first questionnaire had more questions apart from age. Namely being gender, whether the participant wears glasses, neurological conditions, alcohol or drugs and colourblindness. However the latter four questions were answered negative entirely. The only exception was a neurological condition which prohibited conducting the experiment alltogether. This leads the sex and if the participant wears glasses as the only major demographic parametres.
@@ -607,15 +619,14 @@
             In terms of opinion about the technology, which is not part of this study per se but interesting to gauge a general opinion nevertheless. Only 3 out of 25 participants are sceptical towards this technology. Three persons abstained from giving an opinion and two persons didn't fill the second questionnaire. 15 out of 30 participants would use the technology themselves with the remaining 15 answers consisting of two abstentions, two not filled questionnaires and the remaining 11 being negative answers. However, 24 participants think that this technology provides a benefit in the right domain. Again two persons didn't fill the questionnaire and four refrained from answering the question.
 
         \section*{\todo{evaluate the following topics:}}
-       \begin{itemize}
-            \item impact of position of the neurotag in regards to screenspace (No8 prb slower?)
-            \item average speed per age group (boxplot?)
-            \item speed increase on later cues (learning) (different for age groups?)
-            \item Telemetry evaluation (some box plots or so...)
-            \item impact of gender and glasses
-        \end{itemize}
 
-        \todo{use results to construct an argument about statistical significance (DOE)}
+            \begin{itemize}
+                    \item impact of position of the neurotag in regards to screenspace (No8 prb slower?)
+                    \item average speed per age group (boxplot?)
+                    \item speed increase on later cues (learning) (different for age groups?)
+            \end{itemize}
+
+            \todo{use results to construct an argument about statistical significance (DOE)}
 
         \section{Interpretation of the collected data}\label{operationalization}
 
