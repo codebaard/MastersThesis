@@ -65,10 +65,10 @@ for index, row in enumerate(combinedData):
                 combinedData[index + 3][0] == row[0]:
             result = int(combinedData[index + 3][1]) - int(row[1])
 
-        # if result < 120000 and result > 2000:
+        if result < 120000 and result > 2000:
         # if result > 2000 and result < 10000: # for reduced window
         # if result > 2000 and result < 10000: # for glasses and gender
-        if result > 2000 and result < 20000: # for targets
+        # if result > 2000 and result < 20000: # for targets
             hitSet = [row[0], row[3], result / 1000, row[4], row[5], row[6]]
             hitTimes.append(hitSet)
 
@@ -117,23 +117,47 @@ hitTimeData.columns = ['participant', 'target', 'time', 'age', 'gender', 'glasse
 
 ## Time Distribution for specific numbers
 
-zero = hitTimeData.loc[hitTimeData['target'] == '0'].time.to_numpy(dtype=float)
-one = hitTimeData.loc[hitTimeData['target'] == '1'].time.to_numpy(dtype=float)
-two = hitTimeData.loc[hitTimeData['target'] == '2'].time.to_numpy(dtype=float)
-three = hitTimeData.loc[hitTimeData['target'] == '3'].time.to_numpy(dtype=float)
-four = hitTimeData.loc[hitTimeData['target'] == '4'].time.to_numpy(dtype=float)
-five = hitTimeData.loc[hitTimeData['target'] == '5'].time.to_numpy(dtype=float)
-six = hitTimeData.loc[hitTimeData['target'] == '6'].time.to_numpy(dtype=float)
-seven = hitTimeData.loc[hitTimeData['target'] == '7'].time.to_numpy(dtype=float)
-eight = hitTimeData.loc[hitTimeData['target'] == '8'].time.to_numpy(dtype=float)
-nine = hitTimeData.loc[hitTimeData['target'] == '9'].time.to_numpy(dtype=float)
+# zero = hitTimeData.loc[hitTimeData['target'] == '0'].time.to_numpy(dtype=float)
+# one = hitTimeData.loc[hitTimeData['target'] == '1'].time.to_numpy(dtype=float)
+# two = hitTimeData.loc[hitTimeData['target'] == '2'].time.to_numpy(dtype=float)
+# three = hitTimeData.loc[hitTimeData['target'] == '3'].time.to_numpy(dtype=float)
+# four = hitTimeData.loc[hitTimeData['target'] == '4'].time.to_numpy(dtype=float)
+# five = hitTimeData.loc[hitTimeData['target'] == '5'].time.to_numpy(dtype=float)
+# six = hitTimeData.loc[hitTimeData['target'] == '6'].time.to_numpy(dtype=float)
+# seven = hitTimeData.loc[hitTimeData['target'] == '7'].time.to_numpy(dtype=float)
+# eight = hitTimeData.loc[hitTimeData['target'] == '8'].time.to_numpy(dtype=float)
+# nine = hitTimeData.loc[hitTimeData['target'] == '9'].time.to_numpy(dtype=float)
+#
+# plt.boxplot([zero, one, two, three, four, five, six, seven, eight, nine])
+#
+# #plt.xticks([0, 1, 2, 3, 4, 5, 6, 7, 8, 9],['0','1','2','3','4','5','6','7','8','9'])
+# plt.xticks(np.arange(11),['origin', '0','1','2','3','4','5','6','7','8','9'])
+# plt.xlabel('Target Number')
+# plt.ylabel('Time')
+#
+# plt.show()
 
-plt.boxplot([zero, one, two, three, four, five, six, seven, eight, nine])
+## Speed Increase in later cues
+discreteTimings= list()
 
-#plt.xticks([0, 1, 2, 3, 4, 5, 6, 7, 8, 9],['0','1','2','3','4','5','6','7','8','9'])
-plt.xticks(np.arange(10),['0','1','2','3','4','5','6','7','8','9'])
-plt.xlabel('Target Number')
-plt.ylabel('Time')
+for i in range(1,30):
+    temp = hitTimeData.loc[hitTimeData['participant'] == str(i)].time.to_numpy(dtype=float).tolist()
+    #temp = hitTimeData.loc[hitTimeData['participant'] == str(i)].time.to_numpy(dtype=float)
+    if len(temp) == 0:
+        continue
+    # if len(temp) == 50: # data cosmetics
+    #     avg = sum(temp)/len(temp)
+    #     temp = np.hstack((avg, temp))
+    discreteTimings.append(temp)
+
+map(list, zip(*discreteTimings)) ## does not work because nxm stays
+# Timings = np.array(discreteTimings, dtype=float)
+# Timings.transpose()
+
+plt.boxplot(discreteTimings)
+
+plt.xlabel('Targets 1-50')
+plt.ylabel('Time (s)')
 
 plt.show()
 
