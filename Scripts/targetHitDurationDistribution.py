@@ -139,22 +139,27 @@ hitTimeData.columns = ['participant', 'target', 'time', 'age', 'gender', 'glasse
 
 ## Speed Increase in later cues
 discreteTimings= list()
+Timings = np.zeros((26, 51))
 
 for i in range(1,30):
     temp = hitTimeData.loc[hitTimeData['participant'] == str(i)].time.to_numpy(dtype=float).tolist()
     #temp = hitTimeData.loc[hitTimeData['participant'] == str(i)].time.to_numpy(dtype=float)
     if len(temp) == 0:
         continue
-    # if len(temp) == 50: # data cosmetics
-    #     avg = sum(temp)/len(temp)
-    #     temp = np.hstack((avg, temp))
+    if len(temp) == 50: # data cosmetics
+        avg = sum(temp)/len(temp)
+        temp.append(avg)
+    if len(temp) == 49: # data cosmetics
+        avg = sum(temp)/len(temp)
+        temp.append(avg)
+        temp.append(avg)
+
     discreteTimings.append(temp)
 
-map(list, zip(*discreteTimings)) ## does not work because nxm stays
-# Timings = np.array(discreteTimings, dtype=float)
-# Timings.transpose()
+for index, row in enumerate(discreteTimings):
+    Timings[index] = np.array(row)
 
-plt.boxplot(discreteTimings)
+plt.errorbar(Timings)
 
 plt.xlabel('Targets 1-50')
 plt.ylabel('Time (s)')
