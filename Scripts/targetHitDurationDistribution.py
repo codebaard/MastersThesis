@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 import os, re
 import csv
+import seaborn
 
 data = list()
 
@@ -138,6 +139,8 @@ hitTimeData.columns = ['participant', 'target', 'time', 'age', 'gender', 'glasse
 # plt.show()
 
 ## Speed Increase in later cues
+seaborn.set(style = 'whitegrid')
+
 discreteTimings= list()
 Timings = np.zeros((26, 51))
 
@@ -159,12 +162,28 @@ for i in range(1,30):
 for index, row in enumerate(discreteTimings):
     Timings[index] = np.array(row)
 
-plt.errorbar(Timings)
+# tdf = pd.DataFrame(Timings)
 
-plt.xlabel('Targets 1-50')
-plt.ylabel('Time (s)')
+# seaborn.violinplot(x ="Targets",
+#              y ="Time (s)",
+#              data = discreteTimings)
 
+# Create a figure instance
+fig = plt.figure()
+
+# Create an axes instance
+ax = fig.add_axes([0,0,1,1])
+
+# Create the boxplot
+bp = ax.violinplot(Timings)
 plt.show()
+
+# plt.errorbar(Timings)
+#
+# plt.xlabel('Targets 1-50')
+# plt.ylabel('Time (s)')
+#
+# plt.show()
 
 ## Time Distribution
 
