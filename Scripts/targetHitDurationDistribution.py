@@ -66,10 +66,11 @@ for index, row in enumerate(combinedData):
                 combinedData[index + 3][0] == row[0]:
             result = int(combinedData[index + 3][1]) - int(row[1])
 
-        if result < 120000 and result > 2000:
+        # if result < 120000 and result > 2000:
         # if result > 2000 and result < 10000: # for reduced window
         # if result > 2000 and result < 10000: # for glasses and gender
         # if result > 2000 and result < 20000: # for targets
+        if result > 2000 and result < 20000: # for age groups
             hitSet = [row[0], row[3], result / 1000, row[4], row[5], row[6]]
             hitTimes.append(hitSet)
 
@@ -139,44 +140,44 @@ hitTimeData.columns = ['participant', 'target', 'time', 'age', 'gender', 'glasse
 # plt.show()
 
 ## Speed Increase in later cues
-seaborn.set(style = 'whitegrid')
-
-discreteTimings= list()
-Timings = np.zeros((26, 51))
-
-for i in range(1,30):
-    temp = hitTimeData.loc[hitTimeData['participant'] == str(i)].time.to_numpy(dtype=float).tolist()
-    #temp = hitTimeData.loc[hitTimeData['participant'] == str(i)].time.to_numpy(dtype=float)
-    if len(temp) == 0:
-        continue
-    if len(temp) == 50: # data cosmetics
-        avg = sum(temp)/len(temp)
-        temp.append(avg)
-    if len(temp) == 49: # data cosmetics
-        avg = sum(temp)/len(temp)
-        temp.append(avg)
-        temp.append(avg)
-
-    discreteTimings.append(temp)
-
-for index, row in enumerate(discreteTimings):
-    Timings[index] = np.array(row)
-
-# tdf = pd.DataFrame(Timings)
-
-# seaborn.violinplot(x ="Targets",
-#              y ="Time (s)",
-#              data = discreteTimings)
-
-# Create a figure instance
-fig = plt.figure()
-
-# Create an axes instance
-ax = fig.add_axes([0,0,1,1])
-
-# Create the boxplot
-bp = ax.violinplot(Timings)
-plt.show()
+# seaborn.set(style = 'whitegrid')
+#
+# discreteTimings= list()
+# Timings = np.zeros((26, 51))
+#
+# for i in range(1,30):
+#     temp = hitTimeData.loc[hitTimeData['participant'] == str(i)].time.to_numpy(dtype=float).tolist()
+#     #temp = hitTimeData.loc[hitTimeData['participant'] == str(i)].time.to_numpy(dtype=float)
+#     if len(temp) == 0:
+#         continue
+#     if len(temp) == 50: # data cosmetics
+#         avg = sum(temp)/len(temp)
+#         temp.append(avg)
+#     if len(temp) == 49: # data cosmetics
+#         avg = sum(temp)/len(temp)
+#         temp.append(avg)
+#         temp.append(avg)
+#
+#     discreteTimings.append(temp)
+#
+# for index, row in enumerate(discreteTimings):
+#     Timings[index] = np.array(row)
+#
+# # tdf = pd.DataFrame(Timings)
+#
+# # seaborn.violinplot(x ="Targets",
+# #              y ="Time (s)",
+# #              data = discreteTimings)
+#
+# # Create a figure instance
+# fig = plt.figure()
+#
+# # Create an axes instance
+# ax = fig.add_axes([0,0,1,1])
+#
+# # Create the boxplot
+# bp = ax.violinplot(Timings)
+# plt.show()
 
 # plt.errorbar(Timings)
 #
@@ -187,18 +188,16 @@ plt.show()
 
 ## Time Distribution
 
-# bins = pd.IntervalIndex.from_tuples([(0, 30), (31, 60), (61, 90)])
-# #bins = np.arrange(0, 31, 61)
-# #TimesByAge = hitTimeData.groupby(['age', pd.cut(hitTimeData.time, bins)])
-#
-# plt.hist(hitTimeData.time, bins=64, ec='k', stacked=True)
-#
-# #plt.xlabel('Detection Time (seconds) for 2<t<10')
-# plt.xlabel('Detection Time (seconds)')
-# plt.ylabel('Occurence')
-#
-# #plt.xscale('log')
-# plt.yscale('log')
-#
-# plt.grid()
-# plt.show()
+discreteTimings= list()
+Timings = np.zeros((26, 51))
+t30 = hitTimeData.loc[(hitTimeData['age'] < 31)].time.to_numpy(dtype=float)
+t60 = hitTimeData.loc[(hitTimeData['age'] > 30) & (hitTimeData['age'] < 61)].time.to_numpy(dtype=float)
+t90 = hitTimeData.loc[(hitTimeData['age'] > 60)].time.to_numpy(dtype=float)
+
+plt.boxplot([t30, t60, t90])
+
+plt.xticks(np.arange(4),['0', 'age < 31', '31 < age < 61','age > 60'])
+plt.xlabel('Age')
+plt.ylabel('Time (s)')
+
+plt.show()
