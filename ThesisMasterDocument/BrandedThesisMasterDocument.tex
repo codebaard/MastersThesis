@@ -344,7 +344,7 @@
          \begin{itemize}
              \item Considerations for the content of the questionnaire
              \item Design of experiment to establish a numerical framework
-             \item Information Transfer Rate to establish a definitive Metric
+             \item Correlation between age and timing
          \end{itemize}
 
          These aspects are discussed in the following sections.        
@@ -373,7 +373,7 @@
 
             Under the assumption that gender has no effect on the study, because the brain of men and women is at least structurally identical. Therefore age is the only parameter which is the variable in this study. To put the results into context, the survey participants will be clustered by age into different groups.
 
-        \section{Design of experiment}\label{doe}
+        \section{Statistical significance}\label{doe}
 
             The solid proof that the hypothesis holds true or not can not be made based on looking at diagrams and educated guesses. Hence the need for design of experiment to provide a numerical framework which defines threshholds and quantities to make results reproductable. This section is based on the theoretical framework which es described in \cite[87ff]{Siebertz.2017} under the considerations in the previous section.
             There are two main parametres to consider, when it comes to the DoE\footnote{Design of Experiment}: 
@@ -394,28 +394,11 @@
             \todo{Create table here}
             \medskip
 
-        \section{Information Transfer Rate}\label{itr}
+        \section{Time vs Age correlation}\label{correlation}
 
-            After establishing the necessary framework for the survey and how the results have to be interpreted in order to draw a meaningful conclusion, the underlying metric to examine and compare the peformance of the individual subjects in the experiment has to be defined. The most widely adopted metric is the \textit{Information Transfer Rate} or \textit{ITR} in short, according to \cite[1]{Yuan.2013}. This metric was conceived by \cite{Wolpaw.1998} and depicts the bits/symbol:
+            After establishing the necessary framework for the survey and how the results have to be interpreted in order to draw a meaningful conclusion, the underlying metric to examine and compare the peformance of the individual subjects in the experiment has to be defined. 
 
-            \begin{equation}\label{itr-basic}
-               B = log_{2} N + P log_{2} P + (1-P) log_{2} [(1-P)/(N-1)]
-            \end{equation}
-
-            Where $N$ is the total number of choices for a user to choose from and $P$ is the probability that a desired or required choice in the experiment will be selected, therefore posing also a metric of accuracy. In the context of this study a symbol is equivalent to a single \textit{choice} on the remote control (see Section \ref*{use-case}). However, \cite[4]{Yuan.2013} summarized certain contraints which have to be met, in order to ensure the applicability of this formula:
-
-            \begin{enumerate}
-                \item BCI Systems are memory-less and stable discrete transmission channels.
-                \item All the output commands are equally likely to be selected $(p(\omega_{i})=1/N)$
-                \item The classification accuracy is the same for all the target symbols $(p(y_{i}\vert x_{i}) = p(y_{j}\vert x_{j}))$
-                \item The classification error is equally distributed among all the remaining symbols $(p(y_{j}\vert x_{i})_{j \neq i} = (1-p(y_{i}\vert x_{i})/(N-1))$
-            \end{enumerate}
-
-            Where (1) is in the scope of this study solely determined by the choice of the interface and (2) solely on the implementation of the experiment. However (3) and (4) would be also considered solely depending on the implementation of the experiment. But since this might be influenced by the performance of the individual participant, there is a possibility of side effects like visual impairments resulting in varying performances when the target symbols are spatially distributed. Nevertheless in line with section \ref*{considerations}, these considerations will be disregarded for the purpose of this study.
-
-            Going into detail regarding (1), it has to be elaborated, why the used sensor is within the set constraints. These are: synchronism, bijectivity regarding the mapping of available symbols and possible selections, no memory, lack of error correction and prediction and no goal directed behavior.
-
-            \paragraph{Synchronism} A BCI works \textit{synchroneous}, when the time which passes from the presentation of a cue to the user until the symbol has been confirmed or erroneously chosen is solely determined by the system itself. A BCI might be considered \textit{asynchroneous} if there are measures in place to artificially increase the response time. 
+            The only meaningful metric, which can be evaluated with the programming library is the trial time between to cues. This is the time betwen the visual cue and the successful detection of a target. Figure \ref*{itr-timing} shows the connection between cue time $t_{1}$ and detection time $t_{2}$. The cue time is assumed to be constant for each participant because the interface is presented on a laptop screen (see section \ref*{experimental-setup}), which does not require head movement and there is no reason to assume that eye movement of a participant slows down significantly over a period of a few minutes on a healthy individual. Other metrics provided from the sensor, including quality telemetry and confidence values for each target proved to be unreliable at best and not relevant at worst.
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
@@ -423,19 +406,50 @@
                 \caption{Timing of symbol recognition and activation \todo{/ create own graphic}}\label{itr-timing}
             \end{figure}
 
-            \paragraph{Bijectivity} In regard to the equation in (3) this means are strict 1:1 relationship between the possible input symbols shown to the user and the resulting output symbols. \cite{Yuan.2013} describes possible scenarios, where this rule applies as \textit{idle-states} for example, where a user can deliberately choose to deactivate the interface.
-
-            \paragraph{Memory} This regards to certain scnearios, where for example an ANN\footnote{Artificial Neural Net} which is used as a classifier to determine if a certain symbol is activated has an internal feedback loop. These ANNs therefore posess a \textit{memory} of some sort, which would bias the result, since that is not \textit{purely} relying on the user's EEG-data.
-
-            \paragraph{Lack of Error Correction} Modern smartphones for example have automated error correction upon text entry, which are based on an MLE\textit{Maximum Likelihood Estimation} algorithm. This MLE in turn is derived for each specific language and determines if an entered character is valid or not. A similar behaviour for a BCI would violate the condition on bijectivity, since the strict 1:1 relationship would be lost in case of an error.
+            By collecting several timing data points for each participant, the goal is to draw a regression graph between the age of the participants and the resulting timinig for each visual cue. By calculating the statistical significance of the correlation, which was discussed in section \ref*{doe}, the hypothesis can be proven or rejected.
             
-            \paragraph{Prediction} Similar to error correction a prediction would artificially increase the ITR, since there will be an output generated which is not relying on the user input, which also violates bijectivity.
+            % The most widely adopted metric is the \textit{Information Transfer Rate} or \textit{ITR} in short, according to \cite[1]{Yuan.2013}. This metric was conceived by \cite{Wolpaw.1998} and depicts the bits/trial:
 
-            \paragraph{Goal directed behaviour} An application which aids the user navigating, violates the synchronism criteria and classification accuracy. The reason being that by leading the user to certain actions apart from the initial cue has an influence on these parametres which creates a bias on the resultung ITR.
+            % \begin{equation}\label{itr-basic}
+            %    B = log_{2} N + P log_{2} P + (1-P) log_{2} [(1-P)/(N-1)]
+            % \end{equation}
 
-            \medskip
+            % Where $N$ is the total number of choices for a user to choose from and $P$ is the probability that a desired or required choice in the experiment will be selected, therefore posing also a metric of accuracy. In the context of this study a symbol is equivalent to a single \textit{choice} on the remote control (see Section \ref*{use-case}). Due to the nature of the experiment, where every choice is selected eventually, the distinction cannot be made by simply looking at the probability of a selection, because it will always be 1, hence the ITR will always have the maximum value for every subject. Therefore, the desired choice will be determined for every cue by grouping into different timing groups. The number of timing groups will be denoted by $N$ and the 
 
-            In section \ref*{survey-contents} the design of the interface will be shown and it wil be proven that all these criteria will be met in this study. Section \ref{operationalization} will elaborate how this data will be used to evaluate the hypothesis from section \ref{hypothesis}.
+            % However, \cite[4]{Yuan.2013} summarized certain contraints which have to be met, in order to ensure the applicability of this formula:
+
+            % \begin{enumerate}
+            %     \item BCI Systems are memory-less and stable discrete transmission channels.
+            %     \item All the output commands are equally likely to be selected $(p(\omega_{i})=1/N)$
+            %     \item The classification accuracy is the same for all the target symbols $(p(y_{i}\vert x_{i}) = p(y_{j}\vert x_{j}))$
+            %     \item The classification error is equally distributed among all the remaining symbols $(p(y_{j}\vert x_{i})_{j \neq i} = (1-p(y_{i}\vert x_{i})/(N-1))$
+            % \end{enumerate}
+
+            % Where (1) is in the scope of this study solely determined by the choice of the interface and (2) solely on the implementation of the experiment. However (3) and (4) would be also considered solely depending on the implementation of the experiment. But since this might be influenced by the performance of the individual participant, there is a possibility of side effects like visual impairments resulting in varying performances when the target symbols are spatially distributed. Nevertheless in line with section \ref*{considerations}, these considerations will be disregarded for the purpose of this study.
+
+            % Going into detail regarding (1), it has to be elaborated, why the used sensor is within the set constraints. These are: synchronism, bijectivity regarding the mapping of available symbols and possible selections, no memory, lack of error correction and prediction and no goal directed behavior.
+
+            % \paragraph{Synchronism} A BCI works \textit{synchroneous}, when the time which passes from the presentation of a cue to the user until the symbol has been confirmed or erroneously chosen is solely determined by the system itself. A BCI might be considered \textit{asynchroneous} if there are measures in place to artificially increase the response time. 
+
+            % \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+            %     \centering
+            %     \includegraphics[width=0.8\textwidth]{timingBCI.PNG} 
+            %     \caption{Timing of symbol recognition and activation \todo{/ create own graphic}}\label{itr-timing}
+            % \end{figure}
+
+            % \paragraph{Bijectivity} In regard to the equation in (3) this means are strict 1:1 relationship between the possible input symbols shown to the user and the resulting output symbols. \cite{Yuan.2013} describes possible scenarios, where this rule applies as \textit{idle-states} for example, where a user can deliberately choose to deactivate the interface.
+
+            % \paragraph{Memory} This regards to certain scnearios, where for example an ANN\footnote{Artificial Neural Net} which is used as a classifier to determine if a certain symbol is activated has an internal feedback loop. These ANNs therefore posess a \textit{memory} of some sort, which would bias the result, since that is not \textit{purely} relying on the user's EEG-data.
+
+            % \paragraph{Lack of Error Correction} Modern smartphones for example have automated error correction upon text entry, which are based on an MLE\textit{Maximum Likelihood Estimation} algorithm. This MLE in turn is derived for each specific language and determines if an entered character is valid or not. A similar behaviour for a BCI would violate the condition on bijectivity, since the strict 1:1 relationship would be lost in case of an error.
+            
+            % \paragraph{Prediction} Similar to error correction a prediction would artificially increase the ITR, since there will be an output generated which is not relying on the user input, which also violates bijectivity.
+
+            % \paragraph{Goal directed behaviour} An application which aids the user navigating, violates the synchronism criteria and classification accuracy. The reason being that by leading the user to certain actions apart from the initial cue has an influence on these parametres which creates a bias on the resultung ITR.
+
+            % \medskip
+
+            % In section \ref*{survey-contents} the design of the interface will be shown and it wil be proven that all these criteria will be met in this study. Section \ref{operationalization} will elaborate how this data will be used to evaluate the hypothesis from section \ref{hypothesis}.
 
     \chapter{Survey Contents}\label{survey-contents}
 
