@@ -66,11 +66,11 @@ for index, row in enumerate(combinedData):
                 combinedData[index + 3][0] == row[0]:
             result = int(combinedData[index + 3][1]) - int(row[1])
 
-        # if result < 120000 and result > 2000:
+        if result < 120000 and result > 2000:
         # if result > 2000 and result < 10000: # for reduced window
         # if result > 2000 and result < 10000: # for glasses and gender
         # if result > 2000 and result < 20000: # for targets
-        if result > 2000 and result < 20000: # for age groups
+        # if result > 2000 and result < 20000: # for age groups
             hitSet = [row[0], row[3], result / 1000, row[4], row[5], row[6]]
             hitTimes.append(hitSet)
 
@@ -201,3 +201,8 @@ plt.xlabel('Age')
 plt.ylabel('Time (s)')
 
 plt.show()
+
+## Median for every person
+
+medians = list()
+

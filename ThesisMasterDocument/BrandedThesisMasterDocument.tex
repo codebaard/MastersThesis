@@ -543,12 +543,12 @@
                 \caption{Historgram of achieved detection times}\label{time-hist}
             \end{figure}    
             
-            This is also shown very clearly in figure \ref*{time-hist-narrow}, where the time windows shows only the results between two and ten seconds, which also constitutes for the majority of data points (over 95\%). The clustering of the detection right at the 2.3s mark, which is indicated by the red line with almost no other data points below that threshold might indicate, that this threshold is the minimum amount of time required to confidently identify a target. The logfiles show that a confidence score of >0.3 qualifies for a successful identification. See Appendix \ref*{logfile} for details. This score is not displayed for targets, which are identified under a certain amount of time, since there aren't enough samples supposedly.
+            This is also shown very clearly in figure \ref*{time-hist-narrow}, where the time windows shows only the results between two and ten seconds, which also constitutes for the majority of data points (over 95\%). Some outliers where the detection took over 120s, were removed from the sample. The clustering of the detection right at the 2.3s mark, which is indicated by the red line with almost no other data points below that threshold might indicate, that this threshold is the minimum amount of time required to confidently identify a target. The logfiles show that a confidence score of >0.3 qualifies for a successful identification. See Appendix \ref*{logfile} for details. This score is not displayed for targets, which are identified under a certain amount of time, since there aren't enough samples supposedly.
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
                 \includegraphics[width=0.8\textwidth]{TargetTimeHistogram_narrow.png} 
-                \caption{Narrowed window of achieved detection times}\label{time-hist-narrow}
+                \caption{Narrowed window of achieved detection times /todo{move red line}}\label{time-hist-narrow}
             \end{figure} 
 
         \section{Telemetry}
@@ -567,7 +567,7 @@
 
             To rule out potential side effects, the first questionnaire had more questions apart from age. Namely being gender, whether the participant wears glasses, neurological conditions, alcohol or drugs and colourblindness. However the latter four questions were answered negative entirely. The only exception was a neurological condition which prohibited conducting the experiment alltogether. This leads the sex and if the participant wears glasses as the only major demographic parametres.
             
-            When the genders are compared side by side in figure \ref*{gender}, there is a tendency of women having a more consistent timing. The average value of both in approximately on the same level but the male results have a larger upper quartile and whisker therefore being less consistent in timing. As in figure \ref*{time-hist-narrow}, the window was narrowed down to 10s max, to cut large outliers. \todo{Check if there is a skew in age/gender distribution}.
+            When the genders are compared side by side in figure \ref*{gender}, there is a tendency of women having a more consistent timing. The average value of both is approximately on the same level but the male results have a larger upper quartile and whisker therefore being less consistent in timing. As in figure \ref*{time-hist-narrow}, the window was narrowed down to 10s max, to cut large outliers. However since the age distribution across genders is about the same, this won't have an effect on the outcome in regards to the hypothesis. Nevertheless a quantitative study with a large number of participants could prove if there actually is a significant effect on detection times.
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
@@ -575,7 +575,7 @@
                 \caption{Detection times between Male and Female participants}\label{gender}
             \end{figure} 
 
-            Figure \ref*{glasses} also shows the result that participants without glasses have a higher consistency in their target times. Although the average being at roughly the same level, the upper quartile and whisker is far more spread with the participants who are wearing glasses. \todo{Check if theres a strong correlation with age!}
+            Figure \ref*{glasses} also shows the result that participants without glasses have a higher consistency in their target times. Although the average being at roughly the same level, the upper quartile and whisker is far more spread with the participants who are wearing glasses. Since the participants which were wearing glasses tend to be about 10 years older in average than their non glass wearing counterparts, this effect seems to be tied to the age itself and not the fact the participants actually cannot see as good.
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
@@ -610,7 +610,7 @@
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
                 \includegraphics[width=0.8\textwidth]{targets.png} 
-                \caption{Detection times for the different targets \todo{Correct  X-axis}}\label{targets}
+                \caption{Detection times for the different target}\label{targets}
             \end{figure}
 
             This effect comes presumably from the layout of the experiment itself, where the participant sat in front of a laptop and the interface was placed in a different angle. Therefore the targets, which were arragend in rows and columns (see figure \ref*{gui-remote}), were being seen in different angles. Since the test series of cues was the same for each experiment and close to evenly distributed in their occurences, there is no systematic error in the experiment itself.
