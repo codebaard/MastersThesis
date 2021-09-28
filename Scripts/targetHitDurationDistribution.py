@@ -214,20 +214,30 @@ for i in range(1,31):
         means.append(temp)
         ages.append(hitTimeData.loc[hitTimeData['participant'] == str(i)].age.max())
 
-m, b = np.polyfit(ages, means, 1)
+# m, b = np.polyfit(ages, means, 1)
+#
+# rng = np.random.default_rng(1234)
+# x = rng.uniform(4, 80, size=26)
+#
+# plt.scatter(ages, means)
+# plt.plot(x, m*x+b, color='red')
+# plt.title('Age vs Mean Detection Time')
+# plt.xlabel('age')
+# plt.ylabel('mean time')
+# plt.grid()
+# plt.show()
+#
+# print(means)
 
-rng = np.random.default_rng(1234)
-x = rng.uniform(4, 80, size=26)
+## histogram of timing means
 
-plt.scatter(ages, means)
-plt.plot(x, m*x+b, color='red')
-plt.title('Age vs Mean Detection Time')
-plt.xlabel('age')
-plt.ylabel('mean time')
+plt.hist(means, bins=30)
+
+plt.xlabel('Time [s]')
+plt.ylabel('Participants with that mean')
+
 plt.grid()
 plt.show()
-
-print(means)
 
 
 
