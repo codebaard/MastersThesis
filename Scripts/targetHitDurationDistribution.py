@@ -1,4 +1,5 @@
 import copy
+import math
 
 from FileNames import FileNames
 import matplotlib.pyplot as plt
@@ -139,26 +140,28 @@ hitTimeData.columns = ['participant', 'target', 'time', 'age', 'gender', 'glasse
 #
 # plt.show()
 
+## discrete timings
+discreteTimings= list()
+Timings = np.zeros((26, 51))
+participantMapping = list()
+for i in range(1,31):
+    temp = hitTimeData.loc[hitTimeData['participant'] == str(i)].time.to_numpy(dtype=float).tolist()
+    #temp = hitTimeData.loc[hitTimeData['participant'] == str(i)].time.to_numpy(dtype=float)
+    if len(temp) == 0:
+        continue
+    if len(temp) == 50: # data cosmetics
+        avg = sum(temp)/len(temp)
+        temp.append(avg)
+    if len(temp) == 49: # data cosmetics
+        avg = sum(temp)/len(temp)
+        temp.append(avg)
+        temp.append(avg)
+
+    discreteTimings.append(temp)
+    participantMapping.append(str(i))
+
 ## Speed Increase in later cues
 # seaborn.set(style = 'whitegrid')
-#
-# discreteTimings= list()
-# Timings = np.zeros((26, 51))
-#
-# for i in range(1,30):
-#     temp = hitTimeData.loc[hitTimeData['participant'] == str(i)].time.to_numpy(dtype=float).tolist()
-#     #temp = hitTimeData.loc[hitTimeData['participant'] == str(i)].time.to_numpy(dtype=float)
-#     if len(temp) == 0:
-#         continue
-#     if len(temp) == 50: # data cosmetics
-#         avg = sum(temp)/len(temp)
-#         temp.append(avg)
-#     if len(temp) == 49: # data cosmetics
-#         avg = sum(temp)/len(temp)
-#         temp.append(avg)
-#         temp.append(avg)
-#
-#     discreteTimings.append(temp)
 #
 # for index, row in enumerate(discreteTimings):
 #     Timings[index] = np.array(row)
@@ -178,7 +181,7 @@ hitTimeData.columns = ['participant', 'target', 'time', 'age', 'gender', 'glasse
 # # Create the boxplot
 # bp = ax.violinplot(Timings)
 # plt.show()
-
+#
 # plt.errorbar(Timings)
 #
 # plt.xlabel('Targets 1-50')
@@ -188,21 +191,46 @@ hitTimeData.columns = ['participant', 'target', 'time', 'age', 'gender', 'glasse
 
 ## Time Distribution
 
-discreteTimings= list()
-Timings = np.zeros((26, 51))
-t30 = hitTimeData.loc[(hitTimeData['age'] < 31)].time.to_numpy(dtype=float)
-t60 = hitTimeData.loc[(hitTimeData['age'] > 30) & (hitTimeData['age'] < 61)].time.to_numpy(dtype=float)
-t90 = hitTimeData.loc[(hitTimeData['age'] > 60)].time.to_numpy(dtype=float)
-
-plt.boxplot([t30, t60, t90])
-
-plt.xticks(np.arange(4),['0', 'age < 31', '31 < age < 61','age > 60'])
-plt.xlabel('Age')
-plt.ylabel('Time (s)')
-
-plt.show()
+# discreteTimings= list()
+# Timings = np.zeros((26, 51))
+# t30 = hitTimeData.loc[(hitTimeData['age'] < 31)].time.to_numpy(dtype=float)
+# t60 = hitTimeData.loc[(hitTimeData['age'] > 30) & (hitTimeData['age'] < 61)].time.to_numpy(dtype=float)
+# t90 = hitTimeData.loc[(hitTimeData['age'] > 60)].time.to_numpy(dtype=float)
+#
+# plt.boxplot([t30, t60, t90])
+#
+# plt.xticks(np.arange(4),['0', 'age < 31', '31 < age < 61','age > 60'])
+# plt.xlabel('Age')
+# plt.ylabel('Time (s)')
+#
+# plt.show()
 
 ## Median for every person
+means = list()
+ages = list()
+for i in range(1,31):
+    temp = hitTimeData.loc[hitTimeData['participant'] == str(i)].time.mean()
+    if not math.isnan(temp):
+        means.append(temp)
+        ages.append(hitTimeData.loc[hitTimeData['participant'] == str(i)].age.max())
 
-medians = list()
+m, b = np.polyfit(ages, means, 1)
+
+rng = np.random.default_rng(1234)
+x = rng.uniform(4, 80, size=26)
+
+plt.scatter(ages, means)
+plt.plot(x, m*x+b, color='red')
+plt.title('Age vs Mean Detection Time')
+plt.xlabel('age')
+plt.ylabel('mean time')
+plt.grid()
+plt.show()
+
+print(means)
+
+
+
+
+
 
