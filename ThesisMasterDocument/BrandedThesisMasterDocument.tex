@@ -587,7 +587,7 @@
                 \caption{Detection times between participants with and without glasses}\label{glasses}
             \end{figure}
 
-            THe clustering into the age groups is shown in figure \ref*{age-groups}, where the age groups are as follows:
+            In order to have a better understanding of the difference between younger and older participants, the whole population of the study has been binned into three different age groups:
 
             \begin{itemize}
                 \item 0-30
@@ -595,7 +595,7 @@
                 \item >61
             \end{itemize}
 
-            The most prominent feature is the age group above 61 years old. Their average time to detection of the target is between 5 and 7.5 seconds. However almost indistinguishable from the 0-30 age group is the 31-60 age group but on a close look the graph actually shows a slightly slower detection time here as well. So the first preliminary finding is that there in fact is a tendency that with increasing age the detection of a target takes longer.
+            The results are show in figure \ref*{age-groups}. The most prominent feature is the age group above 61 years old. Their average time to detection of the target is between 5 and 7.5 seconds. However almost indistinguishable from the 0-30 age group is the 31-60 age group but on a close look the graph actually shows a slightly slower detection time here as well. So the first preliminary finding is that there in fact is a tendency that with increasing age the detection of a target takes longer.
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
@@ -603,7 +603,7 @@
                 \caption{Detection times for three age groups}\label{age-groups}
             \end{figure}
 
-            These results will be later set into context with other results from the survey to show a clear picture.
+            These results will be later set into context with other results from the survey to show a clear picture of the findings of this study.
 
         \section{Detection time differences for each target}
 
@@ -659,7 +659,19 @@
 
         \section{Age as a factor in BCI usage}\label{findings-age}
 
-            Also mention concentration.
+            Section \ref*{correlation} discussed, how a regression curve will be used in order to identify a correlation between age and expected performance in regards to BCI usage. Figure \ref*{mean-time} shows this regression curve:
+
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=0.8\textwidth]{DetectionRegression.png} 
+                \caption{Regression curve based on mean detection time per participant \todo{Add confidence interval}}\label{mean-time}
+            \end{figure}
+
+            The most apparent feature is in fact that there is a positive correlation. Up until the age of fourty, the results are fairly uniform in the 2-5 seconds range. People above this age however have a significantly higher mean in this study. One possible explantion can be given in regards to concentrativeness: Older people reported in the subsequent questionnaire that they sometimes had difficulties in focussing on the task. This coincided with longer detection times clearly observable during the experiment. Also one subject in the 40s-range reported that due to a long and stressful day at work, his ability to concentrate was significantly diminished. One cause, which can be ruled out beyond all doubt is that older people had a problem with the interface or the usage of the BCI itself. Almost none of the participants from very young age to the oldest ones reported difficulties in the task - see figure \ref*{survey-boxplots} : Difficulty.
+
+            \medskip
+
+            Formally: with a 5\% confidence intervall painted on the regression curve - which was required according to section \ref*{doe}, there still is a significant positive correlation between age and mean detection time. Therefore the hypothesis is disproven.
 
         \section{Other findings}\label{other-findings}
 
