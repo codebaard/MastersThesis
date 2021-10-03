@@ -128,7 +128,7 @@
 
         \section{Working principle}\label{working-principle}         
 
-            In order to understand the reasoning behind this study, the working principle of a BCI has to be established on a general level. Section \ref*{intro-bci} already established a high-level overview of different BCI technologies and how these are triggered by certain external stimuli. In this study only visual stimuli will be used and therfore explained in detail. Although the vendor of the BCI in question does not disclose any details of the inner workings itself, it is safe to assume that the underlying technique used is the so called \textit{Steady State Visually Evoked Potential} - SSVEP in short. \cite{Sokol.1976} provides detailed inside into the topic from a neuroscientific point of view. The general principle however is that any visual stimuli cause a certain pattern of waves within the visual cortex of the brain. These patterns can be used to evaluate if a certain pattern is being seen \textit{and} in fokus of the person. 
+            In order to understand the reasoning behind this study, the working principle of a BCI has to be established on a general level. Section \ref*{intro-bci} already established a high-level overview of different BCI technologies and how these are triggered by certain external stimuli. In this study only visual stimuli will be used and therfore explained in detail. The vendor, where the BCI in this study is from - \textit{NextMind} - does not disclose any details of the inner workings itself, it is safe to assume that the underlying technique used is the so called \textit{Steady State Visually Evoked Potential} - SSVEP in short. \cite{Sokol.1976} provides detailed inside into the topic from a neuroscientific point of view. The general principle however is that any visual stimuli cause a certain pattern of waves within the visual cortex of the brain. These patterns are being evaluated by different means to assess if a certain pattern is being seen \textit{and} in fokus of the person. 
             
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
@@ -136,7 +136,7 @@
                 \caption{How VEP works in principle \todo{citation?}}\label{vep-principle}
             \end{figure}            
             
-            This is being done by subsequently feeding the sensor data through a trained neural network. The objects, which are being seen by the person, have been labeled \textit{neurotags} (\cite{NextMind.23112020}) from the vendor of the BCI. These neurotags can provide two different readouts: If it is triggered (i.E. \textit{seen}) and the confidence, which depicts the level of \textit{focus} of the user on the neurotag (\cite{NextMind.18112020}).
+            According to \textit{NextMind} this is being done by feeding the sensor data through a trained neural network, which is able to return a confidence score for each target. The objects, which are being seen by the person, have been labeled \textit{neurotags} (\cite{NextMind.23112020}) from \textit{NextMind}. These neurotags can provide two different readouts: If it is triggered (i.E. \textit{seen}) and the confidence, which depicts the level of \textit{focus} of the user on the neurotag (\cite{NextMind.18112020}).
             
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
@@ -144,7 +144,7 @@
                 \caption{Physical layout of the sensor}\label{electrodes-sensor}
             \end{figure}
             
-            The physical layout of the sensor is show at figure \ref*{electrodes-sensor}. It has 18 eletrodes, which are arragend in pairs to cover the area, where the visual cortex is located at on the back of the cranium. It is battery driven and communicates via the Bluetooth LowEnergy protocol.
+            The physical layout of the sensor is show at figure \ref*{electrodes-sensor}. It has 18 eletrodes, which are arragend in pairs to cover the area, where the visual cortex is located at on the back of the cranium. These electrodes have a certain degree of freedom to their movement, which is beneficial since this mitigates the risk that small movements from the sensor alter the sensor position too much. It is battery driven and communicates via the Bluetooth LowEnergy protocol. A headstrap keeps it in place.
 
         \section{Related work}\label{related-work}
 
@@ -323,18 +323,18 @@
 
     \chapter{Survey Framework}\label{survey-framework}
 
-        The first apsect which defines the general layout of a study is determined by its scope. Apart from domain specific studies like for example clinical trials, there are two general types of studies: \textit{qualitative} and \textit{quantitative} ones. Where the former one depicts a study where the number of conducted experiments are in the range of one or lower two digit numbers like 20-30, which is common according to \cite[302]{Doring.2016}. Quantitative studies often have four to five digit numbers of testcases according to \cite[305]{Doring.2016}. Since both studies have a different objective target, the requirements regarding the samples are different in order to avoid a previously unknown factor to skew the results. For this reason \textit{quantitative} studies have to make careful deliberation about the characteristics of the participants have to be made in order to avoid a systematical error. \textit{Qualitative} studies on the other hand are taking a different approach. Since the number of participants is fairly low, they are often hand selected to pick certain characteristics deliberately. For the scope of this study, these deliberations are discussed in section \ref*{considerations}. 
+        The first apsect which defines the general layout of a study is determined by its scope. Apart from domain specific studies like for example clinical trials, there are two general types of studies: \textit{qualitative} and \textit{quantitative} ones. Where the former one depicts a study where the number of conducted experiments are in the range of one or lower two digit numbers like 20-30, which is common according to \cite[302]{Doring.2016}. Quantitative studies often have four to five digit numbers of testcases according to \cite[305]{Doring.2016}. The latter ones are far more resource intensive however than their qualitative counterpart. A subset of qualitative studies are explorative studies. In these studies there have not been any previous research efforts so they're often considered preliminary to evaluate the scope and nature of the problem. Since all of these studies have a different objective target, the requirements regarding the samples are different in order to mitigate the risks of a previously unknown factor to skew the results. This might result in rendering a complete quantitative study irrelevant due to previously undetected errors. For this reason \textit{quantitative} studies have to make careful deliberation about the characteristics of the participants in order to avoid a systematical error. This is often done by using \textit{Qualitative} studies which are taking a different approach in regards to sampling the population. Since the number of participants is fairly low, they are often hand selected to pick certain characteristics deliberately. For the scope of this study, these deliberations are discussed in section \ref*{considerations}. 
 
-        Regarding the scope of this study, two main questions have to be answered:
+        Regarding the scope of this study, two main questions have to be answered, to evaluate whether a quantitative, qualitative or even exploratory study is the best approach:
 
         \begin{itemize}
             \item Is there a previous study, which already established key-findings to build upon?
             \item How many resources are available to conduct the study?
         \end{itemize}
 
-        To answer the first question regarding previous studies to build upon, none of the studies discussed in section \ref*{related-work} had the age as a core point. Nor were there any conclusions drawn from a study, which found that age had a significant impact on the results.
+        To answer the first question regarding previous studies to build upon, none of the studies discussed in section \ref*{related-work} had the age as a core point. Nor were there any conclusions drawn from a study, which found that age had a significant impact on the results. Age did always play a major role, because BCI are often used as neuroprosthetics, whose usage is being found more often among the older population. More so the \textit{NextMind} BCI has not been subject of a scientific study at the time this study has been written.
 
-        In regards to the secound question, is has to be taken into account that the amount of people involved in this study is very limited and there was no additional funding granted to help with procuring more resources. 
+        In regards to the secound question, is has to be taken into account that the amount of people involved in this study is very limited and there was no additional funding granted to help with procuring more resources. All preparations and the experiment are being done by a single person, which severly limits effects of scale to sample a larger population.
 
         When these two facts are taken into account, the clear picture of a qualitative study can be drawn. More so, it is reasonable to design this study in an explorative way such that it ca be determined, if there is evidence which supports a quantitative study in order to determine exact resons why the hypothesis might or might not hold true.
 
