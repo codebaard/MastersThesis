@@ -132,7 +132,7 @@
             
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{placeholder.jpg} 
+                \includegraphics[width=0.8\textwidth]{Illu_Kopf2.jpg} 
                 \caption{How VEP works in principle}\label{vep-principle}
             \end{figure}            
             
@@ -221,8 +221,8 @@
 
                 \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                     \centering
-                    \includegraphics[width=0.8\textwidth]{einzelauswertung_de.png} 
-                    \caption{\todo{MAKE ENGLISH} AttrakDiff results for a given interaction model, Source: \cite{Hassenzahl.30092020}}\label{AttrakDiff}
+                    \includegraphics[width=0.8\textwidth]{einzelauswertung_en.png} 
+                    \caption{AttrakDiff results for a given interaction model, Source: \cite{Hassenzahl.30092020}}\label{AttrakDiff}
                 \end{figure}
 
                 Figure \ref*{AttrakDiff} shows two axes which depict the hedonistic quality of an interaction, which is a metric of pleasure and the pragmatic quality which depicts a metric of \textit{ease of use} or \textit{technical quality}. Even without any deeper knowledge it is safe to assume that it is preferential for the interaction to be located in the upper right corner, since this makes it \textit{"desireable"} instead of \textit{"unnesessary"}. Given that, it is certain that any interaction needs a way to facilitate pleasure in the user.
@@ -387,6 +387,11 @@
             \paragraph{Significante Level Alpha - $\alpha$:} Alpha is the governing parameter, which decides how big the risk in a given sample size is that the hypothesis is wrong and therefore falsified. Since the hypothesis can be either true or false, the probability that it is wrong decreases with the number of samples taken in a binomial fashion \cite[103]{Siebertz.2017}. That means in this case that the likelihood $p$ of a participant to be above or below the threshhold, which will be discussed in section \ref*{findings}, is not determined by age. According to \cite[110]{Siebertz.2017} common values for alpha tend to be chosen such that the probability of a falsified hypothesis is at 1\%, 5\% and 10\%. Where a smaller value means a more strict threshhold. To account for the explorative character of this study the value of 5\% is chosen. Therefore the susceptibility for unaccounted side-effects is reduced and the total number of participants is still not unfeasibly large. This value cannot be calculated - it is instead chosen based on the desired outcome and required accuracy.
 
             \paragraph{Parameter beta - $\beta$:} This parameter depicts how effective a potential effect is in a given sample size. The likelihood of a significant effect not being recognized decreases with an increasing number of samples, since it becomes increasingly unlikely that a systematic effect affects the samples always in a way which makes it undiscoverable. Table \ref*{beta} in section \ref*{findings-age} shows the beta values for this study. Usually the $\beta$ parameter is not used but instead the \textit{Power} of an experiment is calculated as $1-\beta$.
+
+            \medskip
+
+            The calculation and proof of these paramenters is done in section \ref*{findings}.
+            Since the probability distribution and average results play a role here and without any related numbers, this part would not mean anything.
                  
         \section{Time vs Age correlation}\label{correlation}
 
@@ -429,14 +434,14 @@
                 \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                     \centering
                     \includegraphics[width=0.8\textwidth]{visualcortex.png} 
-                    \caption{Position of the visual cortex. Left is front. Source: \cite{Dr.KenBrodaBahm.14062021}}\label{visual-cortex}
+                    \caption{Position of the visual cortex. Left is front. Source: \cite{Dr.KenBrodaBahm.2013}}\label{visual-cortex}
                 \end{figure}
 
                 The Sensor will be strapped to the VR headset and thus these two devices will be easy to put on or off.
 
             \paragraph{Pen and paper questionnaire}
 
-                A questionnaire will be used to collect anonymized demographic data from the participant. This is necessary for the evaluation of the results. Among demographic data and self assessments the questionnaire will also ask for opinions. See section \ref*{datacollection} for details and the full survey at section \ref*{survey}.
+                A questionnaire will be used to collect anonymized demographic data from the participant. This is necessary for the evaluation of the results. Among demographic data and self assessments the questionnaire will also ask for opinions. See section \ref*{datacollection} for details and the full survey at section \ref*{surveys}.
 
         \section{Remote control interface}
         
@@ -495,7 +500,7 @@
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{placeholder.jpg} 
+                \includegraphics[width=0.8\textwidth]{SensorReadings.PNG} 
                 \caption{Quality readings of the sensor}\label{electrode-quality}
             \end{figure}
 
@@ -587,16 +592,16 @@
             
         \section{Conduction of the Survey}
             
-            Two participants had not undergone the experiment itself due to an insufficient calibration score. One case was due to missing glasses for a clear view of the screen and another case had concentration problems. Both cases were in the above 60 age group.
+            Two participants had not undergone the experiment itself due to an insufficient calibration score. One case was due to missing glasses for a clear view of the screen and another case had concentration problems. Both cases were in the above 60 age group. This is especially noteworthy since in section \ref*{considerations} the assumption was made that reduced eyesight does not have an influence, since glasses can be worn. This is a strong indicator that without proper visual resolution of the neurotags, the sensor does indeed not work.
             One participant also from the above 60 age group had to end the experiment prematurely due to concentration difficulties and eye strain.
 
-            Eye strain was reported from four participants. However there was no majority among any age group in this case which might indicate a correlation. Two participants wore contact lenses. One participant reported that focussing on the experiment made her forget about blinking her eyes.
+            Eye strain was reported from four participants. However there was no majority among any age group in this case which means that this does not indicate a correlation. Two participants wore contact lenses. One participant reported that focussing on the experiment made her forget about blinking her eyes, causing dry eyes.
 
             Two participants reported that they felt the SSVEP physically inside their brain with a pulsating or tickling sensation. However, this was not reported to be painful.
 
             In many cases the calibration wasn't successful at first try. Usually a sufficient score was reached after 3-5 attemps. Also for some participants the optimal sensor position was in a different place on the back of the skull than recommended by \textit{NextMind}. In these cases the results we perfect instantly after a relocation of the sensor to a different position.
 
-            One participant inadvertenly altered the position of the sensor which did not have a significant effect on the detection time. Also with this same participant the calibration score was comparatively low. Although not explicitly tested in this survey, this might indicate that the \textit{NextMind} sensor has a resilient design to a shifting position.
+            One participant inadvertenly altered the position of the sensor which did not have a significant effect on the detection time. Also with this same participant the calibration score was comparatively low. Although not explicitly tested in this survey, this might indicate that the \textit{NextMind} sensor has a resilient design to a shifting position. This would allow for applications which includes physical movement.
 
             One individual could not participate as she had epilepsy, what might have gotten triggered by the experiment.
 
@@ -605,6 +610,8 @@
                 \includegraphics[width=0.8\textwidth]{ageDistribution.png} 
                 \caption{Age distribution of the participants}\label{age-dist}
             \end{figure}
+
+            Figure \ref*{age-dist} shows the distribution of the age of all the participants in the study. There is no age group which is particularly under- or overrepresented. The range of all participants was between 6-81 years old, resulting in a big cross section. It is noteworthy however, that not all of the participants represented in this chart also generated results for the regression curve in figure \ref*{regression}. The reason being that predominantly in the above 60 age group, some participants had problems with the calibration due to reduced eyesight or concentration problems.
      
         \section{Questionnaire Results}
 
@@ -639,7 +646,7 @@
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{DetectionRegression.png} 
+                \includegraphics[width=0.8\textwidth]{DetectionRegression.png}\label{regression}
                 \caption{Regression curve based on mean detection time per participant \todo{Add confidence interval}}\label{mean-time}
             \end{figure}
 
