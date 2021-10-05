@@ -66,7 +66,7 @@
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.7\textwidth]{PR_490866_5_Trends_in_the_Emerging_Tech_Hype_Cycle_2018_Hype_Cycle.png} 
+                \includegraphics[width=1\textwidth]{PR_490866_5_Trends_in_the_Emerging_Tech_Hype_Cycle_2018_Hype_Cycle.png} 
                 \caption{Gartner report of emerging technologies 2018}\label{gartner-2018}
             \end{figure}
 
@@ -94,7 +94,7 @@
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{gartner-hc-emerging-2020.png} 
+                \includegraphics[width=1\textwidth]{gartner-hc-emerging-2020.png} 
                 \caption{Gartner report of emerging technologies 2020}\label{gartner-2020}
             \end{figure}
 
@@ -132,7 +132,7 @@
             
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{Illu_Kopf2.jpg} 
+                \includegraphics[width=1\textwidth]{Illu_Kopf2.jpg} 
                 \caption{How VEP works in principle}\label{vep-principle}
             \end{figure}            
             
@@ -140,7 +140,7 @@
             
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{electrodes-sensor} 
+                \includegraphics[width=1\textwidth]{electrodes-sensor} 
                 \caption{Physical layout of the sensor}\label{electrodes-sensor}
             \end{figure}
             
@@ -221,7 +221,7 @@
 
                 \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                     \centering
-                    \includegraphics[width=0.8\textwidth]{einzelauswertung_en.png} 
+                    \includegraphics[width=1\textwidth]{einzelauswertung_en.png} 
                     \caption{AttrakDiff results for a given interaction model, Source: \cite{Hassenzahl.30092020}}\label{AttrakDiff}
                 \end{figure}
 
@@ -261,7 +261,7 @@
 
                 \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                     \centering
-                    \includegraphics[width=0.8\textwidth]{F2.large.jpg} 
+                    \includegraphics[width=1\textwidth]{F2.large.jpg} 
                     \caption{General scheme of neurofeedback model, Source: \cite{Rashkov.2019}}\label{image-synthesis}
                 \end{figure}
 
@@ -289,7 +289,7 @@
 
                 \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                     \centering
-                    \includegraphics[width=0.8\textwidth]{pone.0105225.g001.PNG_L.png} 
+                    \includegraphics[width=1\textwidth]{pone.0105225.g001.PNG_L.png} 
                     \caption{B2B communication signal chain, Source: \cite{Grau.2014}}\label{b2b-chain}
                 \end{figure}    
 
@@ -315,7 +315,7 @@
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{eur-vs-snr.PNG} 
+                \includegraphics[width=1\textwidth]{eur-vs-snr.PNG} 
                 \caption{SNR plotted against price, Source: \cite{Zerafa.2018}}\label{snr-eur}
             \end{figure}              
                 
@@ -378,20 +378,15 @@
             There are two main parametres to consider, when it comes to the DoE\footnote{Design of Experiment}: 
             
             \begin{itemize}
-                \item How many samples are necessary to reliably prove that the hypothesis holds true?
                 \item Where is the threshold which determines whether an effect is significant or not?
+                \item How many samples are necessary to reliably prove that the hypothesis holds true?
             \end{itemize}
 
-            In the context of DoE the former is often depicted as $\beta$ and the latter as $\alpha$.
+            These values are often calculated by means of statistis. The first one is usually depicted as $\alpha$ and the second one as $\beta$:
 
-            \paragraph{Significante Level Alpha - $\alpha$:} Alpha is the governing parameter, which decides how big the risk in a given sample size is that the hypothesis is wrong and therefore falsified. Since the hypothesis can be either true or false, the probability that it is wrong decreases with the number of samples taken in a binomial fashion \cite[103]{Siebertz.2017}. That means in this case that the likelihood $p$ of a participant to be above or below the threshhold, which will be discussed in section \ref*{findings}, is not determined by age. According to \cite[110]{Siebertz.2017} common values for alpha tend to be chosen such that the probability of a falsified hypothesis is at 1\%, 5\% and 10\%. Where a smaller value means a more strict threshhold. To account for the explorative character of this study the value of 5\% is chosen. Therefore the susceptibility for unaccounted side-effects is reduced and the total number of participants is still not unfeasibly large. This value cannot be calculated - it is instead chosen based on the desired outcome and required accuracy.
+            \paragraph{Significante Level Alpha - $\alpha$:} Alpha is the governing parameter, which decides how big the risk in a given sample size is that the hypothesis is wrong and therefore falsified. Since the hypothesis can be either true or false, the probability that it is wrong decreases with the number of samples taken in a binomial fashion \cite[103]{Siebertz.2017}. That means in this case that the likelihood $p$ of a participant to be above or below the threshhold, which will be discussed in section \ref*{findings}, is not determined by age. According to \cite[110]{Siebertz.2017} common values for alpha tend to be chosen such that the probability of a falsified hypothesis is at 1\%, 5\% and 10\%. Where a smaller value means a more strict threshhold. To account for the explorative character of this study the value of 5\% is chosen. Therefore the susceptibility for unaccounted side-effects is reduced and the total number of participants is still not unfeasibly large. This value cannot be calculated - it is often chosen based on experience or strict requirements. This parameter is often also called a \textit{Type I Error} or \textit{False Positive}. 
 
-            \paragraph{Parameter beta - $\beta$:} This parameter depicts how effective a potential effect is in a given sample size. The likelihood of a significant effect not being recognized decreases with an increasing number of samples, since it becomes increasingly unlikely that a systematic effect affects the samples always in a way which makes it undiscoverable. Table \ref*{beta} in section \ref*{findings-age} shows the beta values for this study. Usually the $\beta$ parameter is not used but instead the \textit{Power} of an experiment is calculated as $1-\beta$.
-
-            \medskip
-
-            The calculation and proof of these paramenters is done in section \ref*{findings}.
-            Since the probability distribution and average results play a role here and without any related numbers, this part would not mean anything.
+            \paragraph{Parameter beta - $\beta$:} This parameter depicts how effective a potential effect is in a given sample size. The likelihood of a significant effect not being recognized decreases with an increasing number of samples, since it becomes increasingly unlikely that a systematic effect affects the samples always in a way which makes it undiscoverable. Table \ref*{beta} in section \ref*{findings-age} shows the beta values for this study. Usually the $\beta$ parameter is not used but instead the \textit{Power} of an experiment is calculated as $1-\beta$. This parameter is often called \textit{Type II Error} or \textit{False Negative}.
                  
         \section{Time vs Age correlation}\label{correlation}
 
@@ -401,14 +396,13 @@
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{timingBCI.PNG} 
+                \includegraphics[width=1\textwidth]{timingBCI.PNG} 
                 \caption{Timing of symbol recognition and activation}\label{itr-timing}
             \end{figure}
 
             By collecting several timing data points for each participant, the goal is to draw a regression graph between the age of the participants and the mean timinig for each visual cue. By calculating the statistical significance of the correlation, which was discussed in section \ref*{doe}, the hypothesis can be proven or rejected.
 
     \chapter{Survey Contents}\label{survey-contents}
-
 
         Chapter \ref{survey-framework} established the theoretical framework of the survey. This chapter aims to define the experiment which will be used to gather the data. To do so, the following considerations have to be made:
 
@@ -433,7 +427,7 @@
 
                 \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                     \centering
-                    \includegraphics[width=0.8\textwidth]{visualcortex.png} 
+                    \includegraphics[width=1\textwidth]{visualcortex.png} 
                     \caption{Position of the visual cortex. Left is front. Source: \cite{Dr.KenBrodaBahm.2013}}\label{visual-cortex}
                 \end{figure}
 
@@ -449,7 +443,7 @@
             
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{Experiment.PNG} 
+                \includegraphics[width=1\textwidth]{Experiment.PNG} 
                 \caption{Interface of the remote control experiment. Ques are highlighted.}\label{gui-remote}
             \end{figure} 
             
@@ -492,7 +486,7 @@
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{lotta.jpg} 
+                \includegraphics[width=1\textwidth]{lotta.jpg} 
                 \caption{Experimental setup}\label{experimental-setup}
             \end{figure}            
 
@@ -500,7 +494,7 @@
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{SensorReadings.PNG} 
+                \includegraphics[width=1\textwidth]{SensorReadings.PNG} 
                 \caption{Quality readings of the sensor}\label{electrode-quality}
             \end{figure}
 
@@ -510,45 +504,59 @@
 
     \chapter{Survey results}\label{raw-results}
 
+        This chapter gives a brief insight into the collected data by means of visually examining them. The main focus point are the detection times for different clusterings of the population by the criteria provided by the questionnaires
+
+        \begin{enumerate}
+            \item Raw detection times
+            \item Clustered by gender
+            \item Clustered by glasses or no glasses
+            \item Clustered by age group
+            \item Clustered by different target
+        \end{enumerate}
+
+        Also the other results of the questionnaires are discussed: Wellbeing, Dizzyness, Focus, Comfort, Time and perceived Difficulty. Also the personal opinion and wether or not the participants found this technology useful or would use it themselves.
+
         \section{Raw results}
 
-            The study gathered 1370 different target hits datapoints from 28 participants figure \ref*{time-hist} shows a histogram of the achieved detection times. The y-axis is scaled logarithmically because approximately 870 out of all detections were made in under three seconds. 
+            The study gathered 1370 different target hits datapoints from 28 participants. Figure \ref*{time-hist} shows a histogram of the achieved detection times. The y-axis is scaled logarithmically because approximately 870 out of all detections were made in under three seconds. If scaled linearly, this would have heavily skewed the overall plot. Also the occurence of detection times longer than 15-20 seconds are extremely rare in comparison.
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{TargetTimeHistogram.png} 
+                \includegraphics[width=1\textwidth]{TargetTimeHistogram.png} 
                 \caption{Historgram of achieved detection times}\label{time-hist}
             \end{figure}    
             
-            This is also shown very clearly in figure \ref*{time-hist-narrow}, where the time windows shows only the results between two and ten seconds, which also constitutes for the majority of data points (over 95\%). Some outliers where the detection took over 120s, were removed from the sample. The clustering of the detection right at the 2.3s mark, which is indicated by the red line with almost no other data points below that threshold might indicate, that this threshold is the minimum amount of time required to confidently identify a target. The logfiles show that a confidence score of >0.3 qualifies for a successful identification. See Appendix \ref*{logfile} for details. This score is not displayed for targets, which are identified under a certain amount of time, since there aren't enough samples supposedly.
+            This is also shown very clearly in figure \ref*{time-hist-narrow}, where the time window shows only the results between two and ten seconds, which also constitutes for the majority of data points (over 95\%). Some outliers where the detection took over 120s, were removed from the sample. The clustering of the detection right at the 2.3s mark, which is indicated by the red line with almost no other data points below that threshold might indicate, that this threshold is the minimum amount of time required to confidently identify a target. The logfiles show that a confidence score of >0.3 qualifies for a successful identification. See Appendix \ref*{logfile} for details. This score is not displayed for targets, which are identified under a certain amount of time, since there aren't enough samples supposedly.
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{TargetTimeHistogram_narrow.png} 
+                \includegraphics[width=1\textwidth]{TargetTimeHistogram_narrow.png} 
                 \caption{Narrowed window of achieved detection times /todo{move red line}}\label{time-hist-narrow}
             \end{figure} 
 
+            The fact that most of the detection times center around that value might also be an identification that ~2.3s is the minimal achievable time by the BCI in conjunction with the SDK on that particular testsetup. In order to have a sufficient certainty without too much noise, it is reasonable to assume that the confidence value has to be above the 90\% threshold for a defined timeframe in order to qualify for a positive detection.
+
         \section{Telemetry}
 
-            The \textit{NextMind} Engine provides telemetry readings on request. Figure \ref*{telemetry} shows a boxplot of all quality readings prior to all successful conducted experiments. Each boxplot stands for one distinct electrode at the sensor.
+            The \textit{NextMind} Engine provides telemetry readings on request. Figure \ref*{telemetry} shows a boxplot of all quality readings prior to all successful conducted experiments. Each boxplot stands for one distinct electrode at the sensor. The scale is \textit{Worst to Best} in the typical \textit{Red to Green} convention with the indicated steps in between. The SDK provides a readout with a score from 0...100. 
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{telemetry.png} 
+                \includegraphics[width=1\textwidth]{telemetry.png} 
                 \caption{Quality readings of the sensor prior to the experiments}\label{telemetry}
             \end{figure} 
             
-            Apart from some outliers, there are no significant systematic errors, which might lead to a significant error in the acquired data. There is a very small tendency in the outermost electrodes to have slightly less quality over the course of the whole experiement what can be attributed to being to outer and bottom electrodes which might not have ideal contact on an individual basis if the skull shape is more elliptical than usual.
+            Apart from some outliers, there are no significant systematic errors, which might cause a significant error in the acquired data. There is a very small tendency in the outermost electrodes to have slightly less quality over the course of the whole experiement what can be attributed to being the outer and bottom electrodes which might not have ideal contact on an individual basis if the skull shape is more elliptical than usual. 
 
-        \section{Demographic differences}
+        \section{Demographic differences}\label{demographic-differences}
 
-            To rule out potential side effects, the first questionnaire had more questions apart from age. Namely being gender, whether the participant wears glasses, neurological conditions, alcohol or drugs and colourblindness. However the latter four questions were answered negative entirely. The only exception was a neurological condition which prohibited conducting the experiment alltogether. This leads the sex and if the participant wears glasses as the only major demographic parametres.
+            To rule out potential side effects, the first questionnaire required answers for gender, whether the participant wears glasses, neurological conditions, alcohol or drugs and colourblindness. However the latter four questions were answered negative entirely. The only exception was a neurological condition which resulted in the experiment not being conducted alltogether in that particular case. This leaves the gender and if the participant wears glasses as the only major demographic parametres.
             
             When the genders are compared side by side in figure \ref*{gender}, there is a tendency of women having a more consistent timing. The average value of both is approximately on the same level but the male results have a larger upper quartile and whisker therefore being less consistent in timing. As in figure \ref*{time-hist-narrow}, the window was narrowed down to 10s max, to cut large outliers. However since the age distribution across genders is about the same, this won't have an effect on the outcome in regards to the hypothesis. Nevertheless a quantitative study with a large number of participants could prove if there actually is a significant effect on detection times.
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{gender.png} 
+                \includegraphics[width=1\textwidth]{gender.png} 
                 \caption{Detection times between Male and Female participants}\label{gender}
             \end{figure} 
 
@@ -556,7 +564,7 @@
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{glasses.png} 
+                \includegraphics[width=1\textwidth]{glasses.png} 
                 \caption{Detection times between participants with and without glasses}\label{glasses}
             \end{figure}
 
@@ -572,7 +580,7 @@
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{timeDistributiion.png} 
+                \includegraphics[width=1\textwidth]{timeDistributiion.png} 
                 \caption{Detection times for three age groups}\label{age-groups}
             \end{figure}
 
@@ -584,7 +592,7 @@
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{targets.png} 
+                \includegraphics[width=1\textwidth]{targets.png} 
                 \caption{Detection times for the different target}\label{targets}
             \end{figure}
 
@@ -607,7 +615,7 @@
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{ageDistribution.png} 
+                \includegraphics[width=1\textwidth]{ageDistribution.png} 
                 \caption{Age distribution of the participants}\label{age-dist}
             \end{figure}
 
@@ -632,7 +640,7 @@
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{SurveyResults.png} 
+                \includegraphics[width=1\textwidth]{SurveyResults.png} 
                 \caption{Results of post experiment user survey}\label{survey-boxplots}
             \end{figure} 
 
@@ -642,11 +650,11 @@
 
         \section{Age as a factor in BCI usage}\label{findings-age}
 
-            Section \ref*{correlation} discussed, how a regression curve will be used in order to identify a correlation between age and expected performance in regards to BCI usage. Figure \ref*{mean-time} shows this regression curve:
+            Section \ref*{correlation} discussed, how a regression curve will be used in order to identify a correlation between age and expected performance in regards to BCI usage. Figure \ref*{regression} shows this regression curve:
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=0.8\textwidth]{DetectionRegression.png}
+                \includegraphics[width=1\textwidth]{DetectionRegression.png}
                 \caption{Regression curve based on mean detection time per participant \todo{Add confidence interval}}\label{regression}
             \end{figure}
 
@@ -682,7 +690,7 @@
 
             \subsection{Glasses}
 
-                Whether the participant wears glasses or not seems to have an influence on the outcome on the performance. However, this might coincide with the fact that participants with glasses were over 10 years older in average: 30.4 years for the non-glasses group and 40.5 years for the glasses group. This is especially reasonable to assume since people tend to have more issues with eyesight the older they become. 
+                Whether the participant wears glasses or not seems to have an influence on the outcome on the performance. However, this might coincide with the fact that participants with glasses were over 10 years older in average: 30.4 years for the non-glasses group and 40.5 years for the glasses group. This is especially reasonable to assume since people tend to have more issues with eyesight the older they become.  
 
             \subsection{Gender}
 
@@ -702,13 +710,17 @@
 
         \section{Future Work}
 
-            There are several ways to continue with this resarch in subsequent studies, based on the outcome of this study. Some of them are briefly outlined in the following paragraphs:
+            There are several ways to continue with this resarch in subsequent studies, based on the outcome of this study. These potential studies reflect on the collected results and several key points, where this study did not dive into due to the different scope. Some of them are briefly outlined in the following paragraphs:
 
-            \paragraph{Gender} Based on the gender gap in section \ref*{other-findings}, there might be a factor in the difference in genders, which was not being discovered yet. Since there was no apparent gap in terms of average age, which might be an explanation, the female participants were in fact older. However, the results were inconclusive. Therefore a quantitative study to reveal a systematic influence might be worthwile.
+            \paragraph{Gender} Based on the gender gap in section \ref*{other-findings}, there might be a factor in the difference in genders, which has not been discovered yet. Since there was no apparent age gap between the two genders - the female participants were in fact older - which might explain the result, there might be another factor governing this. However, the results were inconclusive. Therefore a quantitative study to reveal a systematic influence might be worthwile. 
 
-            \paragraph{Quantitative Study} This study could be expanded into a quantitative study in order to gain a deeper understanding of what the drivers are behind the influence of age. Especially since the ability to concentrate might have an influence here as well. A larger number of participants in the order of around a few thousand individuals very likely will draw a clearer picture of potential causes. The questionnaire could be improved as well to gain a better understanding of the process and learning curve of each individual.
+            \paragraph{Quantitative Study} This study could be expanded into a quantitative study in order to gain a deeper understanding of what the drivers are behind the influence of age. Especially since the ability to concentrate might have an influence here as well. A larger number of participants in the order of around a few thousand individuals very likely will draw a clearer picture of potential causes. The questionnaire could be improved as well to gain a better understanding of the process and learning curve of each individual. 
 
             \paragraph{Positions} Briefly discussed in the results and findings was the subject of a potential influence of the target positions. Especially in regards to a potential required movement of the head in order to focus on new cues. This will very likely increase the $t_{1}$ time - see section \ref*{correlation}. An approach, where the target positions are varied across a wide range of different positions might exhibit different results in regards to timing. This also has some relevance to theoretical applications in controlling machinery or large interfaces - see section \ref*{beyond} for details.
+
+            \paragraph{Learning} One factor, which this study was not able to collect a sufficient amount of data on, was the learning progress of different participants. During the conduction of the experiment it was subjectively observed that the reaction times for each participant were faster in the later cues of the whole experiement compared to the earlier ones. However the data was inconclusive due to a high noise in the dataset for differen individuals. A potential study could evaluate if for smaller subsequent cues the participant learns to use the interface on a cognitive level and has shorter average detection times on subsequent trials.
+
+            \paragraph{Other demographic factors} Section \ref*{demographic-differences} discussed the answers to different demographic factors, which might have had a systematic influence on the results. Apart from the necessity to wear glasses and the gender, there were no participants providing a different than negative answer. Nevertheless, it would be interesting to see whether colourblindness, intoxication or medication would result in different performance.
 
     \chapter{Acknowledgements}
 
