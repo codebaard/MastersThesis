@@ -658,11 +658,43 @@
                 \caption{Regression curve based on mean detection time per participant \todo{Add confidence interval}}\label{regression}
             \end{figure}
 
-            The most apparent feature is in fact that there is a positive correlation. Up until the age of fourty, the results are fairly uniform in the 2-5 seconds range. People above this age however have a significantly higher mean in this study. One possible explantion can be given in regards to concentrativeness: Older people reported in the subsequent questionnaire that they sometimes had difficulties in focussing on the task. This coincided with longer detection times clearly observable during the experiment. Also one subject in the 40s-range reported that due to a long and stressful day at work, his ability to concentrate was significantly diminished. One cause, which can be ruled out beyond all doubt is that older people had a problem with the interface or the usage of the BCI itself. Almost none of the participants from very young age to the oldest ones reported difficulties in the task - see figure \ref*{survey-boxplots} : Difficulty.
+            However, this regression curve alone does not sufficiently proof that the data in fact are significantly related. Therefore a \textit{Sample Correlation coefficient} has to be calculated. This is done by the following Equation:
+
+            \begin{equation}\label{r-formula}
+                r_{xy} = frac{S_{xy}}{S_{x}S_{y}}
+            \end{equation}
+
+            Where $r$ is the correlation coefficient in the range between -1 < r < 1. 1 in this case means perfect linear correlation and therefore a perfect positive correlation and -1 a perfect negative linear correlation. $S_{x}$ and $S_{y}$ are the standard deviations for the corresponding datapoints - in this case age and detection time respectively. 
+            The standard deviation is calculated with the following equation:
+
+            \begin{equation}\label{stddev}
+                \sigma = \sqrt{frac{\Sigma(x-\bar{x})^{2}}{n-1}}
+            \end{equation}            
+            
+            Where $x$ is a single element of the sample and $n$ the numer of samples. For equation \ref*{r-formula} the different $x$ and $y$ values have to be multiplied for the $S_{xy}$ value.
+            
+            Using that formula with the dataset yields:
+
+            \begin{equation}\label{r-value}
+                r_{xy} = 1337
+            \end{equation}
+
+            Which indicates a \todo{strong/weak/inconclusive} relationship between age and detection times. 
 
             \medskip
 
-            This table shows the power of the research
+            Section \ref*{correlation} already mentioned that in order to rule out \textit{Type I Errors} and \textit{Type II Errors} the $\alpha$ and $\beta$ paramenters have to be defined. In fact $\alpha$ was already set to 0.05 or 5\% but $\beta$ has to be calculated.
+            The official formula is:
+
+            \begin{equation}\label{beta-value}
+                \beta = something
+            \end{equation}
+
+            \todo{The contents of this formula are...}
+
+            \medskip
+
+            By using that formula a table for different $\beta$ or rather $1-beta$ e.g. \textit{Power}values can be calculated to evaluate the number of necessity trials necessary to prevent a \textit{Type II Error}.
 
             \begin{table}[h!]
                 \centering
@@ -679,8 +711,13 @@
                 \end{tabular}
                 \caption{\todo{Table will be replaced...}}
                 \label{beta}
-            \end{table} 
+            \end{table}
 
+            \todo{Expand a little on results here.}
+
+            The most apparent feature is in fact that there is a positive correlation. Up until the age of fourty, the results are fairly uniform in the 2-5 seconds range. People above this age however have a significantly higher mean in this study. One possible explantion can be given in regards to concentrativeness: Older people reported in the subsequent questionnaire that they sometimes had difficulties in focussing on the task. This coincided with longer detection times clearly observable during the experiment. Also one subject in the 40s-range reported that due to a long and stressful day at work, his ability to concentrate was significantly diminished. One cause, which can be ruled out beyond all doubt is that older people had a problem with the interface or the usage of the BCI itself. Almost none of the participants from very young age to the oldest ones reported difficulties in the task - see figure \ref*{survey-boxplots} : Difficulty.
+
+            \medskip
 
             Formally: with a 5\% confidence intervall painted on the regression curve - which was required according to section \ref*{doe}, there still is a significant positive correlation between age and mean detection time. Therefore the hypothesis is disproven.
 
@@ -704,9 +741,11 @@
 
         \section{Results}
 
-            Age does have an influence. \todo{Elaborate a little more on that later.}
-
-            Coffee consumption?
+            \todo{Put this in here:}
+            \begin{itemize}
+                \item Refer to Findings
+                \item construct argument whether formally rejected or not
+            \end{itemize}
 
         \section{Future Work}
 
@@ -720,7 +759,7 @@
 
             \paragraph{Learning} One factor, which this study was not able to collect a sufficient amount of data on, was the learning progress of different participants. During the conduction of the experiment it was subjectively observed that the reaction times for each participant were faster in the later cues of the whole experiement compared to the earlier ones. However the data was inconclusive due to a high noise in the dataset for differen individuals. A potential study could evaluate if for smaller subsequent cues the participant learns to use the interface on a cognitive level and has shorter average detection times on subsequent trials.
 
-            \paragraph{Other demographic factors} Section \ref*{demographic-differences} discussed the answers to different demographic factors, which might have had a systematic influence on the results. Apart from the necessity to wear glasses and the gender, there were no participants providing a different than negative answer. Nevertheless, it would be interesting to see whether colourblindness, intoxication or medication would result in different performance.
+            \paragraph{Other demographic factors} Section \ref*{demographic-differences} discussed the answers to different demographic factors, which might have had a systematic influence on the results. Apart from the necessity to wear glasses and the gender, there were no participants providing a different than negative answer. Nevertheless, it would be interesting to see whether colourblindness, intoxication or medication would result in different performance. Especially caffeine consumption as a popular neurological effective drug might be worthwile to examine. 
 
     \chapter{Acknowledgements}
 
