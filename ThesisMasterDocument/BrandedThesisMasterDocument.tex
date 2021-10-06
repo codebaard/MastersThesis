@@ -661,14 +661,14 @@
             However, this regression curve alone does not sufficiently proof that the data in fact are significantly related. Therefore a \textit{Sample Correlation coefficient} has to be calculated. This is done by the following Equation:
 
             \begin{equation}\label{r-formula}
-                r_{xy} = frac{S_{xy}}{S_{x}S_{y}}
+                r_{xy} = \frac{S_{xy}}{S_{x}S_{y}}
             \end{equation}
 
             Where $r$ is the correlation coefficient in the range between -1 < r < 1. 1 in this case means perfect linear correlation and therefore a perfect positive correlation and -1 a perfect negative linear correlation. $S_{x}$ and $S_{y}$ are the standard deviations for the corresponding datapoints - in this case age and detection time respectively. 
             The standard deviation is calculated with the following equation:
 
             \begin{equation}\label{stddev}
-                \sigma = \sqrt{frac{\Sigma(x-\bar{x})^{2}}{n-1}}
+                \sigma = \sqrt{\frac{\Sigma(x-\bar{x})^{2}}{n-1}}
             \end{equation}            
             
             Where $x$ is a single element of the sample and $n$ the numer of samples. For equation \ref*{r-formula} the different $x$ and $y$ values have to be multiplied for the $S_{xy}$ value.
