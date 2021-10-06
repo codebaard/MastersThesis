@@ -239,6 +239,27 @@ plt.ylabel('Participants with that mean')
 plt.grid()
 plt.show()
 
+## stddev values
+
+stddev_age = hitTimeData.age.std()
+stddev_time = hitTimeData.time.std()
+
+hitTimesMult = list() # hitTimes
+
+for row in hitTimes:
+    temp = row[2] * row[3]
+    hitTimesMult.append(temp)
+
+TA_arr = np.array(hitTimesMult)
+stddev_AgeTime = np.std(TA_arr, axis=0)
+
+print(stddev_age)
+print(stddev_time)
+print(stddev_AgeTime)
+
+r_value = stddev_AgeTime / (stddev_age*stddev_time)
+
+print(r_value)
 
 
 
