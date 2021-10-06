@@ -7,7 +7,9 @@ import numpy as np
 import pandas as pd
 import os, re
 import csv
-import seaborn
+import seaborn as sns
+
+sns.set_theme(color_codes=True)
 
 data = list()
 
@@ -231,35 +233,48 @@ for i in range(1,31):
 
 ## histogram of timing means
 
-plt.hist(means, bins=30)
-
-plt.xlabel('Time [s]')
-plt.ylabel('Participants with that mean')
-
-plt.grid()
-plt.show()
+# plt.hist(means, bins=30)
+#
+# plt.xlabel('Time [s]')
+# plt.ylabel('Participants with that mean')
+#
+# plt.grid()
+# plt.show()
 
 ## stddev values
 
-stddev_age = hitTimeData.age.std()
-stddev_time = hitTimeData.time.std()
+# stddev_age = hitTimeData.age.std()
+# stddev_time = hitTimeData.time.std()
+#
+# hitTimesMult = list() # hitTimes
+#
+# for row in hitTimes:
+#     temp = row[2] * row[3]
+#     hitTimesMult.append(temp)
+#
+# TA_arr = np.array(hitTimesMult)
+# stddev_AgeTime = np.std(TA_arr, axis=0)
+#
+# print(stddev_age)
+# print(stddev_time)
+# print(stddev_AgeTime)
+#
+# r_value = stddev_AgeTime / (stddev_age*stddev_time)
+#
+# print(r_value)
 
-hitTimesMult = list() # hitTimes
+## regression plot
 
-for row in hitTimes:
-    temp = row[2] * row[3]
-    hitTimesMult.append(temp)
+# x, y = np.random.multivariate_normal(mean, cov, 80).T
+x = np.array(ages)
+y = np.array(means)
 
-TA_arr = np.array(hitTimesMult)
-stddev_AgeTime = np.std(TA_arr, axis=0)
+x, y = pd.Series(x, name="Age [y]"), pd.Series(y, name="Detection Time Means [s]")
 
-print(stddev_age)
-print(stddev_time)
-print(stddev_AgeTime)
+ax = sns.regplot(x=x, y=y, ci=95, truncate=False, color="b")
 
-r_value = stddev_AgeTime / (stddev_age*stddev_time)
-
-print(r_value)
+# plt.grid()
+plt.show()
 
 
 

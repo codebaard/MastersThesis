@@ -650,33 +650,50 @@
 
         \section{Age as a factor in BCI usage}\label{findings-age}
 
-            Section \ref*{correlation} discussed, how a regression curve will be used in order to identify a correlation between age and expected performance in regards to BCI usage. Figure \ref*{regression} shows this regression curve:
+            Section \ref*{correlation} discussed, how a regression graph will be used in order to identify a trend between age and expected performance in regards to BCI usage. Figure \ref*{regression} shows thisregression graph with the defined 95\% confidence interval:
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=1\textwidth]{DetectionRegression.png}
-                \caption{Regression curve based on mean detection time per participant \todo{Add confidence interval}}\label{regression}
+                \includegraphics[width=1\textwidth]{regression_confidence.png}
+                \caption{Regression graph with confidence interval}\label{regression}
             \end{figure}
 
-            However, this regression curve alone does not sufficiently proof that the data in fact are significantly related. Therefore a \textit{Sample Correlation coefficient} has to be calculated. This is done by the following Equation:
+            The general trend is that there in fact is a correlation between age and achieved detection times. However, taken the confidence interval into account, this result is neither clear nor definitive. If the experiment were to be repeated with the same paramenters and all the results end up within the pictured confidence interval it might very well be that new trials would in fact yield a result, where the gradient of the regression graph might be negative. Nevertheless, there are two distinct key features in figure \ref*{regression}:
+            
+            \paragraph{Consistency} Both younger and older people tend to be less consistent with their achieved detection times. For the younger people below the age of 20 there aren't simply enough datapoints because two outliers already skewed the resultset too much. In fact the youngest tested person with an age of six performed almost as bad as the oldest person. A possible explanation is that this participant wasn't able to concentrate on the experiment, which required dedication and focus on the task at hand. The observation of this particular participant was that he started to move around on the chair and loose focus on the task, which resultet in longer detection times. A possible explanation is that the other children were already in 3rd grade upwards and didnt have any issue with focussing on a task for a few minutes. So in this case age does have an cognitive influence but not necessarily in a way which was anticipated. 
+
+            For older people the consistency is also spreaded more than it is within the 20-40 years range, which achieved by far the most consistent results. The reason why older people tend to deliver less consistent results for many different trials can be also attributed to the ability to concentrate for prolonged periods. In fact, if one single cue took longer to detect, this had a domino effect because the concentration deteriorated even faster, resulting in considerably longer detection times later on. 
+            
+            
+            \paragraph{Missing Data Points} Knowing the results of the survey and the age distribution (figure \ref*{age-dist}) shows that not all participants, which are represented in the survey also participated in the experiment. The reason being that three participants in the above 40 age group had bad calibration scores and thus could not even participate in the experiment itself. Although this obviously cannot be added to the study as definitive result, it underlines the general performance of that group, where a less consistent overall performance can be expected.
+
+        \section{Mathematical proof}\label{mafs}
+
+            The regression graph in figure \ref*{regression} alone does not sufficiently proof that the data in fact are significantly related. Therefore the probability of a \textit{Type II Error}, which is represented by the $\beta$ parameter has to be calculated. To do so, the following parameters have to be calculated first in the following part.
 
             \begin{equation}\label{r-formula}
                 r_{xy} = \frac{S_{xy}}{S_{x}S_{y}}
             \end{equation}
 
-            Where $r$ is the correlation coefficient in the range between -1 < r < 1. 1 in this case means perfect linear correlation and therefore a perfect positive correlation and -1 a perfect negative linear correlation. $S_{x}$ and $S_{y}$ are the standard deviations for the corresponding datapoints - in this case age and detection time respectively. 
+            Where $r$ is the correlation coefficient in the range between -1 < r < 1. 1 in this case means perfect linear correlation and therefore a perfect positive correlation and -1 a perfect negative linear correlation. $S_{x}$ and $S_{y}$ are the standard deviations for the corresponding datapoints: $S_{x}$ = age and $S_{y}$ = detection time. 
             The standard deviation is calculated with the following equation:
 
             \begin{equation}\label{stddev}
                 \sigma = \sqrt{\frac{\Sigma(x-\bar{x})^{2}}{n-1}}
             \end{equation}            
             
-            Where $x$ is a single element of the sample and $n$ the numer of samples. For equation \ref*{r-formula} the different $x$ and $y$ values have to be multiplied for the $S_{xy}$ value.
+            Where $x$ is a single element of the sample and $n$ the numer of samples. For equation \ref*{r-formula} the different $x$ and $y$ values have to be multiplied for the $S_{xy}$ value, which is called \textit{covariance}. The following equations will use the $S_{x}$ notations with . With the numbers from the experiments, these numbers yield the following results:
+
+            \begin{equation}\label{stddev-results}
+                S_{x} = 17.7
+                S_{y} = 9.11
+                S_{xy} = 36.9
+            \end{equation} 
             
-            Using that formula with the dataset yields:
+            Using formula \ref*{r-formula} with the results under \ref*{stddev} yields:
 
             \begin{equation}\label{r-value}
-                r_{xy} = 1337
+                r_{xy} = 0.23
             \end{equation}
 
             Which indicates a \todo{strong/weak/inconclusive} relationship between age and detection times. 
