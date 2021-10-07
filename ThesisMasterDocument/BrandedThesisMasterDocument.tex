@@ -705,19 +705,25 @@
             
             Where $x$ is a single element of the sample and $n$ the numer of samples. For equation \ref*{r-formula} the different $x$ and $y$ values have to be multiplied for the $S_{xy}$ value, which is called \textit{covariance}. The following equations will use the $S_{x}$ notations with . With the numbers from the experiments, these numbers yield the following results:
 
-            \begin{equation}\label{stddev-results}
+            \begin{equation}\label{sx}
                 S_{x} = 17.7
-                S_{y} = 9.11
-                S_{xy} = 36.9
             \end{equation} 
+
+            \begin{equation}\label{sy}
+                S_{y} = 9.11
+            \end{equation}
+
+            \begin{equation}\label{sxy}
+                S_{xy} = 36.9
+            \end{equation}
             
-            Using formula \ref*{r-formula} with the results under \ref*{stddev} yields:
+            Using formula \ref*{r-formula} with the previous results yields:
 
             \begin{equation}\label{r-value}
                 r_{xy} = 0.23
             \end{equation}
 
-            This variable $r$ will be later used as the effect size in the $\beta$ calculation.
+            This variable $r$ will be later used as the \textit{effect size} in the $\beta$ calculation.
 
             \medskip
 
@@ -727,7 +733,7 @@
                 Z = \frac{x-\mu}{\sigma}
             \end{equation}            
 
-            Where $x = 1-\alpha/2$, \mu is the mean of the sample and and \sigma is the sample standard deviation. Using that values, the Z-Score results to:
+            Where $x=\frac{1-\alpha}{2}$, $\mu$ is the mean of the sample and and $\sigma$ is the sample standard deviation. Using that values, the Z-Score results to:
 
             \begin{equation}\label{z-result}
                 Z = 1337
