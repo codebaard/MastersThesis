@@ -678,7 +678,6 @@
 
             For older people the consistency is also spreaded more than it is within the 20-40 years range, which achieved by far the most consistent results. The reason why older people tend to deliver less consistent results for many different trials can be also attributed to the ability to concentrate for prolonged periods. In fact, if one single cue took longer to detect, this had a domino effect because the concentration deteriorated even faster, resulting in considerably longer detection times later on. 
             
-            
             \paragraph{Missing Data Points} Knowing the results of the survey and the age distribution (figure \ref*{age-dist}) shows that not all participants, which are represented in the survey also participated in the experiment. The reason being that three participants in the above 40 age group had bad calibration scores and thus could not even participate in the experiment itself. Although this obviously cannot be added to the study as definitive result, it underlines the general performance of that group, where a less consistent overall performance can be expected.
 
         \section{Mathematical proof}\label{mafs}
@@ -716,6 +715,22 @@
 
             \begin{equation}\label{r-value}
                 r_{xy} = 0.23
+            \end{equation}
+
+            This variable $r$ will be later used as the effect size in the $\beta$ calculation.
+
+            \medskip
+
+            The next step will be calculating the z-score using the distribution shown in figure \ref*{means-density}. The equation for that z-score is as follows:
+
+            \begin{equation}\label{z-score}
+                Z = \frac{x-\mu}{\sigma}
+            \end{equation}            
+
+            Where $x = 1-\alpha/2$, \mu is the mean of the sample and and \sigma is the sample standard deviation. Using that values, the Z-Score results to:
+
+            \begin{equation}\label{z-result}
+                Z = 1337
             \end{equation}
 
             Which indicates a \todo{strong/weak/inconclusive} relationship between age and detection times. 
