@@ -8,8 +8,9 @@ import pandas as pd
 import os, re
 import csv
 import seaborn as sns
+from scipy.stats import binom
 
-sns.set_theme(color_codes=True)
+# sns.set_theme(color_codes=True)
 
 data = list()
 
@@ -221,22 +222,27 @@ for i in range(1,31):
 # rng = np.random.default_rng(1234)
 # x = rng.uniform(4, 80, size=26)
 #
-# plt.scatter(ages, means)
+plt.scatter(ages, means)
 # plt.plot(x, m*x+b, color='red')
-# plt.title('Age vs Mean Detection Time')
-# plt.xlabel('age')
-# plt.ylabel('mean time')
-# plt.grid()
-# plt.show()
+plt.title('Age vs Mean Detection Time')
+plt.xlabel('Age [y]')
+plt.ylabel('Mean Time [s]')
+plt.grid()
+plt.show()
 #
 # print(means)
 
 ## histogram of timing means
 
-# plt.hist(means, bins=30)
+# plt.figure()
+#
+# plt.hist(means, bins=20, density=True)
+#
+# sns.kdeplot(means)
+#
 #
 # plt.xlabel('Time [s]')
-# plt.ylabel('Participants with that mean')
+# plt.ylabel('Density Distribution')
 #
 # plt.grid()
 # plt.show()
@@ -266,15 +272,15 @@ for i in range(1,31):
 ## regression plot
 
 # x, y = np.random.multivariate_normal(mean, cov, 80).T
-x = np.array(ages)
-y = np.array(means)
-
-x, y = pd.Series(x, name="Age [y]"), pd.Series(y, name="Detection Time Means [s]")
-
-ax = sns.regplot(x=x, y=y, ci=95, truncate=False, color="b")
-
-# plt.grid()
-plt.show()
+# x = np.array(ages)
+# y = np.array(means)
+#
+# x, y = pd.Series(x, name="Age [y]"), pd.Series(y, name="Detection Time Means [s]")
+#
+# ax = sns.regplot(x=x, y=y, ci=95, truncate=False, color="b")
+#
+# # plt.grid()
+# plt.show()
 
 
 

@@ -1,7 +1,5 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %------ LaTeX-Template für Abschlussarbeiten, Prof. Thomas Görne, Dezember 2012 --------
 %------ Modified by B.Sc. Julius Neudecker, May 2021 ------
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %---- Header (mit Formateinstellugen) laden, Inputencoding prxfen ------
 
@@ -531,10 +529,26 @@
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
                 \includegraphics[width=1\textwidth]{TargetTimeHistogram_narrow.png} 
-                \caption{Narrowed window of achieved detection times /todo{move red line}}\label{time-hist-narrow}
+                \caption{Narrowed window of achieved detection times \todo{Occurence [log s], Move Red Line}}\label{time-hist-narrow}
             \end{figure} 
 
             The fact that most of the detection times center around that value might also be an identification that ~2.3s is the minimal achievable time by the BCI in conjunction with the SDK on that particular testsetup. In order to have a sufficient certainty without too much noise, it is reasonable to assume that the confidence value has to be above the 90\% threshold for a defined timeframe in order to qualify for a positive detection.
+
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=1\textwidth]{MeanDistribution.png} 
+                \caption{Achieved mean times per participant histogram}\label{mean-dist}
+            \end{figure} 
+
+            If put into perspective, figure \ref*{mean-dist} shows the same distribution but with mean times for every participant as histogram. What this data shows is that the few outliers in the achieved detection times are likely caused by a few individuals and the the majority of the participants had a very consistent timing below 10s and more so close to the minimal achieveable timing of about 2.3 seconds.
+
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=1\textwidth]{TimesScatter.png} 
+                \caption{Mean detection times plottet against age}\label{time-scatter}
+            \end{figure} 
+
+            This gets even clearer, when the mean times for each individual are shown in context to each other with the age dimension added. Conclusively what these results clearly show is that the majority of the participants who were younger than 40 showed a very consistent timing at or close to the minimum time.
 
         \section{Telemetry}
 
@@ -650,7 +664,7 @@
 
         \section{Age as a factor in BCI usage}\label{findings-age}
 
-            Section \ref*{correlation} discussed, how a regression graph will be used in order to identify a trend between age and expected performance in regards to BCI usage. Figure \ref*{regression} shows thisregression graph with the defined 95\% confidence interval:
+            Section \ref*{correlation} discussed, how a regression graph will be used in order to identify a trend between age and expected performance in regards to BCI usage. Figure \ref*{regression} shows the same values as figure \ref*{time-scatter} but with added regression graph and the defined 95\% confidence interval:
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
@@ -669,7 +683,15 @@
 
         \section{Mathematical proof}\label{mafs}
 
-            The regression graph in figure \ref*{regression} alone does not sufficiently proof that the data in fact are significantly related. Therefore the probability of a \textit{Type II Error}, which is represented by the $\beta$ parameter has to be calculated. To do so, the following parameters have to be calculated first in the following part.
+            Figure \ref*{regression} already showed that within a 95\% confidence interval given enough data points, the same study should also yield results within the same range if the paramenters of the study are not altered. This section continues on the assumption that with a sufficiently large numer of participants, the mean times density displayed in figure \ref*{means-density} will asymptotically approach the kernel density function overlayed on the histogram. 
+
+            \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
+                \centering
+                \includegraphics[width=1\textwidth]{densityDistribution.png}
+                \caption{Regression graph with confidence interval}\label{means-density}
+            \end{figure}
+
+            Under this assumption the probability of a \textit{Type II Error}, which is represented by the $\beta$ parameter can be determined. To do so, the following parameters have to be calculated first in the following part:
 
             \begin{equation}\label{r-formula}
                 r_{xy} = \frac{S_{xy}}{S_{x}S_{y}}
