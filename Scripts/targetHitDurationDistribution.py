@@ -222,30 +222,30 @@ for i in range(1,31):
 # rng = np.random.default_rng(1234)
 # x = rng.uniform(4, 80, size=26)
 #
-plt.scatter(ages, means)
-# plt.plot(x, m*x+b, color='red')
-plt.title('Age vs Mean Detection Time')
-plt.xlabel('Age [y]')
-plt.ylabel('Mean Time [s]')
-plt.grid()
-plt.show()
+# plt.scatter(ages, means)
+# # plt.plot(x, m*x+b, color='red')
+# plt.title('Age vs Mean Detection Time')
+# plt.xlabel('Age [y]')
+# plt.ylabel('Mean Time [s]')
+# plt.grid()
+# plt.show()
 #
 # print(means)
 
 ## histogram of timing means
 
-# plt.figure()
-#
-# plt.hist(means, bins=20, density=True)
-#
-# sns.kdeplot(means)
-#
-#
-# plt.xlabel('Time [s]')
-# plt.ylabel('Density Distribution')
-#
-# plt.grid()
-# plt.show()
+plt.figure()
+
+plt.hist(means, bins=20, density=True)
+
+sns.kdeplot(means)
+
+
+plt.xlabel('Time [s]')
+plt.ylabel('Density Distribution')
+
+plt.grid()
+plt.show()
 
 ## stddev values
 
@@ -281,6 +281,15 @@ plt.show()
 #
 # # plt.grid()
 # plt.show()
+
+## hit time data mean
+
+hitTimeDataMean = hitTimeData.time.mean()
+hitTimeDataStddev = hitTimeData.time.std()
+
+print(hitTimeDataMean)
+print(hitTimeDataStddev)
+
 
 
 
