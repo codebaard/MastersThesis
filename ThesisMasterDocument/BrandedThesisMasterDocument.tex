@@ -733,17 +733,18 @@
                 Z = \frac{x-\mu}{\sigma}
             \end{equation}            
 
-            Where $x=\frac{1-\alpha}{2}$, $\mu$ is the mean of the sample, which results to 5.37s and $\sigma$ is the sample standard deviation which results to 9.11. The value for $\alpha$ in this case is set to 10s, since this is roughly double the mean of all timings. Using that values, the Z-Score results to:
+            Where $x=\frac{1-\alpha}{2}$, $\mu$ is the mean of the sample, which results to 5.37s and $\sigma$ is the sample standard deviation which results to 9.11. The value for $\alpha$ in this case is set to 24s, since this is roughly the value, which results in a 2$\sigma$ distance from the mean in a normal distribution.
 
             \begin{equation}\label{z-result}
-                Z = 0.51
+                Z = 2.05
             \end{equation}
 
-            Which indicates a \todo{strong/weak/inconclusive} relationship between age and detection times. 
+            The interpretation of this value is that the chosen value is 2.05 standard deviations from the mean of the whole distribution, which results in 95.45\% of all samples timings being at or lower than our chosen 24s, which was required according to section \ref*{doe}.
 
             \medskip
 
-            Section \ref*{correlation} already mentioned that in order to rule out \textit{Type I Errors} and \textit{Type II Errors} the $\alpha$ and $\beta$ paramenters have to be defined. In fact $\alpha$ was already set to 0.05 or 5\% but $\beta$ has to be calculated.
+            Section \ref*{doe} already mentioned that in order to rule out \textit{Type I Errors} and \textit{Type II Errors} the $\alpha$ and $\beta$ paramenters have to be defined accordingly. In fact $\alpha$ was already set to 5\%, which was used to calculate the 2$\sigma$ deviation above but $\beta$ has to be calculated as well.
+            
             The official formula is:
 
             \begin{equation}\label{beta-value}
