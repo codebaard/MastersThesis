@@ -372,6 +372,20 @@
 
         \section{Statistical significance}\label{doe}
 
+            \todo{How to calc H0!}
+
+            \begin{itemize}
+                \item Initially three buckets, but many older people had concentration, therefore: 0-20, 20-40, 40-60, 60+
+                \item Say: Rejected, if mean timing of 40+ is slower than z-Score of ~2 sigma (95\%). 
+                \item Calcluate according to z-score the real value in dataset (z -> x bar).
+                \item This means: Reject H0, when mean timing is slower than x bar.
+                \item Alpha risk (H0 is false) should be less than 5\%
+                \item Beta Risk (H0 is true but rejected) is
+            \end{itemize}
+
+
+            \medskip
+
             The solid proof that the hypothesis holds true or not can not be made based on looking at diagrams and educated guesses. Hence the need for design of experiment to provide a numerical framework which defines threshholds and quantities to make results reproductable. This section is based on the theoretical framework which es described in \cite[87ff]{Siebertz.2017} under the considerations in the previous section.
             There are two main parametres to consider, when it comes to the DoE\footnote{Design of Experiment}: 
             
@@ -723,7 +737,7 @@
                 r_{xy} = 0.23
             \end{equation}
 
-            This variable $r$ will be later used as the \textit{effect size} in the $\beta$ calculation.
+            This variable $r$ will be later used as the \textit{effect size} in the $\beta$ calculation. According to \cite{Sciencing.10102021} the effect size is conservatively assumed to be 0.3 in case it is unknown. Using an actual calculated value from the dataset which is even lower is a good conservative decision.
 
             \medskip
 
@@ -739,12 +753,12 @@
                 Z = 2.05
             \end{equation}
 
-            The interpretation of this value is that the chosen value is 2.05 standard deviations from the mean of the whole distribution, which results in 95.45\% of all samples timings being at or lower than our chosen 24s, which was required according to section \ref*{doe}.
+            The interpretation of this value is that the chosen value is 2.05 standard deviations from the mean of the whole distribution, which results in 95.45\% chance of a timing being equal or slower than our chosen 24s, which was required according to section \ref*{doe} to rule out potential \textit{Type I Errors}.
 
             \medskip
 
-            Section \ref*{doe} already mentioned that in order to rule out \textit{Type I Errors} and \textit{Type II Errors} the $\alpha$ and $\beta$ paramenters have to be defined accordingly. In fact $\alpha$ was already set to 5\%, which was used to calculate the 2$\sigma$ deviation above but $\beta$ has to be calculated as well.
-            
+            In order to rule out \textit{Type II Errors} the $\beta$ paramenter has to be defined accordingly, as described in \ref*{doe}. This first required alpha to be calculated. 
+
             The official formula is:
 
             \begin{equation}\label{beta-value}
