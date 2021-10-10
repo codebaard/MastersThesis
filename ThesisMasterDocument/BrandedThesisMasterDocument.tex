@@ -189,7 +189,7 @@
                 \item Conclusion into hypothesis and use-case
             \end{enumerate}
 
-            \subsection{General considerations}
+            \subsection{General considerations}\label{general-considerations}
 
                 The first step in conceiving any potential way of using such a device is to evaluate the way any user could interact with a BCI with a computer. According to \cite[4.13]{Buxton.2010} the way users interact with a device require an agent of control i.e. a hand, what is being sensed by the device (position, motion or pressure) and the number of dimesions being sensed (1, 2, 3). This results in a different input taxonomy for any given device. However, a BCI does not have either of these parametres, since the interaction does not require physical interaction. Hence a classification by means of using a taxonomy cannot be achieved. Where the interactions of BCIs can be compared to those classified by taxonomies is by the way they functions they apply in relation to a user interface.
 
@@ -330,7 +330,7 @@
             \item Time vs Age correlation
         \end{enumerate}
 
-        \section{Scope of the study}
+        \section{Scope of the study}\label{study-scope}
 
             The first apsect which defines the general layout of a study is determined by its scope. Apart from domain specific studies like for example clinical trials, there are two general types of studies: \textit{qualitative} and \textit{quantitative} ones. Where the former one depicts a study where the number of conducted experiments are in the range of one or lower two digit numbers like 20-30, which is common according to \cite[302]{Doring.2016}. Quantitative studies often have four to five digit numbers of testcases according to \cite[305]{Doring.2016}. The latter ones are far more resource intensive however than their qualitative counterpart. A subset of qualitative studies are explorative studies. In these studies there have not been any previous research efforts so they're often considered preliminary to evaluate the scope and nature of the problem. Since all of these studies have a different objective target, the requirements regarding the samples are different in order to mitigate the risks of a previously unknown factor to skew the results. This might result in rendering a complete quantitative study irrelevant due to previously undetected errors. For this reason \textit{quantitative} studies have to make careful deliberation about the characteristics of the participants in order to avoid a systematical error. This is often done by using \textit{Qualitative} studies which are taking a different approach in regards to sampling the population. Since the number of participants is fairly low, they are often hand selected to pick certain characteristics deliberately. For the scope of this study, these deliberations are discussed in section \ref*{considerations}. 
 
@@ -372,33 +372,59 @@
 
         \section{Statistical significance}\label{doe}
 
-            \todo{How to calc H0!}
-
-            \begin{itemize}
-                \item Initially three buckets, but many older people had concentration, therefore: 0-20, 20-40, 40-60, 60+
-                \item Say: Rejected, if mean timing of 40+ is slower than z-Score of ~2 sigma (95\%). 
-                \item Calcluate according to z-score the real value in dataset (z -> x bar).
-                \item This means: Reject H0, when mean timing is slower than x bar.
-                \item Alpha risk (H0 is false) should be less than 5\%
-                \item Beta Risk (H0 is true but rejected) is
-            \end{itemize}
-
+            Plots of data can be misleading in terms of accuracy or results regardless of how well the data was preprocessed. For this reason, is has to be proven that the collected data actually proves a statistical significance in regards to the corresponding hypothesis. This section operationalizes the hypothesis such that it becomes evaluable.
 
             \medskip
 
-            The solid proof that the hypothesis holds true or not can not be made based on looking at diagrams and educated guesses. Hence the need for design of experiment to provide a numerical framework which defines threshholds and quantities to make results reproductable. This section is based on the theoretical framework which es described in \cite[87ff]{Siebertz.2017} under the considerations in the previous section.
-            There are two main parametres to consider, when it comes to the DoE\footnote{Design of Experiment}: 
+            The hypothesis states that \textit{Age does not have a detrimental effect on the ability to use a non-invasive BCI based on VEPtechnology} - see section \ref{hypothesis}. The question is how to measure if an effect is present or not. The usual method in all kinds of studies of qualitative or quantitative type is to disprove the so called \textit{null hypothesis} - $H_{0}$. The part of the hypothesis about \textit{[...] non-invasive BCI on VEP technology} is to set the scope of the study in way that explicitly excludes other BCI technologies. The relevant part for the $H_{0}$ is \textit{age does not have a detrimental effect on the ability [...]}, which poses the question how to measure the abstract concepts of \textit{detrimental} and \textit{ability}? One way to evaluate this is conduct an experience and ask the participants and gain subjetive opinions about their individual performance. However, this will be inaccurate at best and totally ambiguous at worst. Apart from the fact the the study needs to conduct lots of trials in order to gain meaningful and coherent data, which is in contrast to the explorative character of this study, according to section \ref{study-scope}.
+
+            The better way to do this is to define an objectively mesaurable metric and define threshold values beforehand to definitively reject the hypothesis. Section \ref{general-considerations} goes into detail regarding the capabilities of the sensor, thus we already know that the only available metric to choose from is the timing for neurotag activation. Using that information, we can conclude that the null hypothesis will use timing as the fundamental metric.
+
+            Before we can define a null hypothesis, we need to consider two other factors, which corresponds to error. There is the distinct risk that we do not reject the hypothesis although it is in fact wrong, which is called \textit{Type I Error} or \textit{false positive } and on the other side that the hypothesis is rejected although it is correct, which corresponds to a \textit{Type II Error} or \textit{false negative}. 
+
+            These risks are depicted as $\alpha$ for the \textit{Type I Error} and $\beta$ for the \textit{Type II Error}:
+
+            \paragraph{Significante Level Alpha - $\alpha$:} Alpha is the governing parameter, which decides how big the risk in a given sample size is that the hypothesis is wrong and therefore falsified. Since the hypothesis can be either true or false, the probability that it is wrong decreases with the number of samples taken in a binomial fashion \cite[103]{Siebertz.2017}. That means in this case that the likelihood $p$ of a participant to be above or below the threshhold, which will be discussed in section \ref*{findings}, is not determined by age. According to \cite[110]{Siebertz.2017} common values for alpha tend to be chosen such that the probability of a falsified hypothesis is at 1\%, 5\% and 10\%. Where a smaller value means a more strict threshhold. To account for the explorative character of this study the value of 5\% is chosen. Therefore the susceptibility for unaccounted side-effects is reduced and the total number of participants is still not unfeasibly large. There is no distinct way to define that number, it is often chosen based on experience or strict requirements.
             
-            \begin{itemize}
-                \item Where is the threshold which determines whether an effect is significant or not?
-                \item How many samples are necessary to reliably prove that the hypothesis holds true?
-            \end{itemize}
+            \paragraph{Parameter beta - $\beta$:} This parameter depicts how effective a potential effect is in a given sample size. The likelihood of a significant effect not being recognized decreases with an increasing number of samples, since it becomes increasingly unlikely that a systematic effect affects the samples always in a way which makes it undiscoverable. Table \ref*{beta} in section \ref*{findings-age} shows the beta values for this study. Usually the $\beta$ parameter is not used but instead the \textit{Power} of an experiment is calculated as $1-\beta$.
 
-            These values are often calculated by means of statistis. The first one is usually depicted as $\alpha$ and the second one as $\beta$:
+            \medskip
 
-            \paragraph{Significante Level Alpha - $\alpha$:} Alpha is the governing parameter, which decides how big the risk in a given sample size is that the hypothesis is wrong and therefore falsified. Since the hypothesis can be either true or false, the probability that it is wrong decreases with the number of samples taken in a binomial fashion \cite[103]{Siebertz.2017}. That means in this case that the likelihood $p$ of a participant to be above or below the threshhold, which will be discussed in section \ref*{findings}, is not determined by age. According to \cite[110]{Siebertz.2017} common values for alpha tend to be chosen such that the probability of a falsified hypothesis is at 1\%, 5\% and 10\%. Where a smaller value means a more strict threshhold. To account for the explorative character of this study the value of 5\% is chosen. Therefore the susceptibility for unaccounted side-effects is reduced and the total number of participants is still not unfeasibly large. This value cannot be calculated - it is often chosen based on experience or strict requirements. This parameter is often also called a \textit{Type I Error} or \textit{False Positive}. 
+            In order to define these threshholds, we need to operationalize the abstract concepts of \textit{detrimental} and \textit{ability}. \textit{Detrimental} is fairly easy: in regards to timing it can only mean that the achieved timing is slower than that of the control group. \textit{Ability} on the other hand needs a definition in a frame of reference, which in this case also corresponds to the control group but in a different manner. This study collects numerous data points for each experiment in order to have a consistent dataset - see section \ref{experimental-protocol}. The established way of analyzing datasets of different numerical data points is with statistics. By doing so, we can operationalize the null hypothesis in terms of standard deviation and means in regards to timings. In case the data shows that the null hypothesis is rejected, we need an alternative hypothesis, which states that there in fact is a influence of age. This alternative hypothesis - $H_{a}$ defines the boundaries for the possible solutions such that we can calculate $\beta$ later on.
 
-            \paragraph{Parameter beta - $\beta$:} This parameter depicts how effective a potential effect is in a given sample size. The likelihood of a significant effect not being recognized decreases with an increasing number of samples, since it becomes increasingly unlikely that a systematic effect affects the samples always in a way which makes it undiscoverable. Table \ref*{beta} in section \ref*{findings-age} shows the beta values for this study. Usually the $\beta$ parameter is not used but instead the \textit{Power} of an experiment is calculated as $1-\beta$. This parameter is often called \textit{Type II Error} or \textit{False Negative}.
+            The starting point is $\alpha$, which was set to 5\%, which equals to a standard deviation of about 2$\sigma$. This results in a so called \textit{Z-Score} in a standard normal distribution. The mean times - which are depicted as $\bar{X}$ - can be transformed into this representation, by using sample size and standard deviation: 
+
+            \begin{equation}\label{z-score}
+                Z = \frac{x-\mu}{\sigma}
+            \end{equation}  
+
+            Having established the transformation of the dataset into a standard normal distribution, the $H_{0}$ can now be defined as a mathematical expression, where the control group is depicted as $G40$ and the group under evaluation as $G60$. The \textit{Z-Score} depicts the corresponding mean timing of that particular age group:
+
+            \begin{equation}\label{h0}
+                Z_{G60} - Z_{G40} < 2
+            \end{equation}
+
+            and the $H_{a}$ on the other hand:
+
+            \begin{equation}\label{ha}
+                Z_{G60} - Z_{G40} \geq 2
+            \end{equation}            
+
+            This translates to: The null hypothesis has to be rejected and the alternative hypothesis accpted, when the difference in timing between the younger and the older half of the participants is larger than two standard deviations.
+
+            Under the assumption that in fact $Z_{G60}$ is larger than 2, the probability for the \textit{Type II Error} or $\beta$ can be defined using a fictional $\mu^{*}$, which will be determined in the experiment:
+
+            \begin{equation}\label{beta-probability}
+                P(\Delta Z\geq2|\mu^{*})
+            \end{equation} 
+
+            Which translates into:
+
+            \begin{equation}\label{beta-probability2}
+                P(Z>\frac{\bar{X}-\mu^{*}}{\sigma/\sqrt{n}})
+            \end{equation}            
+
+            Where $\bar{X}$ is the real mean value of the $G60$ age group and $n$ is the number of samples. To get the power - denoted as $P$ - of the experiment, $1-\beta$ has to be calculated. The larger $P$ is, the lower the chance of a \textit{Type II Error} becomes. This also shows that the probability of that error diminishes with an increasing number of samples.
                  
         \section{Time vs Age correlation}\label{correlation}
 
@@ -491,7 +517,7 @@
                 \item ease of use (rated 1...5) %did it work well?
             \end{itemize}           
 
-        \section{Experimental Protocol}
+        \section{Experimental Protocol}\label{experimental-protocol}
 
             The data is collected in a single session lasting between 10-20mins for each participant. Each session starts with the participant having to complete the first questionnaire \ref*{q-prior} and and the form of consent \ref*{consent} for anonymized data processing. At this stage potential hazards, problems and dispositions as discussed in section \ref{considerations} are identified.
             Afterwards each participant is introduced into the experiment. The working principle of a SSVEP is explained and questions regarding data privacy are discussed. Subsequently the GUI of the experiment is shown to the participant with a short introduction about the nature of the task.
@@ -743,9 +769,7 @@
 
             The next step will be calculating the z-score, which purpose is to convert all calculations regarding the density distribution shown in figure \ref*{means-density} to be comparable to a standard normal distribution. The equation for that z-score is as follows:
 
-            \begin{equation}\label{z-score}
-                Z = \frac{x-\mu}{\sigma}
-            \end{equation}            
+          
 
             Where $x=\frac{1-\alpha}{2}$, $\mu$ is the mean of the sample, which results to 5.37s and $\sigma$ is the sample standard deviation which results to 9.11. The value for $\alpha$ in this case is set to 24s, since this is roughly the value, which results in a 2$\sigma$ distance from the mean in a normal distribution.
 
