@@ -289,6 +289,8 @@ hitTimeDataStddev = hitTimeData.time.std()
 
 print(hitTimeDataMean)
 print(hitTimeDataStddev)
+print(hitTimeData.count())
+
 
 
 

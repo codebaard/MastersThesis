@@ -722,7 +722,7 @@
 
         \section{Mathematical proof}\label{mafs}
 
-            Figure \ref*{regression} already showed that within a 95\% confidence interval given enough data points, the same study should also yield results within the same range if the paramenters of the study are not altered. This section continues on the assumption that with a sufficiently large numer of participants, the mean times density displayed in figure \ref*{means-density} will asymptotically approach the kernel density function overlayed on the histogram. 
+            Figure \ref*{regression} already showed that within a 95\% confidence interval given enough data points, the same study should also yield results within the same range if the paramenters of the study are not altered. This section Focusses on proving that the null hypothesis holds true with the method discussed in section \ref{doe}. Figure \ref{means-density} already exhibits that there is a group of participants, whose mean timing is significantly outside of the main cluster of mean timings. From figure \ref{regression} it can also be derived that this group in fact represents the \textit{above 40 group}. The orange line printed on top is a KDF\footnote{Kernel Density Function} to highlight the influence of this group on a normalized sample.
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
@@ -730,95 +730,47 @@
                 \caption{Density distribution over mean times}\label{means-density}
             \end{figure}
 
-            Under this assumption the probability of a \textit{Type II Error}, which is represented by the $\beta$ parameter can be determined. To do so, the following parameters have to be calculated first in the following part:
+            In order to transform the results of collected data in the dataset to a standard normal distribution, the sample mean has to be calculated in order to later transform all parameters into a standard normal distribution. Later on, the samples means of two distinct groups will be compared to prove or reject the null hypothesis. The groups will be separated as follows:
 
-            \begin{equation}\label{r-formula}
-                r_{xy} = \frac{S_{xy}}{S_{x}S_{y}}
-            \end{equation}
+            \begin{itemize}
+                \item 0-39 years: control group - denoted as $CG$
+                \item 39+ years: effect group - denoted as $EG$
+            \end{itemize}
 
-            Where $r$ is the correlation coefficient in the range between -1 < r < 1. 1 in this case means perfect linear correlation and therefore a perfect positive correlation and -1 a perfect negative linear correlation. $S_{x}$ and $S_{y}$ are the standard deviations for the corresponding datapoints: $S_{x}$ = age and $S_{y}$ = detection time. 
-            The standard deviation is calculated with the following equation:
+            The reason for separating the groups at this point can be seen in figure \ref{regression}: At the 40-year mark there seems to be a significant effect, which does not exist below 40 years. The sample mean however is calculated using the following equation:
+
+            \begin{equation}\label{global-mean}
+                \mu_{0} = \frac{\Sigma(\bar{X})}{n}
+            \end{equation}  
+
+            where $\bar{X}$ corresponds to the mean of any single participant's timing and $n$ corresponds to the numbers in the experiment. To calculate the standard deviation of the sample, which is required to determine the \textit{Z-Score} for any particular group, the following equation is utilized, where $\bar{X}$ is the non-normalized global mean, which was calculated previously.
 
             \begin{equation}\label{stddev}
-                \sigma = \sqrt{\frac{\Sigma(x-\bar{x})^{2}}{n-1}}
-            \end{equation}            
+                \sigma = \sqrt{\frac{\Sigma(x_{i}-\bar{x})^{2}}{n-1}}
+            \end{equation}  
+
+            With equations \ref{global-mean} and \ref{stddev} using the sample, the results are:
+
+            \begin{itemize}
+                \item $\mu_{0} = 5.37s$
+                \item $\sigma = 9.11$
+            \end{itemize}
+
+            To calculate the \textit{Z-Score} for the effect group, the mean for this particular group has to be determined using equation \ref{global-mean}. This results in $\mu_{EG} = 10.7s$. Using these values, the \textit{Z-Score} for the effect group can be determined:
+
+            \begin{equation}\label{z-value}
+                Z = \frac{\mu_{EG}-\mu_{0}}{\sigma/\sqrt{n}}
+            \end{equation}  
+
+            The result is $3.11$. This means that the mean timing for the effect group is about $3\sigma$ longer than the sample mean. This in fact proves that $H_{0}$ has to be rejected and there is an effect.
+
+            The last step is to determine the power of the experiement by calculating $\beta$. For this, we first need to calculate the threshold at which we would have rejected $H_{0}$. This is the critical $\bar{X}$ value for $2\sigma$, which is calculated using equation \ref{z-value} solved for $\bar{X}$, denoted as $\bar{X}_{critical}$ in this context:
+
+            \begin{equation}\label{x-bar}
+                \bar{X}_{critical} = \mu_{0}+\frac{\sigma}{\sqrt{n}}\times Z
+            \end{equation}         
             
-            Where $x$ is a single element of the sample and $n$ the numer of samples. For equation \ref*{r-formula} the different $x$ and $y$ values have to be multiplied for the $S_{xy}$ value, which is called \textit{covariance}. The following equations will use the $S_{x}$ notations with . With the numbers from the experiments, these numbers yield the following results:
-
-            \begin{equation}\label{sx}
-                S_{x} = 17.7
-            \end{equation} 
-
-            \begin{equation}\label{sy}
-                S_{y} = 9.11
-            \end{equation}
-
-            \begin{equation}\label{sxy}
-                S_{xy} = 36.9
-            \end{equation}
-            
-            Using formula \ref*{r-formula} with the previous results yields:
-
-            \begin{equation}\label{r-value}
-                r_{xy} = 0.23
-            \end{equation}
-
-            This variable $r$ will be later used as the \textit{effect size} in the $\beta$ calculation. According to \cite{Sciencing.10102021} the effect size is conservatively assumed to be 0.3 in case it is unknown. Using an actual calculated value from the dataset which is even lower is a good conservative decision.
-
-            \medskip
-
-            The next step will be calculating the z-score, which purpose is to convert all calculations regarding the density distribution shown in figure \ref*{means-density} to be comparable to a standard normal distribution. The equation for that z-score is as follows:
-
-          
-
-            Where $x=\frac{1-\alpha}{2}$, $\mu$ is the mean of the sample, which results to 5.37s and $\sigma$ is the sample standard deviation which results to 9.11. The value for $\alpha$ in this case is set to 24s, since this is roughly the value, which results in a 2$\sigma$ distance from the mean in a normal distribution.
-
-            \begin{equation}\label{z-result}
-                Z = 2.05
-            \end{equation}
-
-            The interpretation of this value is that the chosen value is 2.05 standard deviations from the mean of the whole distribution, which results in 95.45\% chance of a timing being equal or slower than our chosen 24s, which was required according to section \ref*{doe} to rule out potential \textit{Type I Errors}.
-
-            \medskip
-
-            In order to rule out \textit{Type II Errors} the $\beta$ paramenter has to be defined accordingly, as described in \ref*{doe}. This first required alpha to be calculated. 
-
-            The official formula is:
-
-            \begin{equation}\label{beta-value}
-                \beta = something
-            \end{equation}
-
-            \todo{The contents of this formula are...}
-
-            \medskip
-
-            By using that formula a table for different $\beta$ or rather $1-beta$ e.g. \textit{Power}values can be calculated to evaluate the number of necessity trials necessary to prevent a \textit{Type II Error}.
-
-            \begin{table}[h!]
-                \centering
-                \begin{tabular}{||c c c c||} 
-                 \hline
-                 Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
-                 \hline\hline
-                 1 & 6 & 87837 & 787 \\ 
-                 2 & 7 & 78 & 5415 \\
-                 3 & 545 & 778 & 7507 \\
-                 4 & 545 & 18744 & 7560 \\
-                 5 & 88 & 788 & 6344 \\ [1ex] 
-                 \hline
-                \end{tabular}
-                \caption{\todo{Table will be replaced...}}
-                \label{beta}
-            \end{table}
-
-            \todo{Expand a little on results here.}
-
-            The most apparent feature is in fact that there is a positive correlation. Up until the age of fourty, the results are fairly uniform in the 2-5 seconds range. People above this age however have a significantly higher mean in this study. One possible explantion can be given in regards to concentrativeness: Older people reported in the subsequent questionnaire that they sometimes had difficulties in focussing on the task. This coincided with longer detection times clearly observable during the experiment. Also one subject in the 40s-range reported that due to a long and stressful day at work, his ability to concentrate was significantly diminished. One cause, which can be ruled out beyond all doubt is that older people had a problem with the interface or the usage of the BCI itself. Almost none of the participants from very young age to the oldest ones reported difficulties in the task - see figure \ref*{survey-boxplots} : Difficulty.
-
-            \medskip
-
-            Formally: with a 5\% confidence intervall painted on the regression curve - which was required according to section \ref*{doe}, there still is a significant positive correlation between age and mean detection time. Therefore the hypothesis is disproven.
+            Using the established values, this results in $\bar{X}_{critical} = 8.81s$. The value $\beta$ is now determined as the probability that given the established standard normal distribution, a participant of the study has a mean timing, which is larger than 8.81s. For this, equation \ref{z-value} is used again to standardize $\bar{X}_{critical}$ with $\mu_{EG}$ instead, which was established in section \ref{doe} in equation \ref{beta-probability2}. The result is $-1.11\sigma$ or a probability of 0.13. This results in a power of $P=1-\beta=0.87$ or 87\%, which is a reasonably high power assuming that this study had only results from 28 experiments.
 
         \section{Other findings}\label{other-findings}
 
@@ -845,6 +797,12 @@
                 \item Refer to Findings
                 \item construct argument whether formally rejected or not
             \end{itemize}
+
+            The most apparent feature is in fact that there is a positive correlation. Up until the age of fourty, the results are fairly uniform in the 2-5 seconds range. People above this age however have a significantly higher mean in this study. One possible explantion can be given in regards to concentrativeness: Older people reported in the subsequent questionnaire that they sometimes had difficulties in focussing on the task. This coincided with longer detection times clearly observable during the experiment. Also one subject in the 40s-range reported that due to a long and stressful day at work, his ability to concentrate was significantly diminished. One cause, which can be ruled out beyond all doubt is that older people had a problem with the interface or the usage of the BCI itself. Almost none of the participants from very young age to the oldest ones reported difficulties in the task - see figure \ref*{survey-boxplots} : Difficulty.
+
+            \medskip
+
+            Formally: with a 5\% confidence intervall painted on the regression curve - which was required according to section \ref*{doe}, there still is a significant positive correlation between age and mean detection time. Therefore the hypothesis is disproven.            
 
         \section{Future Work}
 
