@@ -386,7 +386,7 @@
 
             \paragraph{Significante Level Alpha - $\alpha$:} Alpha is the governing parameter, which decides how big the risk in a given sample size is that the hypothesis is wrong and therefore falsified. Since the hypothesis can be either true or false, the probability that it is wrong decreases with the number of samples taken in a binomial fashion \cite[103]{Siebertz.2017}. That means in this case that the likelihood $p$ of a participant to be above or below the threshhold, which will be discussed in section \ref*{findings}, is not determined by age. According to \cite[110]{Siebertz.2017} common values for alpha tend to be chosen such that the probability of a falsified hypothesis is at 1\%, 5\% and 10\%. Where a smaller value means a more strict threshhold. To account for the explorative character of this study the value of 5\% is chosen. Therefore the susceptibility for unaccounted side-effects is reduced and the total number of participants is still not unfeasibly large. There is no distinct way to define that number, it is often chosen based on experience or strict requirements.
             
-            \paragraph{Parameter beta - $\beta$:} This parameter depicts how effective a potential effect is in a given sample size. The likelihood of a significant effect not being recognized decreases with an increasing number of samples, since it becomes increasingly unlikely that a systematic effect affects the samples always in a way which makes it undiscoverable. Table \ref*{beta} in section \ref*{findings-age} shows the beta values for this study. Usually the $\beta$ parameter is not used but instead the \textit{Power} of an experiment is calculated as $1-\beta$.
+            \paragraph{Parameter beta - $\beta$:} This parameter depicts how effective a potential effect is in a given sample. The likelihood of a significant effect not being recognized decreases with an increasing number of samples, since it becomes increasingly unlikely that a systematic effect affects the samples always in a way which makes it undiscoverable. Usually the $\beta$ parameter is not used but instead the \textit{Power} of an experiment is calculated as $1-\beta$. Therefore a small $\beta$ parameter corresponds with a larger \textit{power} of the experiement.
 
             \medskip
 
@@ -459,17 +459,19 @@
 
                 A Laptop will be used to conduct the study and collect the necessary timings as shown in figure \ref*{itr-timing}. This application will be used to show the user the visual stimuli in the experimental \textit{remote control interface}. This application was purposefully built with the \textit{NextMind SDK} in Unity. The timings will be collected as timestamps, which are in turn created by the application itself upon the corresponding events with a resolution down to a millisecond. The code is made available at Github\cite[]{GitHub.04102021}.
 
+                \medskip
+
+                In theory this experiment could be made with VR-Googles as well. This even might have a beneficial effect on the performance but due to expected technical difficulties especially for older people, this is not part of the study.
+
             \paragraph{Nextmind BCI}                
 
-                Shown in figure \ref*{electrodes-sensor} is the Nextmind BCI, which will be used to gather the data from the VEP. The vendor provides a SDK which integrates really well in Unity and in consequence with the Quest2. During the experiments, this sensor will be located at the back of the participant's head, where the visual cortex is located at (figure \ref*{visual-cortex}.)
+                Shown in figure \ref*{electrodes-sensor} is the Nextmind BCI, which will be used to gather the data from the VEP. The vendor provides a SDK which integrates really well in Unity and in consequence makes it easy to create a small application for the experiment with. During the experiments, this sensor will be located at the back of the participant's head, where the visual cortex is located at (figure \ref*{visual-cortex}.)
 
                 \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                     \centering
                     \includegraphics[width=1\textwidth]{visualcortex.png} 
                     \caption{Position of the visual cortex. Left is front. Source: \cite{Dr.KenBrodaBahm.2013}}\label{visual-cortex}
                 \end{figure}
-
-                The Sensor will be strapped to the VR headset and thus these two devices will be easy to put on or off.
 
             \paragraph{Pen and paper questionnaire}
 
@@ -500,7 +502,7 @@
                 \item Drug intake within the last 12hrs
             \end{itemize}
 
-            The collected data during the experiment was collected on the VR headset (\todo{applicatioin}) and stored in a file, which was available after the finished experiment. This data contained the following readings:
+            The collected data during the experiment was collected on the laptop in the form of a *.csv file, which is available immediately after the experiment is finished. This data contained the following readings:
 
             \begin{itemize}
                 \item Speed of each neurotag activation from the point where a cue was given. This is the start of $t1$ until the end of $t2$, where the sensor is confident that a certain neurotag was looked at.
@@ -792,17 +794,9 @@
 
         \section{Results}
 
-            \todo{Put this in here:}
-            \begin{itemize}
-                \item Refer to Findings
-                \item construct argument whether formally rejected or not
-            \end{itemize}
-
-            The most apparent feature is in fact that there is a positive correlation. Up until the age of fourty, the results are fairly uniform in the 2-5 seconds range. People above this age however have a significantly higher mean in this study. One possible explantion can be given in regards to concentrativeness: Older people reported in the subsequent questionnaire that they sometimes had difficulties in focussing on the task. This coincided with longer detection times clearly observable during the experiment. Also one subject in the 40s-range reported that due to a long and stressful day at work, his ability to concentrate was significantly diminished. One cause, which can be ruled out beyond all doubt is that older people had a problem with the interface or the usage of the BCI itself. Almost none of the participants from very young age to the oldest ones reported difficulties in the task - see figure \ref*{survey-boxplots} : Difficulty.
-
-            \medskip
-
-            Formally: with a 5\% confidence intervall painted on the regression curve - which was required according to section \ref*{doe}, there still is a significant positive correlation between age and mean detection time. Therefore the hypothesis is disproven.            
+            Sections \ref{findings-age} and \ref{mafs} proved that in fact the hypothesis is falsified. This means that age does have an effect on the ability to use a BCI. Especially section \ref{findings-age} tried to deliver a reason for that, which is presumed to be related to the ability to concentrate on a given task for prolonged periods of time. This effect is clearly visible in the age group of 40 years onwards, according to figure \ref{regression}. Another indication is that the only two persons, who weren't able to deliver a good calibration score were also in this age group. Another interesting factor, which shows that this study had a good design, is that almost none of the participants from very young age to the oldest ones reported difficulties in the task - see figure \ref*{survey-boxplots} : Difficulty. This makes the collected dataset even more valid, because this means that there was no bias through technical difficulties.
+            
+            Section \ref{other-findings} used the results from the survey in order to find other reasons for this but were either not really relevant (i.e. target positions) or linked to the age (i.e. glasses). In the case of the gender, there seems to be an effect according to figure \ref{gender} but the data in this study didn't allow for further investigation.
 
         \section{Future Work}
 
