@@ -23,8 +23,8 @@
 \newcommand{\erstpruef}{Prof. Dr.Roland Greule}
 \newcommand{\zweitpruef}{Dipl. Inf. Rüdiger Höfert}
 
-\date{preliminary version from \today}   % praktisch fxr Vorab-Versionen. 
-%\date{\sffamily Hamburg, 30.06.2021}  % Abgabedatum!
+%\date{preliminary version from \today}   % praktisch fxr Vorab-Versionen. 
+\date{\sffamily Hamburg, 11.10.2021}  % Abgabedatum!
 
 %--------------------------------------------------------------------------------------
 %----------------------------- hier gehts los! --------------------------------------
@@ -41,7 +41,7 @@
     \thispagestyle{empty}
     \selectlanguage{english}
     \section*{\centering\abstractname}
-    In recent years, Brain Computer Interfaces - BCI in short - evolved to a level of maturity which allows for these devices to be produced cheaply and thus being available to consumers. This study used a device from a manufacturer called \textit{NextMind} to examine whether age has an effect on the ability to use such a device. A study was carried out with 30 participants from different age groups. They were confronted with a task where they had to use a graphical user interface which represented a remote control. Selecting elements was achieved by looking at them and the BCI recognized the target by means of SSVEP evaluation. The goal was to select a visually highlighted element as fast as possible in order to reach good results. The study showed that in fact age does have an impact on the overall performance by showing that people above the age of 40 exhibited a statistically significant longer detection time. Other factors were also examined but these did not show an effect which was unrelated to age.
+    In recent years, Brain Computer Interfaces - BCI in short - evolved to a level of maturity which allows for these devices to be produced cheaply and thus being available to consumers. This study used a device from a manufacturer called \textit{NextMind} to examine whether age has an effect on the ability to use such a device. A study was carried out with 30 participants from different age groups. They were confronted with a task where they had to use a graphical user interface which represented a remote control. To select a target a participant had to look at it and the BCI recognized this target by with SSVEP evaluation. The goal was to select a visually highlighted target as fast as possible in order to reach a short detection time. The study showed that in fact age does have an impact on the overall performance by showing that people above the age of 40 exhibited a statistically significant longer detection time. Other factors were also examined but these did not exhibit a significant effect which was not linked to age.
 
     \chapter{Introduction}\label{introduction}
 
@@ -131,14 +131,14 @@
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
                 \includegraphics[width=1\textwidth]{Illu_Kopf2.jpg} 
-                \caption{How VEP works in principle}\label{vep-principle}
+                \caption{How SSVEP works in principle}\label{vep-principle}
             \end{figure}            
             
             According to \textit{NextMind} this is being done by feeding the sensor data through a trained neural network, which is able to return a confidence score for each target. The objects, which are being seen by the person, have been labeled \textit{neurotags} (\cite{NextMind.23112020}) from \textit{NextMind}. These neurotags can provide two different readouts: If it is triggered (i.E. \textit{seen}) and the confidence, which depicts the level of \textit{focus} of the user on the neurotag (\cite{NextMind.18112020}).
             
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=1\textwidth]{electrodes-sensor} 
+                \includegraphics[width=1\textwidth]{IMG_9638.jpg} 
                 \caption{Physical layout of the sensor}\label{electrodes-sensor}
             \end{figure}
             
@@ -373,25 +373,25 @@
 
         \section{Statistical significance}\label{doe}
 
-            Plots of data can be misleading in terms of accuracy or results regardless of how well the data was preprocessed. For this reason, is has to be proven that the collected data actually proves a statistical significance in regards to the corresponding hypothesis. This section operationalizes the hypothesis such that it becomes evaluable.
+            Plots of data can be misleading in terms of accuracy or results regardless of how well the data was preprocessed. For this reason, it is necessary to show that the collected data actually exhibits a statistical significance in regards to the corresponding hypothesis. This section operationalizes the hypothesis in a way which makes it evaluable based on facts.
 
             \medskip
 
-            The hypothesis states that \textit{Age does not have a detrimental effect on the ability to use a non-invasive BCI based on VEPtechnology} - see section \ref{hypothesis}. The question is how to measure if an effect is present or not. The usual method in all kinds of studies of qualitative or quantitative type is to disprove the so called \textit{null hypothesis} - $H_{0}$. The part of the hypothesis about \textit{[...] non-invasive BCI on VEP technology} is to set the scope of the study in way that explicitly excludes other BCI technologies. The relevant part for the $H_{0}$ is \textit{age does not have a detrimental effect on the ability [...]}, which poses the question how to measure the abstract concepts of \textit{detrimental} and \textit{ability}? One way to evaluate this is conduct an experience and ask the participants and gain subjetive opinions about their individual performance. However, this will be inaccurate at best and totally ambiguous at worst. Apart from the fact the the study needs to conduct lots of trials in order to gain meaningful and coherent data, which is in contrast to the explorative character of this study, according to section \ref{study-scope}.
+            The hypothesis states that \textit{"Age does not have a detrimental effect on the ability to use a non-invasive BCI based on VEPtechnology"} - see section \ref{hypothesis}. The question is how to measure the presence or absence of an effect. The usual method in all kinds of studies of qualitative or quantitative type is to disprove the so called \textit{null hypothesis} - $H_{0}$. The part of the hypothesis about \textit{"[...] non-invasive BCI on VEP technology[...]"} is to set the scope of the study in way that explicitly excludes other BCI technologies. The relevant part for the $H_{0}$ is \textit{"Age does not have a detrimental effect on the ability [...]"}, which poses the question how to measure abstract concepts such as \textit{detrimental} and \textit{ability}? One way to evaluate this is to conduct an experiment and ask the participants, and gain subjetive opinions about their individual performance. However, this will be inaccurate at best and totally ambiguous at worst. Apart from the fact the the study needs to conduct lots of trials in order to gain meaningful and coherent data, which is in contrast to the explorative character of this study, according to section \ref{study-scope}.
 
-            The better way to do this is to define an objectively mesaurable metric and define threshold values beforehand to definitively reject the hypothesis. Section \ref{general-considerations} goes into detail regarding the capabilities of the sensor, thus we already know that the only available metric to choose from is the timing for neurotag activation. Using that information, we can conclude that the null hypothesis will use timing as the fundamental metric.
+            A better way to do this is to define an objectively mesaurable metric and define threshold values beforehand to definitively reject the hypothesis. Section \ref{general-considerations} goes into detail regarding the capabilities of the sensor, thus we already know that the only available metric to choose from is the timing for neurotag activation. Using that information, we can already state that the null hypothesis will use timing as the fundamental metric.
 
-            Before we can define a null hypothesis, we need to consider two other factors, which corresponds to error. There is the distinct risk that we do not reject the hypothesis although it is in fact wrong, which is called \textit{Type I Error} or \textit{false positive } and on the other side that the hypothesis is rejected although it is correct, which corresponds to a \textit{Type II Error} or \textit{false negative}. 
+            Nevertheless, before we can define a null hypothesis, we need to consider two other factors, both corresponding to error. There is the distinct risk that we do not reject the hypothesis although it is in fact wrong, which is called \textit{Type I Error} or \textit{false positive} and on the other side that the hypothesis is rejected although it is correct, which corresponds to a \textit{Type II Error} or \textit{false negative}. 
 
             These risks are depicted as $\alpha$ for the \textit{Type I Error} and $\beta$ for the \textit{Type II Error}:
 
-            \paragraph{Significance Level Alpha - $\alpha$:} Alpha is the governing parameter, which decides how big the risk in a given sample size is that the hypothesis is wrong and therefore falsified. Since the hypothesis can be either true or false, the probability that it is wrong decreases with the number of samples taken in a binomial fashion \cite[103]{Siebertz.2017}. That means in this case that the likelihood $p$ of a participant to be above or below the threshold, which will be discussed in section \ref*{findings}, is not determined by age. According to \cite[110]{Siebertz.2017} common values for alpha tend to be chosen such that the probability of a falsified hypothesis is at 1\%, 5\% and 10\%. Where a smaller value means a more strict threshold. To account for the explorative character of this study the value of 5\% is chosen. Therefore the susceptibility for unaccounted side-effects is reduced and the total number of participants is still not unfeasibly large. There is no distinct way to define that number, it is often chosen based on experience or strict requirements.
+            \paragraph{Significance Level Alpha - $\alpha$:} Alpha is the governing parameter, which decides how big the risk in a given sample size is that the hypothesis is wrong and therefore falsified. Since the hypothesis can be either true or false, the probability that it is wrong decreases with the number of samples taken in a binomial fashion \cite[103]{Siebertz.2017}. That means in this case that the likelihood $p$ of a participant to be above or below the threshold, which will be discussed in section \ref*{mafs}, is not determined by age. According to \cite[110]{Siebertz.2017} common values for $\alpha$ tend to be chosen in a way that the probability of a falsified hypothesis is at 1\%, 5\% and 10\%. Where a smaller value means a more strict threshold. To account for the explorative character of this study the value of 5\% is chosen. Therefore the susceptibility for unaccounted side-effects is reduced and the total number of participants is still not unfeasibly large. There is no distinct way to define that number, it is often chosen based on experience or strict requirements.
             
             \paragraph{Parameter beta - $\beta$:} This parameter depicts how effective a potential effect is in a given sample. The likelihood of a significant effect not being recognized decreases with an increasing number of samples, since it becomes increasingly unlikely that a systematic effect affects the samples always in a way which makes it undiscoverable. Usually the $\beta$ parameter is not used but instead the \textit{Power} of an experiment is calculated as $1-\beta$. Therefore a small $\beta$ parameter corresponds with a larger \textit{power} of the experiment.
 
             \medskip
 
-            In order to define these thresholds, we need to operationalize the abstract concepts of \textit{detrimental} and \textit{ability}. \textit{Detrimental} is fairly easy: in regards to timing it can only mean that the achieved timing is slower than that of the control group. \textit{Ability} on the other hand needs a definition in a frame of reference, which in this case also corresponds to the control group but in a different manner. This study collects numerous data points for each experiment in order to have a consistent dataset - see section \ref{experimental-protocol}. The established way of analyzing datasets of different numerical data points is with statistics. By doing so, we can operationalize the null hypothesis in terms of standard deviation and means in regards to timings. In case the data shows that the null hypothesis is rejected, we need an alternative hypothesis, which states that there in fact is a influence of age. This alternative hypothesis - $H_{a}$ defines the boundaries for the possible solutions such that we can calculate $\beta$ later on.
+            In order to define these thresholds, we need to operationalize the abstract concepts of \textit{detrimental} and \textit{ability}. \textit{Detrimental} is fairly easy: in regards to timing it can only mean that the achieved timing is slower than that of a control group. \textit{Ability} on the other hand needs a definition in a frame of reference, which in this case also corresponds to the control group but in a different manner. This study collects numerous data points for each experiment in order to have a consistent dataset - see section \ref{experimental-protocol}. The established way of analyzing datasets of different numerical data points is by using statistics to calculate significance. By doing so, we can operationalize the null hypothesis in terms of standard deviation and means in regards to timings. In case the data shows that the null hypothesis is rejected, we need an alternative hypothesis, which states that there in fact is a influence of age. This alternative hypothesis - $H_{a}$ defines the boundaries for the possible solutions such that we can calculate $\beta$ later on.
 
             The starting point is $\alpha$, which was set to 5\%, which equals to a standard deviation of about 2$\sigma$. This results in a so called \textit{Z-Score} in a standard normal distribution. The mean times - which are depicted as $\bar{X}$ - can be transformed into this representation, by using sample size and standard deviation: 
 
@@ -399,21 +399,21 @@
                 Z = \frac{x-\mu}{\sigma}
             \end{equation}  
 
-            Having established the transformation of the dataset into a standard normal distribution, the $H_{0}$ can now be defined as a mathematical expression, where the control group is depicted as $G40$ and the group under evaluation as $G60$. The \textit{Z-Score} depicts the corresponding mean timing of that particular age group:
+            Having established the transformation of the dataset into a standard normal distribution, the $H_{0}$ can now be defined as a mathematical expression, where the control group is depicted as $CG$ and the group under evaluation as effect group or $EG$ in short. The \textit{Z-Score} depicts the corresponding mean timing of that particular age group:
 
             \begin{equation}\label{h0}
-                Z_{G60} - Z_{G40} < 2
+                Z_{EG} - Z_{CG} < 2\sigma
             \end{equation}
 
             and the $H_{a}$ on the other hand:
 
             \begin{equation}\label{ha}
-                Z_{G60} - Z_{G40} \geq 2
+                Z_{EG} - Z_{CG} \geq 2\sigma
             \end{equation}            
 
-            This translates to: The null hypothesis has to be rejected and the alternative hypothesis accpted, when the difference in timing between the younger and the older half of the participants is larger than two standard deviations.
+            This translates to: The null hypothesis has to be rejected and the alternative hypothesis accepted, when the difference in timing between the younger and the older half of the participants is larger than two standard deviations.
 
-            Under the assumption that in fact $Z_{G60}$ is larger than 2, the probability for the \textit{Type II Error} or $\beta$ can be defined using a fictional $\mu^{*}$, which will be determined in the experiment:
+            Under the assumption that in fact $Z_{EG}$ is larger than 2, the probability for the \textit{Type II Error} or $\beta$ can be defined using a fictional $\mu^{*}$, which will be determined in the experiment - see section \ref{mafs}:
 
             \begin{equation}\label{beta-probability}
                 P(\Delta Z\geq2|\mu^{*})
@@ -425,7 +425,7 @@
                 P(Z>\frac{\bar{X}-\mu^{*}}{\sigma/\sqrt{n}})
             \end{equation}            
 
-            Where $\bar{X}$ is the real mean value of the $G60$ age group and $n$ is the number of samples. To get the power - denoted as $P$ - of the experiment, $1-\beta$ has to be calculated. The larger $P$ is, the lower the chance of a \textit{Type II Error} becomes. This also shows that the probability of that error diminishes with an increasing number of samples.
+            Where $\bar{X}$ is the real mean value of the $EG$ age group and $n$ is the number of samples. To get the power - denoted as $P$ - of the experiment, $1-\beta$ has to be calculated. The larger $P$ is, the lower the chance of a \textit{Type II Error} becomes. This also shows that the probability of that error diminishes with an increasing number of samples.
                  
         \section{Time vs Age correlation}\label{correlation}
 
@@ -439,7 +439,7 @@
                 \caption{Timing of symbol recognition and activation}\label{itr-timing}
             \end{figure}
 
-            By collecting several timing data points for each participant, the goal is to draw a regression graph between the age of the participants and the mean timinig for each visual cue. By calculating the statistical significance of the correlation, which was discussed in section \ref*{doe}, the hypothesis can be proven or rejected.
+            By collecting several timing data points for each participant, a regression graph between the age of the participants and the mean timinig for each visual cue can be drawn in order to show if there is a correlation of the parameters. Also these data points will be aggregated into a mean timing for each participant to have one definitive sample for each participant which removes potential outliers which might have been caused by external effects i.e. distraction.
 
     \chapter{Survey Contents}\label{survey-contents}
 
@@ -485,7 +485,7 @@
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
                 \includegraphics[width=1\textwidth]{Experiment.PNG} 
-                \caption{Interface of the remote control experiment. Ques are highlighted.}\label{gui-remote}
+                \caption{Interface of the remote control experiment. Cues are highlighted}\label{gui-remote}
             \end{figure} 
             
             A total of 50 different ques will be given. The order of the activation is random so there is no way the participant could know beforehand which neurotag will be cued next. Since the $t_{1}$ cannot be measured without significant effort and the absolute time is not important, it is assumed that the $t_{1}$ time for each individual is about the same for every age. Under this assumption only the $t_{2}$ will vary, which is the desired goal.
@@ -527,7 +527,7 @@
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=1\textwidth]{lotta.jpg} 
+                \includegraphics[width=1\textwidth]{IMG_9635.jpg} 
                 \caption{Experimental setup}\label{experimental-setup}
             \end{figure}            
 
@@ -572,7 +572,7 @@
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
                 \includegraphics[width=1\textwidth]{TargetTimeHistogram_narrow.png} 
-                \caption{Narrowed window of achieved detection times \todo{Occurence [log s], Move Red Line}}\label{time-hist-narrow}
+                \caption{Detection times filtered for t <= 10s}\label{time-hist-narrow}
             \end{figure} 
 
             The fact that most of the detection times center around that value might also be an identification that ~2.3s is the minimal achievable time by the BCI in conjunction with the SDK on that particular test setup. In order to have a sufficient certainty without too much noise, it is reasonable to assume that the confidence value has to be above the 90\% threshold for a defined timeframe in order to qualify for a positive detection.
@@ -625,20 +625,19 @@
                 \caption{Detection times between participants with and without glasses}\label{glasses}
             \end{figure}
 
-            In order to have a better understanding of the difference between younger and older participants, the whole population of the study has been binned into three different age groups:
+            In order to have a better understanding of the difference between younger and older participants, the whole population of the study has been divided into two different age groups:
 
             \begin{itemize}
-                \item 0-30
-                \item 31-60
-                \item >61
+                \item 0-39
+                \item 40+
             \end{itemize}
 
-            The results are show in figure \ref*{age-groups}. The most prominent feature is the age group above 61 years old. Their average time to detection of the target is between 5 and 7.5 seconds. However almost indistinguishable from the 0-30 age group is the 31-60 age group but on a close look the graph actually shows a slightly slower detection time here as well. So the first preliminary finding is that there in fact is a tendency that with increasing age the detection of a target takes longer.
+            The results are show in figure \ref*{age-groups}. The most prominent feature is the age group above 40 years old. Their average time to detect a target is roughly between 5 and 10 seconds. Therefore the first preliminary finding purely based on visual evidence is that there in fact is a tendency that with increasing age the detection of a target takes longer.
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
-                \includegraphics[width=1\textwidth]{timeDistributiion.png} 
-                \caption{Detection times for three age groups}\label{age-groups}
+                \includegraphics[width=1\textwidth]{timeDistribution.png} 
+                \caption{Detection times for two age groups}\label{age-groups}
             \end{figure}
 
             These results will be later set into context with other results from the survey to show a clear picture of the findings of this study.
@@ -715,7 +714,7 @@
                 \caption{Regression graph with confidence interval}\label{regression}
             \end{figure}
 
-            The general trend is that there in fact is a correlation between age and achieved detection times. However, taken the confidence interval into account, this result is neither clear nor definitive. If the experiment were to be repeated with the same paramenters and all the results end up within the pictured confidence interval it might very well be that new trials would in fact yield a result, where the gradient of the regression graph might be negative. Nevertheless, there are two distinct key features in figure \ref*{regression}:
+            The general trend is that there in fact is a correlation between age and achieved detection times. However, taken the confidence interval into account, this result is neither clear nor definitive. If the experiment were to be repeated with the same parameters and all the results end up within the pictured confidence interval it might very well be that new trials would in fact yield a result, where the gradient of the regression graph might be negative. Nevertheless, there are two distinct key features in figure \ref*{regression}:
             
             \paragraph{Consistency} Both younger and older people tend to be less consistent with their achieved detection times. For the younger people below the age of 20 there aren't simply enough datapoints because two outliers already skewed the resultset too much. In fact the youngest tested person with an age of six performed almost as bad as the oldest person. A possible explanation is that this participant wasn't able to concentrate on the experiment, which required dedication and focus on the task at hand. The observation of this particular participant was that he started to move around on the chair and lose focus on the task, which resulted in longer detection times. A possible explanation is that the other children were already in 3rd grade upwards and didnt have any issue with focusing on a task for a few minutes. So in this case age does have an cognitive influence but not necessarily in a way which was anticipated. 
 
@@ -725,7 +724,7 @@
 
         \section{Mathematical proof}\label{mafs}
 
-            Figure \ref*{regression} already showed that within a 95\% confidence interval given enough data points, the same study should also yield results within the same range if the paramenters of the study are not altered. This section Focusses on proving that the null hypothesis holds true with the method discussed in section \ref{doe}. Figure \ref{means-density} already exhibits that there is a group of participants, whose mean timing is significantly outside of the main cluster of mean timings. From figure \ref{regression} it can also be derived that this group in fact represents the \textit{above 40 group}. The orange line printed on top is a KDF\footnote{Kernel Density Function} to highlight the influence of this group on a normalized sample.
+            Figure \ref*{regression} already showed that within a 95\% confidence interval given enough data points, the same study should also yield results within the same range if the parameters of the study are not altered. This section focusses on proving that the null hypothesis holds true with the method discussed in section \ref{doe}. Figure \ref{means-density} already exhibits that one group of participants is significantly outside of the main cluster of mean timings. From figure \ref{regression} it can also be derived that this group in fact represents the \textit{above 40 group}. The orange line printed on top is a KDF\footnote{Kernel Density Function} to highlight the influence of this group on a normalized sample.
 
             \begin{figure}[h]     % h=here, t=top, b=bottom, p=page
                 \centering
@@ -733,7 +732,7 @@
                 \caption{Density distribution over mean times}\label{means-density}
             \end{figure}
 
-            In order to transform the results of collected data in the dataset to a standard normal distribution, the sample mean has to be calculated in order to later transform all parameters into a standard normal distribution. Later on, the samples means of two distinct groups will be compared to prove or reject the null hypothesis. The groups will be separated as follows:
+            In order to transform the results of collected data in the dataset to a standard normal distribution, the sample mean has to be calculated in order to later transform all parameters into a standard normal distribution. Later on, the sample means of two distinct groups will be compared to prove or reject the null hypothesis. The groups will be separated as follows:
 
             \begin{itemize}
                 \item 0-39 years: control group - denoted as $CG$
@@ -746,7 +745,7 @@
                 \mu_{0} = \frac{\Sigma(\bar{X})}{n}
             \end{equation}  
 
-            where $\bar{X}$ corresponds to the mean of any single participant's timing and $n$ corresponds to the numbers in the experiment. To calculate the standard deviation of the sample, which is required to determine the \textit{Z-Score} for any particular group, the following equation is utilized, where $\bar{X}$ is the non-normalized global mean, which was calculated previously.
+            where $\bar{X}$ corresponds to the mean of any single participant's timing and $n$ corresponds to the number of participants in the experiment. To calculate the standard deviation of the sample, which is required to determine the \textit{Z-Score} for any particular group, the following equation is utilized:
 
             \begin{equation}\label{stddev}
                 \sigma = \sqrt{\frac{\Sigma(x_{i}-\bar{x})^{2}}{n-1}}
@@ -777,7 +776,7 @@
 
         \section{Other findings}\label{other-findings}
 
-            The collected dataset allowed for other interesting insights into possible performance paramenters of the participants, which were already briefly shown in the \ref*{raw-results}. This section briefly discusses these results and interpretes them in the context of this study.
+            The collected dataset allowed for other interesting insights into possible performance parameters of the participants, which were already briefly shown in the \ref*{raw-results}. This section briefly discusses these results and interpretes them in the context of this study.
 
             \subsection{Glasses}
 
@@ -797,7 +796,7 @@
 
             To conclude this study, its reasonable to make a recapitulation of the goals of this study in order to evaluate whether they were met entirely:
 
-            Section \ref{use case-main} established general considerations of a study in regards to BCI usage, deducted the core points, evaluated the constraints, and created a use case corresponding to these considerations and constraints. This concluded in a formulated hypothesis which stated that age does not haven an influence of the ability to use a BCI. In contrast to that hypothesis sections \ref{findings-age} and \ref{mafs} proved that in fact the hypothesis is falsified. Which in turn means that age in fact \textit{does} have an effect on the ability to use a BCI. Especially section \ref{findings-age} tried to deliver a reasoning for that, which is presumed to be related to the ability to concentrate on a given task for prolonged periods of time. This effect is clearly visible in the age group of 40 years onwards, according to figure \ref{regression}. Another indication is that the only two persons, who weren't able to deliver a good calibration score - resulting in not being able to undergo the experiment - were also in this age group. Another interesting factor, which shows that this study had a good design, is that almost none of the participants from very young age to the oldest ones reported difficulties in the task - see figure \ref*{survey-boxplots} : Difficulty. This makes the collected dataset even more valid, because this means that there was no bias through technical difficulties.
+            Section \ref{use case-main} established general considerations of a study in regards to BCI usage, deducted the core points, evaluated the constraints, and created a use case corresponding to these considerations and constraints. This concluded in a formulated hypothesis which stated that age does not have an influence on the ability to use a BCI. In contrast to that hypothesis sections \ref{findings-age} and \ref{mafs} proved that in fact the hypothesis is falsified. Which in turn means that age in fact \textit{does} have an effect on the ability to use a BCI. Especially section \ref{findings-age} tried to deliver a reasoning for that, which is presumed to be related to the ability to concentrate on a given task for prolonged periods of time. This effect is clearly visible in the age group of 40 years onwards, according to figure \ref{regression} and the box plot at figure \ref{age-dist}. Another indication is that the only two participants, who weren't able to deliver a good calibration score - resulting in not being able to undergo the experiment - were also in this age group. Another interesting factor, which shows that this study had a good design, is that almost none of the participants from very young age to the oldest ones reported difficulties in the task - see figure \ref*{survey-boxplots} : Difficulty. This makes the collected dataset even more valid, because this means that there was no bias through technical difficulties.
             
             Section \ref{other-findings} used the results from the survey in order to find other reasons for this but were either not really relevant (i.e. target positions) or linked to the age (i.e. glasses). In the case of the gender, there seems to be an effect according to figure \ref{gender} but the data in this study didn't allow for further investigation.
 
@@ -818,9 +817,10 @@
     \chapter{Acknowledgements}
 
         I want to thank Prof. Dr. Roland Greule and Dipl. Inf. Rüdiger Höfert to examine this study and always set the right impulses to guide the outcome of this thesis. Rüdiger Höfert in particular helped me out with the procurement of necessary equipment to conduct the study. I also want to express my gratitude to the Hamburg University of Applied Sciences to provide the necessary framework to obtain my degree and aid with the procurement of necessary equipment. I also want to express my appreciation for every single participant who took part in my experiments despite certain constraints due to the Covid19 pandemic.
-        A special thanks goes to B.Sc. Moritz Bednorz, who helped me sharpen and clarify my knowledge in the field of medical engineering and design of experiment, which gave this thesis a coherent perspective on all domains. 
-        I will be eternally grateful to my father Dr. Thomas Neudecker to set the right impulses which made pursue an academic degree. He may rest in piece. 
-        My biggest thanks is dedicated to my girlfriend B.A. Alexandra Michels for her emotional support and creative input to some of the figures in this thesis.
+        A special thanks goes to B.Sc. Moritz Bednorz, who helped me sharpen and clarify my knowledge in the field of medical engineering and design of experiment, which gave this thesis a coherent perspective on all domains and B.Sc. Niclas Lamponen who proof read the first manuscript.
+        My biggest thanks are dedicated to my girlfriend B.A. Alexandra Michels for her emotional support and creative input on some of the figures in this thesis.
+        I will be eternally grateful to my father Dr. Thomas Neudecker to set the right impulses in my life which made me pursue an academic degree. He may rest in peace. 
+
 
     \appendix
 
@@ -900,7 +900,7 @@
         %--------------------- VERZEICHNISSE ----------------
 
         \listoffigures % Abbildungsverzeichnis erzeugen
-        \listoftables % Tabellenverzeichnis erzeugen
+        % \listoftables % Tabellenverzeichnis erzeugen
 
     %--------------------- LITERATURLISTE ---------------
     % Die Einträge sollen alphabetisch sortiert sein.

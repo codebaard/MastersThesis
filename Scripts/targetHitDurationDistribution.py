@@ -192,30 +192,32 @@ for i in range(1,31):
 #
 # plt.show()
 
-## Time Distribution
+## Time Distribution per age group
 
 # discreteTimings= list()
 # Timings = np.zeros((26, 51))
-# t30 = hitTimeData.loc[(hitTimeData['age'] < 31)].time.to_numpy(dtype=float)
-# t60 = hitTimeData.loc[(hitTimeData['age'] > 30) & (hitTimeData['age'] < 61)].time.to_numpy(dtype=float)
-# t90 = hitTimeData.loc[(hitTimeData['age'] > 60)].time.to_numpy(dtype=float)
+# # t30 = hitTimeData.loc[(hitTimeData['age'] < 31)].time.to_numpy(dtype=float)
+# t40 = hitTimeData.loc[(hitTimeData['age'] <= 39)].time.to_numpy(dtype=float)
+# t60 = hitTimeData.loc[(hitTimeData['age'] > 39)].time.to_numpy(dtype=float)
+# # t90 = hitTimeData.loc[(hitTimeData['age'] > 60)].time.to_numpy(dtype=float)
 #
-# plt.boxplot([t30, t60, t90])
+# plt.boxplot([t40, t60])
 #
-# plt.xticks(np.arange(4),['0', 'age < 31', '31 < age < 61','age > 60'])
-# plt.xlabel('Age')
-# plt.ylabel('Time (s)')
+# plt.xticks(np.arange(3),['0', 'age < 40', 'age >= 40'])
+# plt.xlabel('Age [y]')
+# plt.ylabel('Time [s]')
 #
+# plt.grid()
 # plt.show()
 
 ## Median for every person
-means = list()
-ages = list()
-for i in range(1,31):
-    temp = hitTimeData.loc[hitTimeData['participant'] == str(i)].time.mean()
-    if not math.isnan(temp):
-        means.append(temp)
-        ages.append(hitTimeData.loc[hitTimeData['participant'] == str(i)].age.max())
+# means = list()
+# ages = list()
+# for i in range(1,31):
+#     temp = hitTimeData.loc[hitTimeData['participant'] == str(i)].time.mean()
+#     if not math.isnan(temp):
+#         means.append(temp)
+#         ages.append(hitTimeData.loc[hitTimeData['participant'] == str(i)].age.max())
 
 # m, b = np.polyfit(ages, means, 1)
 #
@@ -234,18 +236,18 @@ for i in range(1,31):
 
 ## histogram of timing means
 
-plt.figure()
-
-plt.hist(means, bins=20, density=True)
-
-sns.kdeplot(means)
-
-
-plt.xlabel('Time [s]')
-plt.ylabel('Density Distribution')
-
-plt.grid()
-plt.show()
+# plt.figure()
+#
+# plt.hist(means, bins=20, density=True)
+#
+# sns.kdeplot(means)
+#
+#
+# plt.xlabel('Time [s]')
+# plt.ylabel('Density Distribution')
+#
+# plt.grid()
+# plt.show()
 
 ## stddev values
 
@@ -284,12 +286,12 @@ plt.show()
 
 ## hit time data mean
 
-hitTimeDataMean = hitTimeData.time.mean()
-hitTimeDataStddev = hitTimeData.time.std()
-
-print(hitTimeDataMean)
-print(hitTimeDataStddev)
-print(hitTimeData.count())
+# hitTimeDataMean = hitTimeData.time.mean()
+# hitTimeDataStddev = hitTimeData.time.std()
+#
+# print(hitTimeDataMean)
+# print(hitTimeDataStddev)
+# print(hitTimeData.count())
 
 
 
